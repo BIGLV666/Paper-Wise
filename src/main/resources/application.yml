@@ -1,0 +1,70 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/paperwise?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf-8&allowPublicKeyRetrieval=true
+    username: root
+    password: Lvhaoyu825
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: 379299583@qq.com
+    password: cnbbaupyjfbbbihh
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      database: 0
+      timeout: 3000ms
+      client-name: library-app
+      lettuce:
+        pool:
+          enabled: true
+          max-active: 100
+          max-idle: 100
+          min-idle: 0
+          time-between-eviction-runs: 1m
+jwt:
+  secret: "a1b2c3hd83fh389fh38fh38hf38hf38hf83hf38hf38fh38"
+  expiration: 604800000
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:/mapper/*.xml
+qianwen:
+  apikey: sk-02a3c49b5cc1465f96c65685bd9c1b44
+  model: qianwen-turbo
+app:
+  base-url: http://localhost:8080
+
+knife4j:
+  enable: true
+  openapi:
+    enable: true
+
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+kind: Application
+
+
