@@ -11,18 +11,19 @@ public class WebConfig implements WebMvcConfigurer {
     private LoginInterceptor loginInterceptor;
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+
         registry.addInterceptor(loginInterceptor)
                 .addPathPatterns("/**")
                 .excludePathPatterns("/paperwise/user/login")
                 .excludePathPatterns("/paperwise/user/register")
                 .excludePathPatterns("/paperwise/user/logout")
-                .excludePathPatterns("/paperwise/share/*")
+                .excludePathPatterns("/paperwise/share/**")
                 .excludePathPatterns("/doc.html")
                 .excludePathPatterns("/v3/api-docs/**")
                 .excludePathPatterns("/swagger-ui/**",
                         "/swagger-ui.html",
                         "/swagger-resources/**",
-                        "/v3/api-docs/**",
+                        "/v3/api-docs",
                         "/webjars/**")
                 .excludePathPatterns("/paperwise/user/activation");
     }
