@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.paperwise.Mapper.ShareMapper">
+    <select id="getAllShare" resultType="org.example.paperwise.entry.Share">
+        select *from share where expire_time>now()
+        LIMIT #{offset}, #{size}
+    </select>
+    <select id="getShareFavorites" resultType="org.example.paperwise.Dto.ShareFavoritesDto">
+        SELECT
+            s.uuid AS shareID,
+            f.user_id AS userId,
+            u.username,
+            f.favorite_name AS favoritesName,
+            f.card_id AS cardIds,
+            f.look_count AS lookCount,
+            f.like_count AS likeCount,
+            s.expire_time AS expireTime
+        FROM share s
+        JOIN favorites f ON f.favorite_id=s.favorites_id
+        JOIN user u ON u.userid=f.user_id
+        WHERE s.uuid=#{shareId} AND s.expire_time>now()
+
+    </select>
+
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.paperwise.Mapper.FavoritesMapper">
+    <update id="upLookCount" >
+        update favorites set look_count=look_count + #{lookCount} WHERE favorite_id=#{favoritesId}
+    </update>
+    <update id="upLikeCount">
+        update favorites set like_count=like_count + #{likeCount} WHERE favorite_id=#{favoritesId}
+    </update>
+    <update id="decreaseLikeCount">
+        update favorites set like_count=like_count - 1 WHERE favorite_id=#{favoriteId} AND like_count>-1
+    </update>
+</mapper>

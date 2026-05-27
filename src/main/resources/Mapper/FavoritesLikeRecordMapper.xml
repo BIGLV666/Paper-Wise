@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.paperwise.Mapper.FavoritesLikeRecordMapper">
+    <select id="findByUserId" resultType="java.lang.Integer">
+        select COUNT(*) from favorites_like_record where userid=#{userId} AND favorites_id=#{favoritesId}
+    </select>
+    <select id="getLikeFavoritesDto" resultType="org.example.paperwise.Dto.LikeFavoritesDto">
+        select
+            flr.favorites_id AS favoritesId,
+            f.user_id AS userId,
+            f.favorite_name AS favoritesName,
+            u.username AS userName,
+            f.like_count AS likeCount,
+            f.look_count As lookCount
+
+        FROM favorites_like_record flr
+        JOIN favorites f ON f.favorite_id=flr.favorites_id
+        JOIN user u ON u.userid=f.user_id
+        where flr.userid=#{userId}
+    </select>
+    <delete id="deleteLike">
+        delete from favorites_like_record where favorites_id=#{favoriteId} AND userid=#{userId}
+    </delete>
+</mapper>

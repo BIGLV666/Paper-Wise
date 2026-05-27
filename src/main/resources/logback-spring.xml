@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- 控制台输出（显示 INFO 及以上） -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 控制台只显示 WARN 及以上（另一个 appender） -->
+    <appender name="CONSOLE_WARN" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Controller 日志文件 -->
+    <appender name="CONTROLLER_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/controller.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/controller.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Service 日志文件 -->
+    <appender name="SERVICE_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/service.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/service.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Controller 包的日志：输出到文件，控制台显示所有级别 -->
+    <logger name="org.example.paperwise.Controller" level="DEBUG" additivity="false">
+        <appender-ref ref="CONTROLLER_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- Service 包的日志：输出到文件，控制台显示所有级别 -->
+    <logger name="org.example.paperwise.Service" level="DEBUG" additivity="false">
+        <appender-ref ref="SERVICE_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- Mapper 包的日志 -->
+    <logger name="org.example.paperwise.Mapper" level="DEBUG" additivity="false">
+        <appender-ref ref="SERVICE_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- AOP 自定义 Logger -->
+    <logger name="ControllerLogger" level="DEBUG" additivity="false">
+        <appender-ref ref="CONTROLLER_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="ServiceLogger" level="DEBUG" additivity="false">
+        <appender-ref ref="SERVICE_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+
+
+    <!-- 全局异常日志文件 -->
+    <appender name="GLOBAL_ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/error.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/error.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 全局异常处理器所在包的日志 -->
+    <logger name="org.example.paperwise.Advice" level="DEBUG" additivity="false">
+        <appender-ref ref="GLOBAL_ERROR_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+
+    <!-- 其他日志（Spring、MyBatis 等）只显示 WARN 及以上 -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE_WARN"/>
+    </root>
+
+</configuration>
