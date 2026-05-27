@@ -43,11 +43,13 @@ public class UserService {
         if(username == null || password == null) {
             throw new RuntimeException("账户或密码不为空");
         }
-        User user=userMapper.selectOne(new LambdaQueryWrapper<User>().eq(User::getUsername,username));
+        User user=userMapper.getUserByUserName(username);
+
         if(user==null) {
             throw new RuntimeException("not find user");
         }
         if(PasswordEncoder.matches(password,user.getPassword())) {
+            System.out.println(user);
             return user;
         }
         throw new RuntimeException("password error");

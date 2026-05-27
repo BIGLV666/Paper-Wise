@@ -21,45 +21,60 @@ public class QianwenService {
     @Autowired
     private QianwenConfig qianwenConfig;
 
-    private final OkHttpClient okHttpClient = new OkHttpClient.Builder().connectTimeout(60, TimeUnit.SECONDS)
-            .readTimeout(60, TimeUnit.SECONDS).build();
+    private final OkHttpClient okHttpClient = new OkHttpClient.Builder().connectTimeout(300, TimeUnit.SECONDS)
+            .readTimeout(300, TimeUnit.SECONDS).build();
 
-    public String chat(String userMessage){
+    public String chat(String userMessage) {
         try {
-            Map<String,Object>requestBody = new HashMap<>();
-            requestBody.put("model",qianwenConfig.getModel());
+            // 构建正确的请求体
+            Map<String, Object> requestBody = new HashMap<>();
+            requestBody.put("model", qianwenConfig.getModel());
 
-            //构建消息列表
-            List<Map<String,String>> messages = new ArrayList<>();
-            Map<String,String> userMsg = new HashMap<>();
-            userMsg.put("role","user");
-            userMsg.put("content",userMessage);
+            // input 对象（存放 messages）
+            Map<String, Object> input = new HashMap<>();
+
+            List<Map<String, String>> messages = new ArrayList<>();
+            Map<String, String> userMsg = new HashMap<>();
+            userMsg.put("role", "user");
+            userMsg.put("content", userMessage);
             messages.add(userMsg);
-            requestBody.put("messages",messages);
+            input.put("messages", messages);
 
-            //TO JSON
+            requestBody.put("input", input);
+
+            // ✅ 关键：parameters 放在最外层，不在 userMsg 里
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("max_tokens", 2000);      // 输出最大 token 数
+            parameters.put("result_format", "text"); // 返回格式
+            requestBody.put("parameters", parameters);
+
             String json = JSON.toJSONString(requestBody);
+            System.out.println("请求体: " + json);
 
-            Request request=new Request.Builder()
+            Request request = new Request.Builder()
                     .url("https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation")
-                    .addHeader("Authorization","Bearer"+qianwenConfig.getApikey())
-                    .addHeader("Content-Type","application/json")
+                    .addHeader("Authorization", "Bearer " + qianwenConfig.getApikey())
+                    .addHeader("Content-Type", "application/json")
                     .post(RequestBody.create(json, MediaType.parse("application/json")))
                     .build();
 
-            Response response=okHttpClient.newCall(request).execute();
-            String responseBody=response.body().string();
+            Response response = okHttpClient.newCall(request).execute();
+            String responseBody = response.body().string();
+            System.out.println("响应码: " + response.code());
+            System.out.println("响应体: " + responseBody);
 
             JSONObject jsonObject = JSON.parseObject(responseBody);
-            String text=jsonObject.getJSONObject("output")
-                    .getString("text");
+
+            if (jsonObject.containsKey("code")) {
+                throw new RuntimeException("API 错误: " + jsonObject.getString("message"));
+            }
+
+            String text = jsonObject.getJSONObject("output").getString("text");
             return text;
 
-        }catch (IOException e){
-            log.error(e.getMessage(),e);
-            throw  new RuntimeException("ai调用失败"+e.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException("AI调用失败: " + e.getMessage());
         }
     }
-
 
 }

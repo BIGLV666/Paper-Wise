@@ -10,6 +10,9 @@
         insert INTO user(username,password,email)values (#{username},#{password},#{email})
     </insert>
 
+    <select id="getUserByUserName" resultType="org.example.paperwise.entry.User">
+        select * from user where username=#{username}
+    </select>
 
 
     <select id="getUserById" resultType="org.example.paperwise.entry.User">

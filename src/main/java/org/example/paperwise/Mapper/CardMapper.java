@@ -11,7 +11,8 @@ import java.util.Map;
 
 @Mapper
 public interface CardMapper extends BaseMapper<Card> {
-    Card getCardById(Long card_id, Long userid);
+
     List<Map<String,Integer>> getAllQuestionType(Long userid);
     int batchAddCard(@Param("list") List<Card> cards);
+
 }

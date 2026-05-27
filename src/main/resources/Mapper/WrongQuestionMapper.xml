@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.paperwise.Mapper.WrongQuestionMapper">
+    <select id="getWrongQuestions" resultType="org.example.paperwise.Dto.WrongCardDto">
+        select
+            wq.wrong_question_id AS wrongQuestionId,
+            wq.card_id AS cardId,
+            wq.wrong_count,
+            wq.wrong_question_category,
+            wq.status ,
+            c.title,
+            c.question_type
+        FROM wrong_question wq
+        JOIN card c ON wq.card_id = c.card_id
+        where wq.user_id=#{userId}
+        ORDER BY wq.wrong_count DESC
+    </select>
+</mapper>

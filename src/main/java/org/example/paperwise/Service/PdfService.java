@@ -31,18 +31,24 @@ public class PdfService {
 
 
     private String buildPrompt(String text) {
+        if(text.length()>5000){
+            text=text.substring(0,5000);
+        }
         return """
-        你是一个学习卡片生成助手。请根据以下文本内容，生成 3-5 张学习卡片。
+        你是一个学习卡片生成助手。请根据以下文本内容，将文本按照以下形式拆分
         
         每张卡片包含：
         - title：卡片标题/问题
-        - type：类型（SINGLE=单选题、MULTIPLE=多选题、TRUE_FALSE=判断题、ESSAY=问答题）
+        - questionType:题目所属大的类别
+        - cardType：类型（SINGLE=单选题、MULTIPLE=多选题、TRUE_FALSE=判断题、ESSAY=问答题）
         - options：选项数组（选择题必填，其他类型可为空数组）
         - answer：正确答案
-        - difficulty：难度（EASY、MEDIUM、HARD）
         - explanation：解析说明
+        - cardDifficulty：难度（EASY、MEDIUM、HARD）
         
-        输出必须是 JSON 数组格式，不要有其他文字。
+        
+        输出必须是 JSON 数组格式，不要有其他文字。如果文本有截断只返回未截断部分.questionType要求中文如果是java或者mysql等等,可以直接写java等，
+        
         
         示例：
         [
@@ -53,8 +59,7 @@ public class PdfService {
                        "options": ["跨平台", "面向对象", "指针操作", "自动内存管理"],
                        "answer": "跨平台",
                        "explanation": "Java 通过 JVM 实现跨平台",
-                       "cardDifficulty": "EASY",
-                       "cardMastery": "NOT_STARTED"
+                       "cardDifficulty": "EASY"
                      },
                      {
                        "title": "以下哪些是 JVM 的内存区域？",
@@ -63,8 +68,7 @@ public class PdfService {
                        "options": ["堆", "栈", "方法区", "寄存器", "CPU缓存"],
                        "answer": ["堆", "栈", "方法区"],
                        "explanation": "JVM 内存区域包括堆、栈、方法区、程序计数器",
-                       "cardDifficulty": "MEDIUM",
-                       "cardMastery": "LEARNING"
+                       "cardDifficulty": "MEDIUM"
                      }
                         ]
         
@@ -72,64 +76,70 @@ public class PdfService {
         """ + text;
     }
 
-    //提取pdf文字
-    private String getText(MultipartFile multipartFile)throws IOException {
-        try
-            (PDDocument document=PDDocument.load(multipartFile.getInputStream())){
-            PDFTextStripper stripper=new PDFTextStripper();
-            String text=stripper.getText(document);
+    private String getText(MultipartFile file) throws IOException {
+        try (PDDocument document = PDDocument.load(file.getInputStream())) {
+            PDFTextStripper stripper = new PDFTextStripper();
+            String text = stripper.getText(document);
             return text.trim();
         }
     }
-    //解析ai
-    private List<Card> parseCards(String aiResponse,Long userid){
+
+    private List<Card> parseCards(String aiResponse, Long userId) {
         try {
-            String json=extractJson(aiResponse);
-            List<Card> cards=objectMapper.readValue(json,new TypeReference<List<Card>>(){});
-            for(Card card:cards){
-                if(card.getUserid()==null){
-                    card.setUserid(userid);
+            String json = extractJson(aiResponse);
+            //System.out.println("解析的 JSON: " + json);
+            log.info("解析的 JSON: {}", json);
+            List<Card> cards = objectMapper.readValue(json, new TypeReference<List<Card>>() {});
+
+            for (Card card : cards) {
+                if (card.getUserid() == null) {
+                    card.setUserid(userId);
                 }
-                if(card.getCardType()==null){
-                    card.setCardType(CardType.SINGLE);
+                if (card.getCreateTime() == null) {
+                    card.setCreateTime(LocalDateTime.now());
                 }
-                if(card.getCardDifficulty()==null){
+                // 设置默认值（如果 AI 没返回）
+                if (card.getCardType() == null) {
+                    card.setCardType(CardType.ESSAY);
+                }
+                if (card.getCardDifficulty() == null) {
                     card.setCardDifficulty(CardDifficulty.MEDIUM);
                 }
-                if(card.getCardMastery()==null){
+                if (card.getCardMastery() == null) {
                     card.setCardMastery(CardMastery.NOT_STARTED);
-                }
-                if(card.getCreateTime()==null){
-                    card.setCreateTime(LocalDateTime.now());
                 }
             }
             return cards;
-        }catch (Exception e){
+
+        } catch (Exception e) {
+            log.error("卡片解析失败: {}", e.getMessage());
             e.printStackTrace();
-            log.info("卡片解析失败{}", e.getMessage());
             return null;
         }
     }
-    //解析json
-    private String extractJson(String jsonText){
-        int start=jsonText.indexOf("[");
-        int end=jsonText.indexOf("]");
-        if(start!=-1&&end!=-1){
-            return jsonText.substring(start,end+1);
+
+    private String extractJson(String jsonText) {
+        int start = jsonText.indexOf("[");
+        int end = jsonText.lastIndexOf("]");
+        if (start != -1 && end != -1 && end > start) {
+            return jsonText.substring(start, end + 1);
         }
-        throw new RuntimeException("ai相应不是json");
+        throw new RuntimeException("AI 响应中没有找到 JSON 数组");
     }
-    public List<Card> generateFromPdf(Long userid, MultipartFile file)throws IOException {
-        String text =getText(file);
+
+    public List<Card> generateFromPdf(Long userId, MultipartFile file) throws IOException {
+        String text = getText(file);
+        log.info("PDF 文本长度: {}", text.length());
+
         String prompt = buildPrompt(text);
-        String aiResponse= qianwenService.chat(prompt);
-        List<Card>cards=parseCards(aiResponse,userid);
-        if (cards != null ) {
+        String aiResponse = qianwenService.chat(prompt);
+        log.info("AI 响应长度: {}", aiResponse.length());
+
+        List<Card> cards = parseCards(aiResponse, userId);
+        if (cards != null && !cards.isEmpty()) {
             cardMapper.batchAddCard(cards);
+            log.info("成功生成 {} 张卡片", cards.size());
         }
         return cards;
     }
-
-
-
 }

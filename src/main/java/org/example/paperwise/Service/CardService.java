@@ -3,6 +3,7 @@ package org.example.paperwise.Service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import lombok.extern.slf4j.Slf4j;
 import org.example.paperwise.Mapper.CardMapper;
 import org.example.paperwise.entry.Card;
 import org.example.paperwise.enums.CardMastery;
@@ -13,12 +14,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+@Slf4j
 @Service
 public class CardService {
     @Autowired
     private CardMapper cardMapper;
-    public Card getCardById(Long card_id,Long userid) {
-        return cardMapper.getCardById(card_id,userid);
+    public Card getCardById(Long card_id) {
+        return cardMapper.selectById(card_id);
     }
     public Card addCard(Card card,Long userid) {
         card.setUserid(userid);
@@ -35,19 +37,26 @@ public class CardService {
         return card;
     }
     public Card updateCard(Card card,Long userid) {
-        if(!Objects.equals(card.getUserid(), userid)){
-            throw new RuntimeException("cannot update card");
+        Card existing=cardMapper.selectById(card.getCardId());
+        if(existing==null){
+            throw new RuntimeException("未找到该卡片");
+        }
+        if(!Objects.equals(existing.getUserid(), userid)){
+            throw new RuntimeException("不能修改他人卡片");
         }
         int r=cardMapper.updateById(card);
         if(r==0){
-            throw new RuntimeException("update card error");
+            throw new RuntimeException("更新失败");
         }
         return card;
     }
     public boolean deleteCard(Long card_id,Long userid) {
-        Card card=cardMapper.getCardById(card_id,userid);
+        Card card=cardMapper.selectById(card_id);
         if(card==null){
             throw new RuntimeException("not found your card");
+        }
+        if(!Objects.equals(card.getUserid(), userid)){
+            throw new RuntimeException("不能操作他人卡片");
         }
         int r=cardMapper.deleteById(card_id);
         return r==1;
@@ -77,6 +86,23 @@ public class CardService {
         }
         return cardMapper.batchAddCard(cards);
     }
-    //
+    //查看自己所有的卡片
+    public Page<Card> getAllCardsForPage(Long userid, int size, int page) {
+        if(size>30){
+            size=30;
+        }
+        Page<Card> pageCard=new Page<>(page,size);
+        LambdaQueryWrapper<Card> queryWrapper=new LambdaQueryWrapper<>();
+        queryWrapper.eq(Card::getUserid,userid)
+                .orderByDesc(Card::getCreateTime);
+
+        return cardMapper.selectPage(pageCard,queryWrapper);
+    }
+    //返回卡片列表
+    public List<Card> getAllCardsForCardIds(List<Long>cardIds) {
+        return cardMapper.selectBatchIds(cardIds);
+    }
+
+
 
 }
