@@ -1,10 +1,7 @@
 package org.example.paperwise.Controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.paperwise.Dto.Result;
-import org.example.paperwise.Mapper.CardMapper;
 import org.example.paperwise.Service.CardService;
 import org.example.paperwise.entry.Card;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +17,8 @@ public class CardController {
     private CardService cardService;
 
     @PostMapping("/getcardbyid")
-    public Result<Card>getCardById(@RequestParam Long card_id,@RequestAttribute Long userid){
-        Card card = cardService.getCardById(card_id,userid);
+    public Result<Card>getCardById(@RequestAttribute Long userid){
+        Card card = cardService.getCardById(userid);
         if(card==null){
             return Result.error("not found card");
         }

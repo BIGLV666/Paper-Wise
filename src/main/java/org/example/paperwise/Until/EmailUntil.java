@@ -16,7 +16,7 @@ public class EmailUntil {
     private JavaMailSender mailSender;
     @Value("${spring.mail.username}")
     private String from;
-    @Async
+    @Async("customTaskExecutor")
     public void sendActivationEmail(String to,String subject,String content){
         try{
             SimpleMailMessage message = new SimpleMailMessage();

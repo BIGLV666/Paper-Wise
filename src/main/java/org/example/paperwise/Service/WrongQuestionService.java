@@ -5,14 +5,17 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.paperwise.Dto.WrongCardDto;
 import org.example.paperwise.Mapper.CardMapper;
 import org.example.paperwise.Mapper.WrongQuestionMapper;
+import org.example.paperwise.Mapper.WrongReviewMapper;
 import org.example.paperwise.Until.CopyUntil;
 import org.example.paperwise.entry.Card;
 import org.example.paperwise.entry.WrongQuestion;
+import org.example.paperwise.entry.WrongReview;
 import org.example.paperwise.enums.WrongQuestionCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,6 +28,8 @@ public class WrongQuestionService {
     private CopyUntil copyUntil;
     @Autowired
     private CardMapper cardMapper;
+    @Autowired
+    private WrongReviewMapper  wrongReviewMapper;
 
 
     //添加错题
@@ -34,6 +39,7 @@ public class WrongQuestionService {
         if(!Objects.equals(card.getUserid(), userId)){
             card=copyUntil.copy(card, Card.class);
         }
+
         card.setUserid(userId);
         card.setCardId(null);
         cardMapper.insert(card);
@@ -47,6 +53,17 @@ public class WrongQuestionService {
             wrongQuestionMapper.updateById(wrongQuestion);
         }
         wrongQuestionMapper.insert(wrongQuestion);
+
+
+
+        //生成复习记录
+        WrongReview wrongReview=wrongReviewMapper.selectOne(new QueryWrapper<WrongReview>().eq("user_id",userId).eq("card_id",card.getCardId()));
+        if(wrongReview==null){
+         wrongReview=new WrongReview(cardId,userId,wrongQuestion.getWrongQuestionId(), LocalDateTime.now().plusDays(1),LocalDateTime.now(),"未掌握",1,1);
+        wrongReviewMapper.insert(wrongReview);
+        }
+
+
         return card;
 
     }
@@ -54,5 +71,22 @@ public class WrongQuestionService {
     public List<WrongCardDto> getWrongQuestionsDto(Long userId) {
         return wrongQuestionMapper.getWrongQuestions(userId);
     }
+
+    /**
+     * 删除错题
+     * @param userId Long
+     * @param wrongQuestionId Long
+     */
+    public void deleteWrongQuestion(Long wrongQuestionId,Long userId) {
+        WrongQuestion wrongQuestion = wrongQuestionMapper.selectById(wrongQuestionId);
+        if(wrongQuestion==null){
+            throw new RuntimeException("未找到该错题");
+        }
+        if(!wrongQuestion.getUserId().equals(userId)){
+            throw new RuntimeException("不能操作他人错题");
+        }
+        wrongQuestionMapper.deleteById(wrongQuestionId);
+    }
+
 
 }

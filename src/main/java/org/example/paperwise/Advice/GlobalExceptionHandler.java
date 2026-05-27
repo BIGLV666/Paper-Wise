@@ -5,9 +5,12 @@ import org.example.paperwise.Dto.Result;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@RestControllerAdvice
+
 @Slf4j
-public class GlobalExceptionHandler {
+@RestControllerAdvice(basePackages = "org.example.paperwise.Controller")
+public class GlobalExceptionHandler  {
+
+
     @ExceptionHandler(value = Exception.class)
     public Result<?> handleException(Exception e) {
         log.error("系统异常{}",e.getMessage(),e);

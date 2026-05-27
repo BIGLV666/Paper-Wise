@@ -1,6 +1,7 @@
 package org.example.paperwise.Controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.swagger.v3.oas.annotations.Operation;
 import org.example.paperwise.Dto.Result;
 import org.example.paperwise.Interface.RateLimit;
 import org.example.paperwise.Service.FavoritesService;
@@ -39,7 +40,7 @@ public class FavoritesController {
         return Result.success(favoritesService.deleteCard(favoritesId,userId,cardId));
     }
     @GetMapping("getallfavorites")
-    //@Operation(summary = "分页返回用户所有收藏，前端自定义页码和每页条数")
+    @Operation(summary = "分页返回用户所有收藏，前端自定义页码和每页条数")
     public Result<Page<Favorites>>getAllFavorites(@RequestAttribute Long userId,@RequestParam int page,@RequestParam int size){
         return Result.success(favoritesService.getAllFavorites(userId,size,page));
     }

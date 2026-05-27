@@ -49,16 +49,31 @@ create TABLE favorites_like_record(
     favorites_id BIGINT not null,
     FOREIGN KEY (favorites_id) REFERENCES favorites(favorite_id)
 );
-create TABLE wrong_question(
-    wrong_question_id BIGINT AUTO_INCREMENT PRIMARY KEY ,
-    user_id BIGINT not null ,
-    card_id BIGINT not null ,
-    wrong_count INTEGER not null ,
-    last_wrong_time DATETIME not null ,
+create TABLE wrong_question
+(
+    wrong_question_id       BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id                 BIGINT      not null,
+    card_id                 BIGINT      not null,
+    wrong_count             INTEGER     not null,
+    last_wrong_time         DATETIME    not null,
     wrong_question_category VARCHAR(500),
+    status                  VARCHAR(10) not null,
+    create_time             DATETIME DEFAULT (CURRENT_TIMESTAMP),
+    UNIQUE KEY uk_user_card (user_id, card_id),
+    FOREIGN KEY (card_id) REFERENCES card (card_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES user (userid) ON DELETE CASCADE
+);
+create TABLE wrong_review(
+    wrong_review_id BIGINT AUTO_INCREMENT PRIMARY KEY ,
+    card_id BIGINT not null ,
+    user_id BIGINT not null ,
+    wrong_question_id BIGINT not null ,
+    next_review_time DATETIME not null ,
+    last_review_time DATETIME not null ,
     status VARCHAR(10) not null ,
-    create_time DATETIME DEFAULT (CURRENT_TIMESTAMP),
-    UNIQUE KEY uk_user_card(user_id,card_id),
-    FOREIGN KEY (card_id) REFERENCES card(card_id) ON DELETE CASCADE ,
-    FOREIGN KEY (user_id) REFERENCES user(userid) ON DELETE CASCADE
+    stage INTEGER not null ,
+    interval_days INTEGER not null ,
+    UNIQUE KEY uk_user_card (user_id,card_id),
+    INDEX idx_wrong_review (user_id,status,next_review_time),
+    FOREIGN KEY (wrong_question_id) REFERENCES wrong_question (wrong_question_id) ON DELETE  CASCADE
 );

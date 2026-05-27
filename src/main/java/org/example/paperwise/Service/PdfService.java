@@ -113,7 +113,6 @@ public class PdfService {
 
         } catch (Exception e) {
             log.error("卡片解析失败: {}", e.getMessage());
-            e.printStackTrace();
             return null;
         }
     }
@@ -129,7 +128,7 @@ public class PdfService {
 
     public List<Card> generateFromPdf(Long userId, MultipartFile file) throws IOException {
         String text = getText(file);
-        log.info("PDF 文本长度: {}", text.length());
+        log.info("用户ID为{},PDF 文本长度: {}",userId, text.length());
 
         String prompt = buildPrompt(text);
         String aiResponse = qianwenService.chat(prompt);
