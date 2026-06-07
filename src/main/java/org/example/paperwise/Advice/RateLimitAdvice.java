@@ -38,10 +38,10 @@ public class RateLimitAdvice {
     @Around("@annotation(rateLimit)")
     public Object around(ProceedingJoinPoint joinPoint, RateLimit rateLimit) throws Throwable {
         HttpServletRequest request=((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        Long userId = Long.parseLong(request.getHeader("userId"));
+        Long userId = Long.parseLong(request.getHeader("userid"));
 
         String key="ratelimit"+userId+rateLimit.key();
-        if(!allowRequest(key, rateLimit.WindowsSeconds(), rateLimit.MaxRequests())){
+        if(allowRequest(key, rateLimit.WindowsSeconds(), rateLimit.MaxRequests())){
             throw new RuntimeException("操作频繁请稍后重试");
         }
         return joinPoint.proceed();

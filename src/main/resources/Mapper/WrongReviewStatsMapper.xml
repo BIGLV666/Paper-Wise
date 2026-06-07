@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.paperwise.Mapper.WrongReviewStatsMapper">
+   <select id="getWrongReviewStatsByDay" resultType="org.example.paperwise.entry.WrongReviewStats">
+    SELECT * FROM wrong_review_stats
+    WHERE user_id=#{user_id} AND day=CURDATE()
+   </select>
+    <update id="updateReviewProgress">
+        update wrong_review_stats
+        set remain_count=remain_count-1,completed_count=completed_count+1,total_review_count=total_review_count+1
+        WHERE user_id=#{user_id} And day=CURDATE()
+        AND remain_count>0 And completed_count &lt; total
+
+    </update>
+    <select id="getLastRecord" resultType="org.example.paperwise.entry.WrongReviewStats">
+        select * from wrong_review_stats
+        WHERE user_id=#{user_id}
+        ORDER BY  day DESC
+        LIMIT 1
+    </select>
+</mapper>

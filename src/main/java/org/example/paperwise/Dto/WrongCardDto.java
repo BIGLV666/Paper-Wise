@@ -1,17 +1,17 @@
 package org.example.paperwise.Dto;
 
 
-import org.example.paperwise.enums.WrongQuestionCategory;
+
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
-
+@Data
 public class WrongCardDto {
     private Long wrongQuestionId;
     private Long cardId;
     private Integer wrongCount;
     private String wrongQuestionCategory;
-    private WrongQuestionCategory status;
     private LocalDateTime lastWrongTime;
     private String title;
     private String questionType;

@@ -1,5 +1,6 @@
 package org.example.paperwise.entry;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FavoritesLikeRecord {
     Long likeId;
+    @TableField(value = "user_id")
     Long userId;
     Long favoritesId;
 

@@ -49,8 +49,8 @@ jwt:
 
 mybatis-plus:
   configuration:
-    map-underscore-to-camel-case: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true  # 必须是 true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 开启 SQL 日志
   mapper-locations: classpath*:/mapper/*.xml
 qianwen:
   apikey: sk-02a3c49b5cc1465f96c65685bd9c1b44
@@ -68,7 +68,14 @@ logging:
   level:
     org.hibernate.SQL: debug
     org.hibernate.type.descriptor.sql.BasicBinder: trace
-
-kind: Application
+# application.yml
+langchain4j:
+  ollama:
+    chat-model:
+      base-url: http://localhost:11434
+      model-name: qwen2.5:7b
+      temperature: 0.7
+      max-retries: 0          # 禁用重试
+      timeout: 30s
 
 

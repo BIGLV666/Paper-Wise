@@ -27,7 +27,7 @@ public class CardController {
     @PostMapping("addcard")
     public Result<Card>addCard(@RequestBody Card card,@RequestAttribute Long userid){
         try{
-        Card cardDto=cardService.addCard(card,userid);
+        Card cardDto=cardService.addCard(card, userid);
         if(cardDto==null){
             return Result.error("addcard error");
         }
@@ -39,7 +39,7 @@ public class CardController {
     @PutMapping("/updatecard")
     public Result<Card>updateCard(@RequestBody Card card,@RequestAttribute Long userid){
         try{
-        Card cardDto=cardService.updateCard(card,userid);
+        Card cardDto=cardService.updateCard(card, userid);
         if(cardDto==null){
             return Result.error("update card error");
         }
@@ -51,7 +51,7 @@ public class CardController {
     @DeleteMapping("deletecard")
     public Result<String> deleteCard(@RequestParam Long card_id,@RequestAttribute Long userid){
         try {
-            boolean r=cardService.deleteCard(card_id,userid);
+            boolean r=cardService.deleteCard(card_id, userid);
             if(r){
                 return Result.success("delete card success");
             }
@@ -70,8 +70,8 @@ public class CardController {
 
     //分页查询按照类
     @PostMapping("getbyquestiontype")
-    public Result<Page<Card>>getByQuestionType(@RequestAttribute Long userid,@RequestParam int page,@RequestParam int size,@RequestParam String question_type){
-        Page<Card> pageCard=cardService.getByQuestionType(question_type,size,page,userid);
+    public Result<Page<Card>>getByQuestionType(@RequestAttribute Long userid, @RequestParam int page, @RequestParam int size, @RequestParam String question_type){
+        Page<Card> pageCard=cardService.getByQuestionType(question_type,size,page, userid);
         return Result.success(pageCard);
     }
 
@@ -86,5 +86,14 @@ public class CardController {
             e.printStackTrace();
             return Result.error("解析失败: " + e.getMessage());
         }
+    }
+    @GetMapping("/getallcard")
+    public Result<Page<Card>>geAllCard(@RequestAttribute Long userid, @RequestParam int page, @RequestParam int size){
+        return Result.success(cardService.getAllCardsForPage(userid, size,page));
+    }
+    @GetMapping("/getcard")
+    public Result<Card>getCardByCardId(@RequestParam Long cardId){
+        Card card = cardService.getCardById(cardId);
+        return Result.success(card);
     }
 }

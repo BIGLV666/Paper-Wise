@@ -6,18 +6,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+import org.example.paperwise.Mapper.AiGeneratedCardMapper;
 import org.example.paperwise.Mapper.CardMapper;
-import org.example.paperwise.entry.Card;
+import org.example.paperwise.entry.AiGeneratedCard;
 import org.example.paperwise.enums.CardDifficulty;
 import org.example.paperwise.enums.CardMastery;
 import org.example.paperwise.enums.CardType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -26,6 +29,9 @@ public class PdfService {
     private QianwenService qianwenService;
     @Autowired
     private CardMapper cardMapper;
+
+    @Autowired
+    private AiGeneratedCardMapper aiGeneratedCardMapper;
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -76,24 +82,26 @@ public class PdfService {
         """ + text;
     }
 
-    private String getText(MultipartFile file) throws IOException {
+    private Object[] getText(MultipartFile file) throws IOException {
         try (PDDocument document = PDDocument.load(file.getInputStream())) {
             PDFTextStripper stripper = new PDFTextStripper();
             String text = stripper.getText(document);
-            return text.trim();
+            String name = file.getOriginalFilename();
+            return new Object[]{text,name};
         }
     }
 
-    private List<Card> parseCards(String aiResponse, Long userId) {
+    public List<AiGeneratedCard> parseCards(String aiResponse, Long userId,String sessionId,String name) {
         try {
             String json = extractJson(aiResponse);
-            //System.out.println("解析的 JSON: " + json);
-            log.info("解析的 JSON: {}", json);
-            List<Card> cards = objectMapper.readValue(json, new TypeReference<List<Card>>() {});
 
-            for (Card card : cards) {
-                if (card.getUserid() == null) {
-                    card.setUserid(userId);
+            System.out.println("解析的 JSON: " + json);
+            log.info("解析的 JSON: {}", json);
+            List<AiGeneratedCard> cards = objectMapper.readValue(json, new TypeReference<List<AiGeneratedCard>>() {});
+
+            for (AiGeneratedCard card : cards) {
+                if (card.getUserId() == null) {
+                    card.setUserId(userId);
                 }
                 if (card.getCreateTime() == null) {
                     card.setCreateTime(LocalDateTime.now());
@@ -108,10 +116,18 @@ public class PdfService {
                 if (card.getCardMastery() == null) {
                     card.setCardMastery(CardMastery.NOT_STARTED);
                 }
+                if (card.getAnswer() instanceof List) {
+                    List<?> list = (List<?>) card.getAnswer();
+                    card.setAnswer(list.stream().map(String::valueOf).collect(Collectors.joining("、")));
+                }
+                card.setSessionId(sessionId);
+                card.setName(name);
+                card.setStatus("PENDING");
             }
             return cards;
 
         } catch (Exception e) {
+
             log.error("卡片解析失败: {}", e.getMessage());
             return null;
         }
@@ -125,20 +141,35 @@ public class PdfService {
         }
         throw new RuntimeException("AI 响应中没有找到 JSON 数组");
     }
+    @Async
+    public void generateFromPdf(Long userId, MultipartFile file, String sessionId) throws IOException {
+        java.lang.Object [] val =  getText(file);
+        String text =(String) val[0];
+        String name =(String) val[1];
 
-    public List<Card> generateFromPdf(Long userId, MultipartFile file) throws IOException {
-        String text = getText(file);
         log.info("用户ID为{},PDF 文本长度: {}",userId, text.length());
 
         String prompt = buildPrompt(text);
         String aiResponse = qianwenService.chat(prompt);
         log.info("AI 响应长度: {}", aiResponse.length());
 
-        List<Card> cards = parseCards(aiResponse, userId);
+        List<AiGeneratedCard> cards = parseCards(aiResponse, userId,sessionId,name);
         if (cards != null && !cards.isEmpty()) {
-            cardMapper.batchAddCard(cards);
+            aiGeneratedCardMapper.batchInsert(cards);
             log.info("成功生成 {} 张卡片", cards.size());
         }
-        return cards;
     }
+    @Async
+    public void generateFromText(Long userId, String text,String sessionId,String name) {
+        String prompt = buildPrompt(text);
+        String aiResponse = qianwenService.chat(prompt);
+        log.info("AI 响应长度: {}", aiResponse.length());
+
+        List<AiGeneratedCard> cards = parseCards(aiResponse, userId,sessionId,name);
+        if (cards != null && !cards.isEmpty()) {
+            aiGeneratedCardMapper.batchInsert(cards);
+            log.info("成功生成 {} 张卡片", cards.size());
+        }
+    }
+
 }

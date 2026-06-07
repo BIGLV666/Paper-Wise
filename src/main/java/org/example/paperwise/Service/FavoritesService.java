@@ -2,8 +2,10 @@ package org.example.paperwise.Service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.example.paperwise.Mapper.CardMapper;
 import org.example.paperwise.Mapper.FavoritesMapper;
 import org.example.paperwise.Mapper.ShareMapper;
+import org.example.paperwise.entry.Card;
 import org.example.paperwise.entry.Favorites;
 import org.example.paperwise.entry.Share;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,37 +26,48 @@ public class FavoritesService {
     private FavoritesMapper favoritesMapper;
     @Autowired
     private ShareMapper shareMapper;
-
+    @Autowired
+    private CardMapper cardMapper;
     @Autowired
     private RedisTemplate<String,Object> redisTemplate;
 
     private static final String FAVORITES_LOOK_COUNT_KEY = "favorites_look_count";
 
 
-
+    //返回用户收藏夹内容
+    public List<Card>getAllCard(List<Long>cardIds){
+        return cardMapper.selectList(new QueryWrapper<Card>().in("card_id",cardIds));
+    }
 
     //初始化收藏夹
-    public boolean createFavorites(Long userid,String favoritesName) {
+    public Favorites createFavorites(Long userid,String favoritesName) {
         Favorites favorites = new Favorites();
         favorites.setUserid(userid);
         favorites.setFavoriteName(favoritesName);
         favorites.setIsPublic(0);
-        favorites.setCardId(new ArrayList<>());
+        favorites.setCardIds(new ArrayList<>());
         favorites.setLikeCount(0L);
+        favorites.setLookCount(0L);
         int r=favoritesMapper.insert(favorites);
-        return r==1;
+        return favoritesMapper.selectById(favorites.getFavoriteId());
+
     }
 
     //添加题目
     public Favorites addCard(Long favoritesId,Long userid,Long cardId) {
-        Favorites favorites=favoritesMapper.selectOne(new QueryWrapper<Favorites>().eq("favorites_id",favoritesId));
+        Favorites favorites=favoritesMapper.selectOne(new QueryWrapper<Favorites>().eq("favorite_id",favoritesId));
         if(favorites==null){
             throw new RuntimeException("未找到该收藏夹");
+        }
+        if(favorites.getCardIds().contains(cardId)){
+            throw new RuntimeException("题目已经存在");
         }
         if(!(Objects.equals(favorites.getUserid(), userid))){
             throw new RuntimeException("不能修改他人收藏夹");
         }
-        favorites.getCardId().add(cardId);
+        List<Long> cardIdList = new ArrayList<>(favorites.getCardIds());
+        cardIdList.add(cardId);
+        favorites.setCardIds(cardIdList);
         int r=favoritesMapper.updateById(favorites);
         if(r==0){
             throw new RuntimeException("添加失败");
@@ -85,7 +98,7 @@ public class FavoritesService {
         if(!(Objects.equals(favorites.getUserid(), userid))){
             throw new RuntimeException("不能修改他人的收藏夹");
         }
-        boolean f=favorites.getCardId().remove(cardId);
+        boolean f=favorites.getCardIds().remove(cardId);
         if(!f){
             throw new RuntimeException("未找到该题目");
         }
@@ -106,7 +119,7 @@ public class FavoritesService {
     }
 
     //修改收藏夹是否可分享
-    public Favorites updateIsPublic(Long favoritesId,Long userid){
+    public Favorites updateIsPublic(Long favoritesId,Long userid,Integer isPublic) {
         Favorites favorites=favoritesMapper.selectById(favoritesId);
         if(favorites==null){
             throw new RuntimeException("该收藏夹不存在");
@@ -114,7 +127,7 @@ public class FavoritesService {
         if(!(Objects.equals(favorites.getUserid(), userid))){
             throw new RuntimeException("不能操作他人收藏夹");
         }
-        favorites.setIsPublic(0);
+        favorites.setIsPublic(isPublic);
         int r=favoritesMapper.updateById(favorites);
         if(r==0){
             throw new RuntimeException("修改失败");
@@ -135,17 +148,17 @@ public class FavoritesService {
         if(!favorites.getUserid().equals(userid)){
             throw new RuntimeException("不能操作他人收藏");
         }
-        if(favorites.getIsPublic()==1){
+        if(favorites.getIsPublic()==0){
             throw new RuntimeException("该收藏为不可分享");
         }
-        if(favorites.getSharId()!=null){
-            Share share=shareMapper.selectById(favorites.getSharId());
+        if(favorites.getShareId()!=null){
+            Share share=shareMapper.selectById(favorites.getShareId());
             if(share.getExpireTime().isAfter(LocalDateTime.now())){
                 return "http://localhost:8080/paperwise/share/getsharefavorites?shareId="+share.getUuid();
             }
         }
         String uuid= UUID.randomUUID().toString().replace("-","").substring(0,16);
-        favorites.setSharId(uuid);
+        favorites.setShareId(uuid);
 
         //生成share记录
         Share share=new Share(uuid,userid, favorites.getFavoriteName(),favoritesId);
@@ -177,7 +190,7 @@ public class FavoritesService {
         Favorites copy=new Favorites();
         copy.setUserid(userid);
         copy.setFavoriteName(favorites.getFavoriteName());
-        copy.setCardId(favorites.getCardId());
+        copy.setCardIds(favorites.getCardIds());
         copy.setLikeCount(0L);
         copy.setLookCount(0L);
         copy.setIsPublic(0);
@@ -189,27 +202,42 @@ public class FavoritesService {
         return copy;
     }
     //批量添加题目到收藏
-    public Favorites addAllCard(Long favoritesId,Long userid,List<Long> cardIds){
-        Favorites favorites=favoritesMapper.selectById(favoritesId);
+    public Favorites addAllCard(Long favoriteId, Long userid, List<Long> cardIds){
+        Favorites favorites=favoritesMapper.selectById(favoriteId);
         if(favorites==null){
             throw new RuntimeException("未找到该收藏");
         }
         if(!favorites.getUserid().equals(userid)){
             throw new RuntimeException("不能操作他人收藏");
         }
-        List<Long> cardIdList=new ArrayList<>(favorites.getCardId());
+        List<Long> cardIdList=new ArrayList<>(favorites.getCardIds());
         for(Long cardId:cardIds){
             if(!cardIdList.contains(cardId)){
                 cardIdList.add(cardId);
             }
         }
-        favorites.setCardId(cardIdList);
+        favorites.setCardIds(cardIdList);
         int r=favoritesMapper.updateById(favorites);
         if(r==0){
             throw new RuntimeException("添加失败");
         }
         return favorites;
     }
-
+    //单个查询
+    public Favorites getFavoritesById(Long favoritesId,Long userid){
+        Favorites favorites=favoritesMapper.selectById(favoritesId);
+        if(favorites==null||!favorites.getUserid().equals(userid)){
+            throw new RuntimeException("未找到您的该收藏");
+        }
+        return favorites;
+    }
+    //查询公开的收藏
+    public Favorites getFavoritesById(Long favoritesId){
+        Favorites favorites=favoritesMapper.selectById(favoritesId);
+        if(favorites==null||favorites.getIsPublic().equals(0)){
+            throw new RuntimeException("未找到该公开的收藏");
+        }
+        return favorites;
+    }
 
 }

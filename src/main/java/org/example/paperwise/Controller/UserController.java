@@ -2,6 +2,8 @@ package org.example.paperwise.Controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.paperwise.Dto.Result;
+import org.example.paperwise.Dto.UserStatusDto;
+import org.example.paperwise.Interface.RateLimit;
 import org.example.paperwise.Service.UserService;
 import org.example.paperwise.Until.JwtUntil;
 import org.example.paperwise.entry.User;
@@ -33,7 +35,6 @@ public class UserController {
             return Result.success(map);
 
     }
-
     @PostMapping("/register")
     public Result<String> register(@RequestParam String username,@RequestParam String password,@RequestParam String email){
         try{
@@ -75,7 +76,8 @@ public class UserController {
     }
 
     @PostMapping("updatepasswordforemail")
-    public Result<String>updatePasswordForEmail(@RequestAttribute Long userid,@RequestParam String newpassword,@RequestParam String email){
+    @RateLimit(key = "updatePasswordForEmail",WindowsSeconds = 60,MaxRequests = 1)
+    public Result<String>updatePasswordForEmail(@RequestAttribute Long userid, @RequestParam String newpassword, @RequestParam String email){
         try {
             boolean f= userService.updatePassword(userid,newpassword,email);
             if(f){
@@ -88,7 +90,7 @@ public class UserController {
         }
     }
     @PostMapping("updatepasswordcode")
-    public Result<String>updatePasswordCode(@RequestAttribute Long userid,@RequestParam String code){
+    public Result<String>updatePasswordCode(@RequestAttribute Long userid, @RequestParam String code){
         try {
             boolean f= userService.updatePasswordEmail(userid,code);
             if(f){
@@ -99,5 +101,9 @@ public class UserController {
             log.error("UserController+updatePasswordCode{}", e.getMessage()+ Arrays.toString(e.getStackTrace()));
             return Result.error(e.getMessage());
         }
+    }
+    @PostMapping("/getuser")
+    public Result<UserStatusDto> getUser(@RequestAttribute Long userid){
+        return Result.success(userService.getUserById(userid));
     }
 }

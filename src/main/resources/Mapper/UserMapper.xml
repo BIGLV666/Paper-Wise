@@ -16,6 +16,6 @@
 
 
     <select id="getUserById" resultType="org.example.paperwise.entry.User">
-        select * from user where userid=#{userid}
+        select * from user where user_id=#{userid}
     </select>
 </mapper>

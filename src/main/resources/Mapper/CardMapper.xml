@@ -3,13 +3,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.example.paperwise.Mapper.CardMapper">
     <select id="getCardById" resultType="org.example.paperwise.entry.Card">
-        select * from card where card_id=#{card_id} and userid=#{userid}
+        select * from card where card_id=#{card_id} and user_id=#{userid}
     </select>
     <select id="getAllQuestionType" resultType="java.util.Map">
-        select question_type,COUNT(*) as count from card where userid=#{userid} group BY question_type
+        select question_type,COUNT(*) as count from card where user_id=#{userid} group BY question_type
     </select>
-    <insert id="batchAddCard">
-        INSERT INTO card (userid, title, options, answer, explanation,
+    <insert id="batchAddCard" parameterType="list" useGeneratedKeys="true" keyProperty="cardId">
+        INSERT INTO card (user_id, title, options, answer, explanation,
         card_type, card_difficulty, card_mastery, question_type)
         VALUES
         <foreach collection="list" item="q" separator=",">
@@ -20,4 +20,10 @@
             #{q.cardType}, #{q.cardDifficulty}, #{q.cardMastery}, #{q.questionType})
         </foreach>
     </insert>
+    <select id="getCardCount" resultType="java.lang.Long">
+        select COUNT(*) from card where user_id=#{userid}
+    </select>
+    <select id="selectAll" resultType="org.example.paperwise.entry.Card">
+        select card.title,card.options,card.answer,card.explanation from card
+    </select>
 </mapper>

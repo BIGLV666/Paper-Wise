@@ -1,9 +1,9 @@
 package org.example.paperwise.Config;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.paperwise.Until.JwtUntil;
+import org.example.paperwise.Until.UserContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -26,7 +26,11 @@ public class LoginInterceptor implements HandlerInterceptor {
         }
         Long userid=jwtUntil.getUserIdFromToken(token);
         request.setAttribute("userid",userid);
+        UserContext.setUserId(userid);
         return true;
     }
-
+    @Override
+    public void afterCompletion( HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+        UserContext.clear();
+    }
 }

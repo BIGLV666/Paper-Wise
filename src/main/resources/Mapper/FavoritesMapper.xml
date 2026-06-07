@@ -9,6 +9,6 @@
         update favorites set like_count=like_count + #{likeCount} WHERE favorite_id=#{favoritesId}
     </update>
     <update id="decreaseLikeCount">
-        update favorites set like_count=like_count - 1 WHERE favorite_id=#{favoriteId} AND like_count>-1
+        update favorites set like_count=like_count - 1 WHERE favorite_id=#{favoriteId} AND like_count>0
     </update>
 </mapper>

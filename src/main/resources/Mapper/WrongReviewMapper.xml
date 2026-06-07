@@ -2,5 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.example.paperwise.Mapper.WrongReviewMapper">
-
+    <resultMap id="WrongReviewCardDtoMap" type="org.example.paperwise.Dto.WrongReviewCardDto">
+        <result column="wrongReviewId" property="wrongReviewId"/>
+        <result column="wrongQuestionId" property="wrongQuestionId"/>
+        <result column="wrongContent" property="wrongContent"/>
+        <result column="cardId" property="cardId"/>
+        <result column="title" property="title"/>
+        <result column="questionType" property="questionType"/>
+        <!-- 关键：指定 typeHandler 处理 JSON -->
+        <result column="options" property="options"
+                typeHandler="com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler"/>
+        <result column="answer" property="answer"
+                typeHandler="com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler"/>
+        <result column="explanation" property="explanation"/>
+    </resultMap>
+    <select id="getAllWrongReviewCardDto" resultMap="WrongReviewCardDtoMap">
+        select
+            wr.wrong_review_id AS wrongReviewId,
+            wq.wrong_question_id AS wrongQuestionId,
+            wq.wrong_count AS wrongContent,
+            c.card_id AS cardId,
+            c.title,
+            c.question_type AS questionType,
+            c.options,
+            c.answer,
+            c.explanation
+        FROM wrong_review wr
+        JOIN wrong_question wq ON wr.wrong_question_id=wq.wrong_question_id
+        JOIN card c ON wq.card_id = c.card_id
+        where wr.user_id=#{userId}
+          AND wr.next_review_time &lt;= now() and wr.stage &lt; 11
+        ORDER BY wr.next_review_time
+    </select>
+    <select id="getMasteredCount" resultType="java.lang.Long">
+        select Count(stage) from wrong_review where stage>10 AND user_id=#{user_id}
+    </select>
 </mapper>
