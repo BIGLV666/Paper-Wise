@@ -22,6 +22,10 @@ public class CardService {
     public Card getCardById(Long card_id) {
         return cardMapper.selectById(card_id);
     }
+
+
+
+
     public Card addCard(Card card,Long userid) {
         card.setUserid(userid);
         if(card.getTitle()==null||card.getAnswer()==null||card.getCardType()==null||card.getCardDifficulty()==null||card.getQuestionType()==null){
@@ -102,7 +106,10 @@ public class CardService {
     public List<Card> getAllCardsForCardIds(List<Long>cardIds) {
         return cardMapper.selectBatchIds(cardIds);
     }
-
+    //获取单个卡片
+    public Card getCardByCardId(Long card_id) {
+        return cardMapper.selectById(card_id);
+    }
 
 
 }

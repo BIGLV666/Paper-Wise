@@ -1,5 +1,6 @@
 package org.example.paperwise.entry;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
@@ -9,8 +10,9 @@ import java.time.LocalDateTime;
 public class Share {
     @TableId
     private String uuid;
+    @TableField(value = "user_id")
     private Long userid;
-    private Long favoriteId;
+    private Long favoritesId;
     private String favoritesName;
     private LocalDateTime expireTime;
     public Share() {}
@@ -19,13 +21,13 @@ public class Share {
         this.userid = userid;
         this.favoritesName = favoritesName;
         this.expireTime = expireTime;
-        this.favoriteId = favoriteId;
+        this.favoritesId = favoriteId;
     }
     public Share(String uuid,Long userid, String favoritesName,Long favoriteId){
         this.uuid = uuid;
         this.userid = userid;
         this.favoritesName = favoritesName;
         this.expireTime = LocalDateTime.now().plusDays(7);
-        this.favoriteId = favoriteId;
+        this.favoritesId = favoriteId;
     }
 }

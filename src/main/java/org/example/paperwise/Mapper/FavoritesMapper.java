@@ -9,5 +9,5 @@ import org.example.paperwise.entry.Favorites;
 public interface FavoritesMapper extends BaseMapper<Favorites> {
     int upLookCount(@Param("favoritesId")Long favoritesId,@Param("lookCount")Long lookCount);
     int upLikeCount(@Param("favoritesId")Long favoritesId,@Param("likeCount")Long likeCount);
-    int decreaseLikeCount(Long favoritesId);
+    int decreaseLikeCount(@Param("favoriteId") Long favoriteId);
 }

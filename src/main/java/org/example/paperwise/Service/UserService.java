@@ -1,15 +1,22 @@
 package org.example.paperwise.Service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import org.example.paperwise.Dto.UserStatusDto;
+import org.example.paperwise.Mapper.CardMapper;
 import org.example.paperwise.Mapper.UserMapper;
+import org.example.paperwise.Mapper.WrongReviewMapper;
+import org.example.paperwise.Mapper.WrongReviewStatsMapper;
 import org.example.paperwise.Until.EmailUntil;
 import org.example.paperwise.Until.JwtUntil;
 import org.example.paperwise.Until.PasswordEncoder;
 import org.example.paperwise.entry.User;
+import org.example.paperwise.entry.WrongReviewStats;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -25,6 +32,12 @@ public class UserService {
     private RedisTemplate<String,Object> redisTemplate;
     @Autowired
     private EmailUntil emailUntil;
+    @Autowired
+    private WrongReviewMapper wrongReviewMapper;
+    @Autowired
+    private CardMapper cardMapper;
+    @Autowired
+    private WrongReviewStatsMapper wrongReviewStatsMapper;
 
     private static final String USER_REGISTER_KEY="user_register";
     private static final String USER_UPDATE_PASSWORD_EMAIL_KEY="user_update_password_email";
@@ -146,6 +159,32 @@ public class UserService {
         User user=(User) map.get("user");
         int r= userMapper.updateById(user);
         return r == 1;
+    }
+    public UserStatusDto getUserById(Long userid) {
+        User user=userMapper.getUserById(userid);
+        if(user==null) {
+            throw new RuntimeException("用户不存在");
+        }
+        Long masterCount=wrongReviewMapper.getMasteredCount(userid);
+        QueryWrapper<WrongReviewStats> queryWrapper=new QueryWrapper<>();
+        queryWrapper.eq("user_id",userid).eq("day", LocalDate.now());
+        WrongReviewStats wrongReviewStats=wrongReviewStatsMapper.selectOne(queryWrapper);
+        Long ReviewCount;
+        if(wrongReviewStats == null) {
+            ReviewCount=0L;
+        }
+        else {
+            ReviewCount=wrongReviewStats.getTotalReviewCount();
+        }
+        Long CardCount=cardMapper.getCardCount(userid);
+        UserStatusDto userStatusDto=new UserStatusDto();
+        userStatusDto.setCardCount(CardCount);
+        userStatusDto.setMasteredCount(masterCount);
+        userStatusDto.setUserid(userid);
+        userStatusDto.setUsername(user.getUsername());
+        userStatusDto.setEmail(user.getEmail());
+        userStatusDto.setReviewCount(ReviewCount);
+        return userStatusDto;
     }
 
 }

@@ -11,6 +11,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
@@ -39,7 +40,11 @@ public class ShareService {
         if(shareFavoritesDto == null){
             throw new  RuntimeException("未找到该收藏夹，或该收藏夹已过期");
         }
-        shareFavoritesDto.setExpireTime(DataUtile.formatDate(LocalDateTime.parse(shareFavoritesDto.getExpireTime())));
+
+
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        shareFavoritesDto.setExpireTime(DataUtile.formatDate(LocalDateTime.parse(shareFavoritesDto.getExpireTime(),formatter)));
         return shareFavoritesDto;
     }
     //添加浏览量

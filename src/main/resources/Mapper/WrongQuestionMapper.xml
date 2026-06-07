@@ -8,7 +8,6 @@
             wq.card_id AS cardId,
             wq.wrong_count,
             wq.wrong_question_category,
-            wq.status ,
             c.title,
             c.question_type
         FROM wrong_question wq

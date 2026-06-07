@@ -14,5 +14,6 @@ public interface CardMapper extends BaseMapper<Card> {
 
     List<Map<String,Integer>> getAllQuestionType(Long userid);
     int batchAddCard(@Param("list") List<Card> cards);
-
+    Long getCardCount(Long userid);
+    List<Card>selectAll();
 }

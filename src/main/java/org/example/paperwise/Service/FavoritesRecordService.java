@@ -21,7 +21,7 @@ public class FavoritesRecordService {
     @Autowired
     private RedisTemplate<String,Object> redisTemplate;
     private static final String FAVORITES_LIKE_COUNT_KEY = "favorites_like_count";
-
+    private static final String RANK_FAVORITES_KEY="rank_favorites_key";
 
     /**
      * 自己的喜欢
@@ -35,20 +35,24 @@ public class FavoritesRecordService {
     //取消点赞
     @Transactional
     public void deleteLike(Long userId, Long FavoritesId) {
+        redisTemplate.delete(FAVORITES_LIKE_COUNT_KEY+FavoritesId+":"+userId);
         int r1 = favoritesLikeRecordMapper.deleteLike(userId,FavoritesId);
         int r2= favoritesMapper.decreaseLikeCount(FavoritesId);
-        if(r1==0||r2==0){
-            throw new RuntimeException("取消失败");
-        }
+
     }
 
 
     //点赞
-    public void upLikeCount(Long userId,Long favoritesId){
-        if(favoritesLikeRecordMapper.findByUserId(userId,favoritesId)!=0){
+    public void upLikeCount(Long userId,Long favoriteId){
+        if(favoritesLikeRecordMapper.findByUserId(userId,favoriteId)!=0||redisTemplate.opsForValue().get(FAVORITES_LIKE_COUNT_KEY +favoriteId+":"+userId)!=null){
             throw new RuntimeException("您已为该收藏夹点过赞了");
         }
-        redisTemplate.opsForValue().increment(FAVORITES_LIKE_COUNT_KEY +favoritesId+":"+userId ,1);
+        redisTemplate.opsForZSet().incrementScore(RANK_FAVORITES_KEY,favoriteId.toString(),1);
+        redisTemplate.opsForValue().increment(FAVORITES_LIKE_COUNT_KEY +favoriteId+":"+userId ,1);
     }
-
+    //检查点赞状态
+    public boolean checkLikeStatus(Long userId,Long favoriteId){
+        System.out.println("----------------------------------------------");
+        return favoritesLikeRecordMapper.findByUserId(userId, favoriteId) == 0 && redisTemplate.opsForValue().get(FAVORITES_LIKE_COUNT_KEY + favoriteId + ":" + userId) == null;
+    }
 }

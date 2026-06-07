@@ -1,5 +1,8 @@
 package org.example.paperwise.Dto;
 
+import lombok.Data;
+
+@Data
 public class LikeFavoritesDto {
     private Long favoritesId;
     private Long userId;

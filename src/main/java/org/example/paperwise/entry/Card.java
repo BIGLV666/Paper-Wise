@@ -11,7 +11,6 @@ import org.example.paperwise.enums.CardDifficulty;
 import org.example.paperwise.enums.CardMastery;
 import org.example.paperwise.enums.CardType;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -19,8 +18,9 @@ import java.util.List;
 @TableName(value="card",autoResultMap=true)
 @NoArgsConstructor
 public class Card {
-    @TableId(type = IdType.AUTO)
+    @TableId(type = IdType.AUTO,value = "card_id")
     private Long cardId;
+    @TableField(value = "user_id")
     private Long userid;
     private String title;
     @TableField(typeHandler = JacksonTypeHandler.class)
@@ -34,9 +34,18 @@ public class Card {
     private CardDifficulty cardDifficulty;
     private CardMastery cardMastery;
 
-    private Integer reviewCount;
 
     private LocalDateTime createTime;
-    private LocalDate nextReviewDate;
 
+    public Card (AiGeneratedCard aiGeneratedCard) {
+        this.userid = aiGeneratedCard.getUserId();
+        this.title = aiGeneratedCard.getTitle();
+        this.options = aiGeneratedCard.getOptions();
+        this.answer = aiGeneratedCard.getAnswer();
+        this.explanation = aiGeneratedCard.getExplanation();
+        this.questionType = aiGeneratedCard.getQuestionType();
+        this.cardType = aiGeneratedCard.getCardType();
+        this.cardDifficulty = aiGeneratedCard.getCardDifficulty();
+        this.cardMastery = aiGeneratedCard.getCardMastery();
+    }
 }

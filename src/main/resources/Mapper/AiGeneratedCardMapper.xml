@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.paperwise.Mapper.AiGeneratedCardMapper">
+    <insert id="batchInsert" parameterType="list">
+        INSERT INTO ai_generated_card (
+        session_id,
+        status,
+        user_id,
+        title,
+        options,
+        answer,
+        explanation,
+        card_type,
+        card_difficulty,
+        card_mastery,
+        question_type,
+        name,
+        create_time
+
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.sessionId},
+            #{item.status},
+            #{item.userId},
+            #{item.title},
+            #{item.options, typeHandler=com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler},
+            #{item.answer},
+            #{item.explanation},
+            #{item.cardType},
+            #{item.cardDifficulty},
+            #{item.cardMastery},
+            #{item.questionType},
+            #{item.name},
+            NOW()
+            )
+        </foreach>
+    </insert>
+
+
+    <update id="batchUpdateStatus" parameterType="list">
+        UPDATE ai_generated_card
+        SET status = 'HANDLED'
+        WHERE ai_generated_card_d IN
+        <foreach collection="list" item="card" open="(" close=")" separator=",">
+            #{card.aiGeneratedCardId}
+        </foreach>
+    </update>
+    <select id="getAllHistoryRecord" resultType="org.example.paperwise.entry.AiGeneratedCard">
+        SELECT
+            ai_generated_card_d AS aiGeneratedCardId,
+            name
+        FROM ai_generated_card
+        WHERE user_id = #{user_id} AND status='HANDLED'
+        ORDER BY name, create_time DESC
+
+    </select>
+</mapper>

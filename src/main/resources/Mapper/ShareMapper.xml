@@ -2,24 +2,43 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.example.paperwise.Mapper.ShareMapper">
+
+
+    <resultMap id="ShareFavoritesResultMap" type="org.example.paperwise.Dto.ShareFavoritesDto">
+        <result column="shareId" property="shareId"/>
+        <result column="userId" property="userId"/>
+        <result column="username" property="username"/>
+        <result column="favoritesName" property="favoritesName"/>
+        <result column="favoritesId" property="favoritesId"/>
+        <result column="lookCount" property="lookCount"/>
+        <result column="likeCount" property="likeCount"/>
+        <result column="expireTime" property="expireTime"/>
+        <!-- 关键：使用 JacksonTypeHandler 处理 JSON 字段 -->
+        <result column="cardIds" property="cardIds"
+                typeHandler="com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler"
+                jdbcType="BLOB"/>
+    </resultMap>
+
     <select id="getAllShare" resultType="org.example.paperwise.entry.Share">
         select *from share where expire_time>now()
         LIMIT #{offset}, #{size}
     </select>
-    <select id="getShareFavorites" resultType="org.example.paperwise.Dto.ShareFavoritesDto">
+    <select id="getShareFavorites" resultMap="ShareFavoritesResultMap">
         SELECT
-            s.uuid AS shareID,
+            s.uuid AS shareId,
             f.user_id AS userId,
             u.username,
             f.favorite_name AS favoritesName,
-            f.card_id AS cardIds,
+            f.favorite_id AS favoritesId,
+            f.card_ids AS cardIds ,
             f.look_count AS lookCount,
             f.like_count AS likeCount,
             s.expire_time AS expireTime
+
         FROM share s
         JOIN favorites f ON f.favorite_id=s.favorites_id
-        JOIN user u ON u.userid=f.user_id
-        WHERE s.uuid=#{shareId} AND s.expire_time>now()
+        JOIN user u ON u.user_id=f.user_id
+        WHERE s.uuid=#{shareId} AND s.expire_time>now() AND f.is_public=1
 
     </select>
 

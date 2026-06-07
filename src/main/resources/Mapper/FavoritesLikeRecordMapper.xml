@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.example.paperwise.Mapper.FavoritesLikeRecordMapper">
     <select id="findByUserId" resultType="java.lang.Integer">
-        select COUNT(*) from favorites_like_record where userid=#{userId} AND favorites_id=#{favoritesId}
+        select COUNT(*) from favorites_like_record where user_id=#{userId} AND favorites_id=#{favoritesId}
     </select>
     <select id="getLikeFavoritesDto" resultType="org.example.paperwise.Dto.LikeFavoritesDto">
         select
@@ -16,10 +16,10 @@
 
         FROM favorites_like_record flr
         JOIN favorites f ON f.favorite_id=flr.favorites_id
-        JOIN user u ON u.userid=f.user_id
-        where flr.userid=#{userId}
+        JOIN user u ON u.user_id=f.user_id
+        where flr.user_id=#{userId}
     </select>
     <delete id="deleteLike">
-        delete from favorites_like_record where favorites_id=#{favoriteId} AND userid=#{userId}
+        delete from favorites_like_record where favorites_id=#{favoritesId} AND user_id=#{userId}
     </delete>
 </mapper>
