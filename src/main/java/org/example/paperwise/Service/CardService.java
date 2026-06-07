@@ -2,26 +2,38 @@ package org.example.paperwise.Service;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
+import org.example.paperwise.Mapper.CardInFavoritesRecordMapper;
 import org.example.paperwise.Mapper.CardMapper;
+import org.example.paperwise.Mapper.FavoritesMapper;
 import org.example.paperwise.entry.Card;
+import org.example.paperwise.entry.CardInFavoritesRecord;
+import org.example.paperwise.entry.Favorites;
 import org.example.paperwise.enums.CardMastery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
 public class CardService {
     @Autowired
     private CardMapper cardMapper;
+    @Autowired
+    private FavoritesMapper favoritesMapper;
     public Card getCardById(Long card_id) {
         return cardMapper.selectById(card_id);
     }
+    @Autowired
+    private CardInFavoritesRecordMapper cardInFavoritesRecordMapper;
 
 
 
@@ -54,7 +66,9 @@ public class CardService {
         }
         return card;
     }
+    @Transactional
     public boolean deleteCard(Long card_id,Long userid) {
+
         Card card=cardMapper.selectById(card_id);
         if(card==null){
             throw new RuntimeException("not found your card");
@@ -62,7 +76,32 @@ public class CardService {
         if(!Objects.equals(card.getUserid(), userid)){
             throw new RuntimeException("不能操作他人卡片");
         }
+
+
+        QueryWrapper<CardInFavoritesRecord> qw=new QueryWrapper<>();
+        List<CardInFavoritesRecord> records=  cardInFavoritesRecordMapper.selectList(qw.eq("card_id",card_id));
+        if(records!=null){
+            List<Long> favoritesIds = records.stream()
+                    .map(CardInFavoritesRecord::getFavoritesId)
+                    .collect(Collectors.toList());
+
+            List<Favorites>favorites=favoritesMapper.selectBatchIds(favoritesIds);
+            for(Favorites f:favorites){
+                List<Long>cardIds=new ArrayList<>(f.getCardIds());
+                cardIds.remove(card_id);
+                f.setCardIds(cardIds);
+                favoritesMapper.updateById(f);
+            }
+        }
+        if (records != null) {
+            cardInFavoritesRecordMapper.deleteBatchIds(records.stream()
+                    .map(CardInFavoritesRecord::getCardInFavoritesRecordId)
+                    .collect(Collectors.toList()));
+        }
+
         int r=cardMapper.deleteById(card_id);
+
+
         return r==1;
     }
     public List<Map<String,Integer>> getAllQuestionType(Long userid) {

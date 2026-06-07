@@ -105,4 +105,29 @@ CREATE Table wrong_review_stats(
     UNIQUE KEY uk_userid_day (user_id,day)
 
 );
-
+CREATE TABLE chat_message(
+    chat_message_id BIGINT AUTO_INCREMENT PRIMARY KEY ,
+    user_id BIGINT not null ,
+    role VARCHAR(10) not null ,
+    session_id VARCHAR(100) not null,
+    content TEXT not null ,
+    create_time DATETIME DEFAULT (CURRENT_TIMESTAMP),
+    INDEX idx_session_id(session_id),
+    INDEX idx_create_time(create_time)
+);
+CREATE TABLE chat_session(
+    session_id VARCHAR(100) PRIMARY KEY ,
+    user_id BIGINT not null ,
+    title VARCHAR(100) not null ,
+    create_time DATETIME DEFAULT (CURRENT_TIMESTAMP),
+    update_time DATETIME DEFAULT (CURRENT_TIMESTAMP),
+    INDEX idx_user_id(user_id),
+    INDEX idx_update_time(update_time)
+);
+CREATE TABLE card_in_favorites_record(
+    card_in_favorites_record_id BIGINT AUTO_INCREMENT PRIMARY KEY ,
+    card_id BIGINT not null ,
+    favorites_id BIGINT NOT NULL ,
+    UNIQUE key un_card_favorites(card_id,favorites_id),
+    index idx_favorites_id(favorites_id)
+);

@@ -3,10 +3,12 @@ package org.example.paperwise.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.example.paperwise.Mapper.AiGeneratedCardMapper;
+import org.example.paperwise.Mapper.CardInFavoritesRecordMapper;
 import org.example.paperwise.Mapper.CardMapper;
 import org.example.paperwise.Mapper.FavoritesMapper;
 import org.example.paperwise.entry.AiGeneratedCard;
 import org.example.paperwise.entry.Card;
+import org.example.paperwise.entry.CardInFavoritesRecord;
 import org.example.paperwise.entry.Favorites;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +31,8 @@ public class AiGeneratedCardService {
     private FavoritesMapper favoritesMapper;
     @Autowired
     private PdfService pdfService;
+    @Autowired
+    private CardInFavoritesRecordMapper cardInFavoritesRecordMapper;
 
 
     public Map<String,List<AiGeneratedCard> >getAiGeneratedCardBySessionId( Long userId) {
@@ -75,8 +79,15 @@ public class AiGeneratedCardService {
         }
         favorites.setCardIds(cardIds);
         int r=favoritesMapper.updateById(favorites);
+
+        List<CardInFavoritesRecord> records=new ArrayList<>();
+        for(Long cardId:cardIds){
+            records.add(new CardInFavoritesRecord(cardId,favoriteId));
+        }
+        int r3=cardInFavoritesRecordMapper.batchInsert(records);
+
         int r1= aiGeneratedCardMapper.batchUpdateStatus(aiGeneratedCards);
-        if(r2==0||0==r||r1==0){
+        if(r2==0||0==r||r1==0||r3==0){
             throw new RuntimeException("添加失败");
         }
         return r2;

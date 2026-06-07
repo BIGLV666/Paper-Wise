@@ -1,8 +1,6 @@
 package org.example.paperwise.Config;
 
 import dev.langchain4j.data.segment.TextSegment;
-import dev.langchain4j.memory.ChatMemory;
-import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.embedding.EmbeddingModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
@@ -22,7 +20,7 @@ import java.time.Duration;
 public class LangChainConfig {
 
     // 嵌入模型（用于向量化）
-    //@Bean
+    @Bean
     public EmbeddingModel embeddingModel() {
         return OllamaEmbeddingModel.builder()
                 .baseUrl("http://localhost:11434")
@@ -43,12 +41,9 @@ public class LangChainConfig {
     }
 
 
-    @Bean
-    public ChatMemory chatMemory() {
-        return MessageWindowChatMemory.withMaxMessages(10);  // 记住最近10条
-    }
 
-    // 向量存储（内存版）
+
+    //向量存储（内存版）
     @Bean
     public EmbeddingStore<TextSegment> embeddingStore() {
         return new InMemoryEmbeddingStore<>();
@@ -58,7 +53,6 @@ public class LangChainConfig {
         System.out.println("工具已注册");
         return AiServices.builder(AiService.class)
                 .chatModel(model)
-                .chatMemory(chatMemory())
                 .tools(tools)
                 .build();
     }

@@ -17,6 +17,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -82,14 +83,13 @@ public class PdfService {
         """ + text;
     }
 
-    private Object[] getText(MultipartFile file) throws IOException {
-        try (PDDocument document = PDDocument.load(file.getInputStream())) {
+    private Object[] getTextFromBytes(byte[] fileBytes, String fileName) throws IOException {
+        try (ByteArrayInputStream bais = new ByteArrayInputStream(fileBytes);
+             PDDocument document = PDDocument.load(bais)) {
             PDFTextStripper stripper = new PDFTextStripper();
             String text = stripper.getText(document);
-            String name = file.getOriginalFilename();
-            return new Object[]{text,name};
-        }
-    }
+            return new Object[]{text, fileName};
+        }}
 
     public List<AiGeneratedCard> parseCards(String aiResponse, Long userId,String sessionId,String name) {
         try {
@@ -141,24 +141,42 @@ public class PdfService {
         }
         throw new RuntimeException("AI 响应中没有找到 JSON 数组");
     }
-    @Async
     public void generateFromPdf(Long userId, MultipartFile file, String sessionId) throws IOException {
-        java.lang.Object [] val =  getText(file);
-        String text =(String) val[0];
-        String name =(String) val[1];
+        // 在同步上下文中读取文件内容
+        byte[] fileBytes = file.getBytes();
+        String fileName = file.getOriginalFilename();
 
-        log.info("用户ID为{},PDF 文本长度: {}",userId, text.length());
+        // 调用异步方法处理
+        asyncProcessPdf(userId, fileBytes, fileName, sessionId);
 
-        String prompt = buildPrompt(text);
-        String aiResponse = qianwenService.chat(prompt);
-        log.info("AI 响应长度: {}", aiResponse.length());
+    }
 
-        List<AiGeneratedCard> cards = parseCards(aiResponse, userId,sessionId,name);
-        if (cards != null && !cards.isEmpty()) {
-            aiGeneratedCardMapper.batchInsert(cards);
-            log.info("成功生成 {} 张卡片", cards.size());
+    @Async
+    public void asyncProcessPdf(Long userId, byte[] fileBytes, String fileName, String sessionId) {
+        try {
+            // 使用 byte[] 处理 PDF
+            Object[] val = getTextFromBytes(fileBytes, fileName);
+            String text = (String) val[0];
+            String name = (String) val[1];
+
+            log.info("用户ID为{}, PDF 文本长度: {}", userId, text.length());
+
+            String prompt = buildPrompt(text);
+            String aiResponse = qianwenService.chat(prompt);
+            log.info("AI 响应长度: {}", aiResponse.length());
+
+            List<AiGeneratedCard> cards = parseCards(aiResponse, userId, sessionId, name);
+            if (cards != null && !cards.isEmpty()) {
+                aiGeneratedCardMapper.batchInsert(cards);
+                log.info("成功生成 {} 张卡片", cards.size());
+            }
+        } catch (Exception e) {
+            log.error("PDF 处理失败", e);
         }
     }
+
+
+
     @Async
     public void generateFromText(Long userId, String text,String sessionId,String name) {
         String prompt = buildPrompt(text);

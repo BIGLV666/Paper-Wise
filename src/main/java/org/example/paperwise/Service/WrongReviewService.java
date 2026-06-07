@@ -68,7 +68,7 @@ public class WrongReviewService {
     //获取当日复习计划
     @Transactional
     public WrongReviewStats getWrongReviewStats(Long userId){
-        WrongReviewDto  wrongReviewDto =(WrongReviewDto) redisTemplate.opsForValue().get(WRONG_REVIEW_KEY+userId);
+        WrongReviewDto  wrongReviewDto =(WrongReviewDto) redisTemplate.opsForValue().get(WRONG_REVIEW_KEY+"--"+"userId"+userId);
         //WrongReviewDto  wrongReviewDto=new WrongReviewDto();
         if(wrongReviewDto==null){
 
@@ -77,7 +77,7 @@ public class WrongReviewService {
             wrongReviewDto = new WrongReviewDto();
             wrongReviewDto.setWrongReviewCardDtos(wrongReviewCardDtos);
             wrongReviewDto.setTotal(wrongReviewCardDtos.size());
-            redisTemplate.opsForValue().set(WRONG_REVIEW_KEY+userId,wrongReviewDto,30, TimeUnit.MINUTES);
+            redisTemplate.opsForValue().set(WRONG_REVIEW_KEY+"--"+"userId"+userId,wrongReviewDto,30, TimeUnit.MINUTES);
         }
         System.out.println(wrongReviewDto);
         WrongReviewStats wrongReviewStats = wrongReviewStatsMapper.getWrongReviewStatsByDay(userId);
@@ -132,7 +132,7 @@ public class WrongReviewService {
      *}
      */
     public WrongReviewDto getWrongReviewDto(Long userId) {
-        WrongReviewDto  wrongReviewDto =(WrongReviewDto) redisTemplate.opsForValue().get(WRONG_REVIEW_KEY+userId);
+        WrongReviewDto  wrongReviewDto =(WrongReviewDto) redisTemplate.opsForValue().get(WRONG_REVIEW_KEY+"--"+"userId"+userId);
         if(wrongReviewDto!=null){
             return wrongReviewDto;
         }
@@ -140,7 +140,7 @@ public class WrongReviewService {
         wrongReviewDto = new WrongReviewDto();
         wrongReviewDto.setWrongReviewCardDtos(wrongReviewCardDtos);
         wrongReviewDto.setTotal(wrongReviewCardDtos.size());
-        redisTemplate.opsForValue().set(WRONG_REVIEW_KEY+userId,wrongReviewDto,30, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(WRONG_REVIEW_KEY+"--"+"userId"+userId,wrongReviewDto,30, TimeUnit.MINUTES);
 
         return wrongReviewDto;
     }
@@ -151,7 +151,7 @@ public class WrongReviewService {
 
     //从缓存移出
     private void removeFromRedisCache(Long userId, Long wrongReviewId) {
-        String key = WRONG_REVIEW_KEY + userId;
+        String key = WRONG_REVIEW_KEY+"--"+"userId"+userId;
         Object cached = redisTemplate.opsForValue().get(key);
         if (cached instanceof WrongReviewDto) {
             WrongReviewDto dto = (WrongReviewDto) cached;

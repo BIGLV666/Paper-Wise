@@ -85,21 +85,21 @@ public class UserService {
         String code=getRegisterCode();
         map.put("code",code);
         map.put("user",user);
-        redisTemplate.opsForValue().set(USER_REGISTER_KEY+email,map,5, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(USER_REGISTER_KEY+"--"+"email"+email,map,5, TimeUnit.MINUTES);
         String context="您的验证码为"+code+"有效期5分钟";
         emailUntil.sendActivationEmail(email,"邮箱验证码",context);
         return true;
 
     }
     public boolean activation(String email,String code){
-        Map map= (Map) redisTemplate.opsForValue().get(USER_REGISTER_KEY+email);
+        Map map= (Map) redisTemplate.opsForValue().get(USER_REGISTER_KEY+"--"+"email"+email);
         if(map==null) {
             throw new RuntimeException("not find user");
         }
         if(map.get("code").equals(code)) {
             User user=(User) map.get("user");
             userMapper.addUser(user);
-            redisTemplate.delete(USER_REGISTER_KEY+email);
+            redisTemplate.delete(USER_REGISTER_KEY+"--"+"email"+email);
             return true;
         }
         return false;
@@ -138,7 +138,7 @@ public class UserService {
         Map<String,Object> map=new HashMap<>();
         map.put("user",user);
         map.put("code",code);
-        redisTemplate.opsForValue().set(USER_UPDATE_PASSWORD_EMAIL_KEY+userid,map,5, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(USER_UPDATE_PASSWORD_EMAIL_KEY+"--"+"userid"+userid,map,5, TimeUnit.MINUTES);
 
         String context="您的验证码为"+code+"有效期5分钟";
         emailUntil.sendActivationEmail(email,"邮箱验证码",context);
@@ -149,7 +149,7 @@ public class UserService {
         if( userid == null) {
             throw new RuntimeException("email error");
         }
-        Map<String,Object> map=(Map<String, Object>) redisTemplate.opsForValue().get(USER_UPDATE_PASSWORD_EMAIL_KEY+userid);
+        Map<String,Object> map=(Map<String, Object>) redisTemplate.opsForValue().get(USER_UPDATE_PASSWORD_EMAIL_KEY+"--"+"userid"+userid);
         if(map==null) {
             throw new RuntimeException("not find user");
         }
