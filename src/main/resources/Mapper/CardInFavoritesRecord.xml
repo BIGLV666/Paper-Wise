@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.paperwise.Mapper.CardInFavoritesRecordMapper">
+    <insert id="batchInsert" parameterType="list">
+        INSERT INTO card_in_favorites_record (
+        card_id,
+        favorites_id
+
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+             #{item.cardId},
+             #{item.favoritesId}
+            )
+        </foreach>
+    </insert>
+
+</mapper>

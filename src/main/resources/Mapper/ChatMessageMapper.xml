@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.paperwise.Mapper.ChatMessageMapper">
+    <select id="getRecentBySessionId" resultType="org.example.paperwise.entry.ChatMessage">
+        select * from chat_message where session_id=#{sessionId} AND user_id=#{userId} ORDER BY create_time DESC
+        LIMIT #{limit}
+    </select>
+    <select id="getAllHistoryMessages" resultType="org.example.paperwise.entry.ChatMessage">
+        select * from chat_message where session_id=#{sessionId} AND user_id=#{userId} ORDER BY create_time DESC
+    </select>
+    <delete id="deleteHistory">
+        delete from chat_message  WHERE session_id=#{sessionId} AND user_id=#{userId}
+    </delete>
+</mapper>

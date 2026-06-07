@@ -1,11 +1,14 @@
 package org.example.paperwise.Service;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.example.paperwise.Mapper.CardInFavoritesRecordMapper;
 import org.example.paperwise.Mapper.CardMapper;
 import org.example.paperwise.Mapper.FavoritesMapper;
 import org.example.paperwise.Mapper.ShareMapper;
 import org.example.paperwise.entry.Card;
+import org.example.paperwise.entry.CardInFavoritesRecord;
 import org.example.paperwise.entry.Favorites;
 import org.example.paperwise.entry.Share;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class FavoritesService {
@@ -30,6 +31,8 @@ public class FavoritesService {
     private CardMapper cardMapper;
     @Autowired
     private RedisTemplate<String,Object> redisTemplate;
+    @Autowired
+    private CardInFavoritesRecordMapper cardInFavoritesRecordMapper;
 
     private static final String FAVORITES_LOOK_COUNT_KEY = "favorites_look_count";
 
@@ -40,6 +43,7 @@ public class FavoritesService {
     }
 
     //初始化收藏夹
+    @Transactional
     public Favorites createFavorites(Long userid,String favoritesName) {
         Favorites favorites = new Favorites();
         favorites.setUserid(userid);
@@ -54,7 +58,15 @@ public class FavoritesService {
     }
 
     //添加题目
+    @Transactional
     public Favorites addCard(Long favoritesId,Long userid,Long cardId) {
+        QueryWrapper<CardInFavoritesRecord> q=new QueryWrapper<>();
+        q.eq("card_id",cardId);
+        CardInFavoritesRecord cq=cardInFavoritesRecordMapper.selectOne(q);
+        if(cq==null){
+            CardInFavoritesRecord c=new CardInFavoritesRecord(cardId,favoritesId);
+            cardInFavoritesRecordMapper.insert(c);
+        }
         Favorites favorites=favoritesMapper.selectOne(new QueryWrapper<Favorites>().eq("favorite_id",favoritesId));
         if(favorites==null){
             throw new RuntimeException("未找到该收藏夹");
@@ -75,6 +87,7 @@ public class FavoritesService {
         return favorites;
     }
     //删除仓库
+    @Transactional
     public void deleteFavorites(Long favoritesId, Long userid) {
         Favorites favorites=favoritesMapper.selectById(favoritesId);
         if(favorites==null){
@@ -83,13 +96,21 @@ public class FavoritesService {
         if(!(Objects.equals(favorites.getUserid(), userid))){
             throw new RuntimeException("不能删除他人的收藏夹");
         }
+
+
+        List<Long> cardIdList = favorites.getCardIds();
+        QueryWrapper<CardInFavoritesRecord> q=new QueryWrapper<>();
+        q.eq("favorites_id",favoritesId).in("card_id",cardIdList);
+        int r1=cardInFavoritesRecordMapper.delete(q);
+
         int r=favoritesMapper.deleteById(favoritesId);
+
         if(r==0){
             throw new RuntimeException("删除失败");
         }
-
     }
     //删除卡片
+    @Transactional
     public Favorites deleteCard(Long favoritesId,Long userid,Long cardId) {
         Favorites favorites=favoritesMapper.selectById(favoritesId);
         if(favorites==null){
@@ -102,6 +123,15 @@ public class FavoritesService {
         if(!f){
             throw new RuntimeException("未找到该题目");
         }
+        List<Long> cardIdList = new ArrayList<>(favorites.getCardIds());
+        cardIdList.remove(cardId);
+        favorites.setCardIds(cardIdList);
+
+        QueryWrapper<CardInFavoritesRecord> qw=new QueryWrapper<>();
+        qw.eq("card_id",cardId);
+        qw.eq("favorites_id",favoritesId);
+        cardInFavoritesRecordMapper.delete(qw);
+
         favoritesMapper.updateById(favorites);
         return favorites;
     }
@@ -175,10 +205,11 @@ public class FavoritesService {
     //添加浏览量
     public void upLookCount(Long favoritesId){
 
-        redisTemplate.opsForValue().increment(FAVORITES_LOOK_COUNT_KEY+favoritesId,1);
+        redisTemplate.opsForValue().increment(FAVORITES_LOOK_COUNT_KEY+"--"+"favoritesId"+"--"+favoritesId,1);
     }
 
     //复制他人收藏夹
+    @Transactional
     public Favorites CopyFavorites(Long favoritesId,Long userid){
         Favorites favorites=favoritesMapper.selectById(favoritesId);
         if(favorites==null){
@@ -187,6 +218,13 @@ public class FavoritesService {
         if(favorites.getIsPublic()==0){
             throw new RuntimeException("该收藏夹是私有的");
         }
+
+
+        List<CardInFavoritesRecord> records=cardInFavoritesRecordMapper.selectList(new QueryWrapper<CardInFavoritesRecord>().eq("favorites_id",favoritesId));
+
+
+
+
         Favorites copy=new Favorites();
         copy.setUserid(userid);
         copy.setFavoriteName(favorites.getFavoriteName());
@@ -196,29 +234,54 @@ public class FavoritesService {
         copy.setIsPublic(0);
         copy.setCreateTime(LocalDate.now());
         int r=favoritesMapper.insert(copy);
-        if(r==0){
+
+        for(CardInFavoritesRecord record:records){
+            record.setFavoritesId(copy.getFavoriteId());
+            record.setCardInFavoritesRecordId(null);
+        }
+        int r1=cardInFavoritesRecordMapper.batchInsert(records);
+        if(r==0||r1==0){
             throw new RuntimeException("复制失败");
         }
+
+
         return copy;
     }
     //批量添加题目到收藏
+    @Transactional
     public Favorites addAllCard(Long favoriteId, Long userid, List<Long> cardIds){
         Favorites favorites=favoritesMapper.selectById(favoriteId);
+
         if(favorites==null){
             throw new RuntimeException("未找到该收藏");
         }
         if(!favorites.getUserid().equals(userid)){
             throw new RuntimeException("不能操作他人收藏");
         }
+
+
         List<Long> cardIdList=new ArrayList<>(favorites.getCardIds());
-        for(Long cardId:cardIds){
-            if(!cardIdList.contains(cardId)){
-                cardIdList.add(cardId);
-            }
-        }
+
+        // 获取已存在的卡片ID
+        Set<Long> existingIds = cardInFavoritesRecordMapper.selectList(
+                new LambdaQueryWrapper<CardInFavoritesRecord>()
+                        .eq(CardInFavoritesRecord::getFavoritesId, favoriteId)
+                        .in(CardInFavoritesRecord::getCardId, cardIds)
+        ).stream().map(CardInFavoritesRecord::getCardId).collect(Collectors.toSet());
+
+        // 过滤出新卡片
+        List<CardInFavoritesRecord> newRecords = cardIds.stream()
+                .filter(id -> !existingIds.contains(id))
+                .map(id -> new CardInFavoritesRecord(id, favoriteId))
+                .collect(Collectors.toList());
+
+        List<Long>newCardId=newRecords.stream().map(CardInFavoritesRecord::getCardId).toList();
+        cardIdList.addAll(newCardId);
         favorites.setCardIds(cardIdList);
+
+        int r1= cardInFavoritesRecordMapper.batchInsert(newRecords);
         int r=favoritesMapper.updateById(favorites);
-        if(r==0){
+        if(r==0||r1==0){
             throw new RuntimeException("添加失败");
         }
         return favorites;

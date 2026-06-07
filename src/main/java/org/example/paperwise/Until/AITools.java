@@ -15,7 +15,8 @@ public class AITools {
     @Autowired
     private WrongQuestionService wrongQuestionService;
 
-    @Tool(name = "getWrongQuestions",value = "获取用户的错题列表。返回每个错题的题目、错题次数。只要记录存在就代表是错题")
+
+    @Tool(name = "getWrongQuestions",value = "这个可以获取用户所有的错题，因为他是用户的错题集，用户提及我的错题或者和错相关可以调用")
     public List<WrongCardDto> getWrongQuestionDto() {
 
         Long userId = UserContext.getUserId();

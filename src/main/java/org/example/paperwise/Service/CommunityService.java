@@ -50,7 +50,7 @@ public class CommunityService {
 
     //获取排行榜前10
     public List<Favorites> getAllFavoritesTop(){
-        Set<Object>ids=redisTemplate.opsForZSet().reverseRange(RANK_FAVORITES_KEY,0,11);
+        Set<Object>ids=redisTemplate.opsForZSet().reverseRange(RANK_FAVORITES_KEY,0,9);
         if (ids == null || ids.isEmpty()) return new ArrayList<>();
         List<Long>idList=ids.stream().map(id->Long.valueOf(id.toString())).toList();
         List<Favorites> favoritesList=favoritesMapper.selectBatchIds(idList);

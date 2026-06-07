@@ -50,7 +50,7 @@ public class ShareService {
     //添加浏览量
     public void upLookCount(Long favoritesId){
 
-        redisTemplate.opsForValue().increment(FAVORITES_LOOK_COUNT_KEY+favoritesId ,1);
+        redisTemplate.opsForValue().increment(FAVORITES_LOOK_COUNT_KEY+"--"+"favoritesId"+favoritesId ,1);
     }
 
 }
