@@ -51,7 +51,16 @@ public class CommunityService {
     //获取排行榜前10
     public List<Favorites> getAllFavoritesTop(){
         Set<Object>ids=redisTemplate.opsForZSet().reverseRange(RANK_FAVORITES_KEY,0,9);
-        if (ids == null || ids.isEmpty()) return new ArrayList<>();
+
+        System.out.println(ids);
+        if (ids == null || ids.isEmpty()) {
+            rank();
+            ids=redisTemplate.opsForZSet().reverseRange(RANK_FAVORITES_KEY,0,9);
+            if(ids == null || ids.isEmpty()) {
+                return new ArrayList<>();
+            }
+        }
+
         List<Long>idList=ids.stream().map(id->Long.valueOf(id.toString())).toList();
         List<Favorites> favoritesList=favoritesMapper.selectBatchIds(idList);
         List<Long> favoritesIds = new ArrayList<>();
@@ -67,5 +76,29 @@ public class CommunityService {
 
         return result;
     }
+
+
+
+    //排行榜初始化
+    //排行榜初始化
+    public void rank() {
+        // 直接重建整个 ZSET，最简单可靠
+        QueryWrapper<Favorites> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("is_public", 1);
+        List<Favorites> all = favoritesMapper.selectList(queryWrapper);
+
+        // 删除旧 ZSET
+        redisTemplate.delete(RANK_FAVORITES_KEY);
+
+        // 重建
+        for (Favorites favorites : all) {
+            redisTemplate.opsForZSet().add(
+                    RANK_FAVORITES_KEY,
+                    favorites.getFavoriteId().toString(),
+                    favorites.getLikeCount()
+            );
+        }
+    }
+
 
 }

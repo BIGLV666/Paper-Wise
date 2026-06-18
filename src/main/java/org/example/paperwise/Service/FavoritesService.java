@@ -35,6 +35,7 @@ public class FavoritesService {
     private CardInFavoritesRecordMapper cardInFavoritesRecordMapper;
 
     private static final String FAVORITES_LOOK_COUNT_KEY = "favorites_look_count";
+    private static final String RANK_FAVORITES_KEY="rank_favorites_key";
 
 
     //返回用户收藏夹内容
@@ -97,6 +98,9 @@ public class FavoritesService {
             throw new RuntimeException("不能删除他人的收藏夹");
         }
 
+        redisTemplate.opsForZSet().remove(RANK_FAVORITES_KEY,favorites.getFavoriteId());
+
+
 
         List<Long> cardIdList = favorites.getCardIds();
         QueryWrapper<CardInFavoritesRecord> q=new QueryWrapper<>();
@@ -150,6 +154,9 @@ public class FavoritesService {
 
     //修改收藏夹是否可分享
     public Favorites updateIsPublic(Long favoritesId,Long userid,Integer isPublic) {
+        if(isPublic!=1&&isPublic!=0){
+            throw new RuntimeException("状态不合法");
+        }
         Favorites favorites=favoritesMapper.selectById(favoritesId);
         if(favorites==null){
             throw new RuntimeException("该收藏夹不存在");
@@ -162,6 +169,14 @@ public class FavoritesService {
         if(r==0){
             throw new RuntimeException("修改失败");
         }
+
+        if(isPublic==1){
+        redisTemplate.opsForZSet().remove(RANK_FAVORITES_KEY,favorites.getFavoriteId());
+        redisTemplate.opsForZSet().add(RANK_FAVORITES_KEY,favorites.getFavoriteId(),favorites.getLikeCount());}
+        else{
+            redisTemplate.opsForZSet().remove(RANK_FAVORITES_KEY,favorites.getFavoriteId());
+        }
+
         return favorites;
     }
 

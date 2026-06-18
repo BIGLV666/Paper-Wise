@@ -17,7 +17,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Objects;
 
 @Slf4j
 @Component
@@ -43,16 +42,22 @@ public class _CountTask {
 
 
     //排行榜定时修正
-    @Scheduled(cron = "0 0 * * * *")
-    public void rank(){
+    @Scheduled(cron = "0 */5 * * * *")
+    //排行榜初始化
+    public void rank() {
         QueryWrapper<Favorites> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("is_public",1);
-        List<Favorites>all=favoritesMapper.selectList(queryWrapper);
-        for(Favorites favorites:all){
-            Long score = Objects.requireNonNull(redisTemplate.opsForZSet().score(RANK_FAVORITES_KEY, favorites.getFavoriteId().toString())).longValue();
-            if(!score.equals(favorites.getLikeCount())){
-                redisTemplate.opsForZSet().remove(RANK_FAVORITES_KEY,favorites.getFavoriteId().toString());
-                redisTemplate.opsForZSet().incrementScore(RANK_FAVORITES_KEY,favorites.getFavoriteId().toString(),favorites.getLikeCount());
+        queryWrapper.eq("is_public", 1);
+        List<Favorites> all = favoritesMapper.selectList(queryWrapper);
+
+        for (Favorites favorites : all) {
+            String key = favorites.getFavoriteId().toString();
+            Double score = redisTemplate.opsForZSet().score(RANK_FAVORITES_KEY, key);
+
+            // ✅ 如果 ZSET 里没有，或者分数不一致，就重新设置
+            if (score==null ||score.intValue()!=favorites.getLikeCount()) {
+                // 先删后加（保证分数正确）
+                redisTemplate.opsForZSet().remove(RANK_FAVORITES_KEY, key);
+                redisTemplate.opsForZSet().add(RANK_FAVORITES_KEY, key, favorites.getLikeCount());
             }
         }
     }

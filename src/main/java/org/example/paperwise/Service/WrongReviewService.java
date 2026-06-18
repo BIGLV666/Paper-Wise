@@ -92,12 +92,15 @@ public class WrongReviewService {
             if(lastRecord==null){
                 wrongReviewStats.setTotalReviewCount(0L);
                 wrongReviewStats.setContinuousDays(1);
+                wrongReviewStats.setContinuousDays(1);
             }else{
                 wrongReviewStats.setTotalReviewCount(lastRecord.getTotalReviewCount());
                 if(lastRecord.getContinuousDays()==0){
                     wrongReviewStats.setContinuousDays(1);
                 }else if(lastRecord.getDay().equals(LocalDate.now().minusDays(1))){
                     wrongReviewStats.setContinuousDays(lastRecord.getContinuousDays()+1);
+                }else{
+                    wrongReviewStats.setContinuousDays(1);
                 }
 
             }

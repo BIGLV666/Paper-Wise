@@ -1,19 +1,27 @@
 package org.example.paperwise.Service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.example.paperwise.Mapper.AiGeneratedCardMapper;
 import org.example.paperwise.Mapper.CardInFavoritesRecordMapper;
 import org.example.paperwise.Mapper.CardMapper;
 import org.example.paperwise.Mapper.FavoritesMapper;
+import org.example.paperwise.Until.BuildPromptUntil;
 import org.example.paperwise.entry.AiGeneratedCard;
 import org.example.paperwise.entry.Card;
 import org.example.paperwise.entry.CardInFavoritesRecord;
 import org.example.paperwise.entry.Favorites;
+import org.example.paperwise.enums.CardDifficulty;
+import org.example.paperwise.enums.CardMastery;
+import org.example.paperwise.enums.CardType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -30,9 +38,10 @@ public class AiGeneratedCardService {
     @Autowired
     private FavoritesMapper favoritesMapper;
     @Autowired
-    private PdfService pdfService;
-    @Autowired
     private CardInFavoritesRecordMapper cardInFavoritesRecordMapper;
+    @Autowired
+    private QianwenService  qianwenService;
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
 
     public Map<String,List<AiGeneratedCard> >getAiGeneratedCardBySessionId( Long userId) {
@@ -94,9 +103,7 @@ public class AiGeneratedCardService {
 
 
     }
-    public void generateFromText(Long userId,String tset,String name,String sessionId){
-        pdfService.generateFromText(userId, tset, sessionId, name);
-    }
+
     //获取所有历史记录返回列表id和项目名字
     public Map<String, List<Long>> getAllHistoryRecord(Long userId) {
         // 查询所有记录（只查 id 和 name）
@@ -113,5 +120,130 @@ public class AiGeneratedCardService {
         System.out.println(result);
         return result;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //ai提取
+
+
+
+
+
+
+
+
+
+    public List<AiGeneratedCard> parseCards(String aiResponse, Long userId,String sessionId,String name) {
+        try {
+            String json = extractJson(aiResponse);
+
+            System.out.println("解析的 JSON: " + json);
+            log.info("解析的 JSON: {}", json);
+            List<AiGeneratedCard> cards = objectMapper.readValue(json, new TypeReference<List<AiGeneratedCard>>() {});
+
+            for (AiGeneratedCard card : cards) {
+                if (card.getUserId() == null) {
+                    card.setUserId(userId);
+                }
+                if (card.getCreateTime() == null) {
+                    card.setCreateTime(LocalDateTime.now());
+                }
+                // 设置默认值（如果 AI 没返回）
+                if (card.getCardType() == null) {
+                    card.setCardType(CardType.ESSAY);
+                }
+                if (card.getCardDifficulty() == null) {
+                    card.setCardDifficulty(CardDifficulty.MEDIUM);
+                }
+                if (card.getCardMastery() == null) {
+                    card.setCardMastery(CardMastery.NOT_STARTED);
+                }
+                if (card.getAnswer() instanceof List) {
+                    List<?> list = (List<?>) card.getAnswer();
+                    card.setAnswer(list.stream().map(String::valueOf).collect(Collectors.joining("、")));
+                }
+                card.setSessionId(sessionId);
+                card.setName(name);
+                card.setStatus("PENDING");
+            }
+            return cards;
+
+        } catch (Exception e) {
+
+            log.error("卡片解析失败: {}", e.getMessage());
+            return null;
+        }
+    }
+
+    private String extractJson(String jsonText) {
+        int start = jsonText.indexOf("[");
+        int end = jsonText.lastIndexOf("]");
+        if (start != -1 && end != -1 && end > start) {
+            return jsonText.substring(start, end + 1);
+        }
+        throw new RuntimeException("AI 响应中没有找到 JSON 数组");
+    }
+
+
+
+
+
+
+    @Async
+    public void asyncProcessPdf(Long userId,  String sessionId,Object[]val) {
+        try {
+            // 使用 byte[] 处理 PDF
+
+            String text = (String) val[0];
+            String name = (String) val[1];
+
+            log.info("用户ID为{}, PDF 文本长度: {}", userId, text.length());
+
+            String prompt = BuildPromptUntil.buildPrompt(text);
+            String aiResponse = qianwenService.chat(prompt);
+            log.info("AI 响应长度: {}", aiResponse.length());
+
+            List<AiGeneratedCard> cards = parseCards(aiResponse, userId, sessionId, name);
+            if (cards != null && !cards.isEmpty()) {
+                aiGeneratedCardMapper.batchInsert(cards);
+                log.info("成功生成 {} 张卡片", cards.size());
+            }
+        } catch (Exception e) {
+            log.error("PDF 处理失败", e);
+        }
+    }
+
+
+
+    //文本提取
+    @Async
+    public void generateFromText(Long userId, String text,String sessionId,String name) {
+        String prompt =  BuildPromptUntil.buildPrompt(text);
+        String aiResponse = qianwenService.chat(prompt);
+        log.info("AI 响应长度: {}", aiResponse.length());
+
+        List<AiGeneratedCard> cards = parseCards(aiResponse, userId,sessionId,name);
+        if (cards != null && !cards.isEmpty()) {
+            aiGeneratedCardMapper.batchInsert(cards);
+            log.info("成功生成 {} 张卡片", cards.size());
+        }
+    }
+
+
+
 
 }
