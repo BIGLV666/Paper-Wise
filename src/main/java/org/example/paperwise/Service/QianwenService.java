@@ -24,32 +24,35 @@ public class QianwenService {
     private final OkHttpClient okHttpClient = new OkHttpClient.Builder().connectTimeout(300, TimeUnit.SECONDS)
             .readTimeout(300, TimeUnit.SECONDS).build();
 
+    /**
+     * 调用阿里云通义千问API进行对话
+     * <p>构建符合阿里云API规范的请求体，发送HTTP POST请求，获取AI生成文本</p>
+     *
+     * @param userMessage 用户消息
+     * @return AI生成的文本回答
+     */
     public String chat(String userMessage) {
         try {
-            // 构建正确的请求体
+            // 构建请求体
             Map<String, Object> requestBody = new HashMap<>();
             requestBody.put("model", qianwenConfig.getModel());
 
-            // input 对象（存放 messages）
             Map<String, Object> input = new HashMap<>();
-
             List<Map<String, String>> messages = new ArrayList<>();
             Map<String, String> userMsg = new HashMap<>();
             userMsg.put("role", "user");
             userMsg.put("content", userMessage);
             messages.add(userMsg);
             input.put("messages", messages);
-
             requestBody.put("input", input);
 
-            // parameters 放在最外层，不在 userMsg 里
+            // 设置API参数
             Map<String, Object> parameters = new HashMap<>();
-            parameters.put("max_tokens",  16384);      // 输出最大 token 数
-            parameters.put("result_format", "text"); // 返回格式
+            parameters.put("max_tokens", 16384);
+            parameters.put("result_format", "text");
             requestBody.put("parameters", parameters);
 
             String json = JSON.toJSONString(requestBody);
-            System.out.println("请求体: " + json);
 
             Request request = new Request.Builder()
                     .url("https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation")
@@ -60,8 +63,6 @@ public class QianwenService {
 
             Response response = okHttpClient.newCall(request).execute();
             String responseBody = response.body().string();
-            System.out.println("响应码: " + response.code());
-            System.out.println("响应体: " + responseBody);
 
             JSONObject jsonObject = JSON.parseObject(responseBody);
 
@@ -69,8 +70,7 @@ public class QianwenService {
                 throw new RuntimeException("API 错误: " + jsonObject.getString("message"));
             }
 
-            String text = jsonObject.getJSONObject("output").getString("text");
-            return text;
+            return jsonObject.getJSONObject("output").getString("text");
 
         } catch (IOException e) {
             throw new RuntimeException("AI调用失败: " + e.getMessage());

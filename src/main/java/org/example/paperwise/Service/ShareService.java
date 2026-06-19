@@ -34,17 +34,22 @@ public class ShareService {
         int offset = (page - 1) * size;
         return shareMapper.getAllShare(offset, size);
     }
-    //根据链接返回收藏夹
-    public ShareFavoritesDto getShareFavorites(String shareId){
+    /**
+     * 根据分享ID获取收藏夹信息
+     * <p>通过分享链接的唯一标识查询收藏夹详情，并格式化过期时间</p>
+     *
+     * @param shareId 分享ID
+     * @return 分享收藏夹DTO
+     */
+    public ShareFavoritesDto getShareFavorites(String shareId) {
         ShareFavoritesDto shareFavoritesDto = shareMapper.getShareFavorites(shareId);
-        if(shareFavoritesDto == null){
-            throw new  RuntimeException("未找到该收藏夹，或该收藏夹已过期");
+        if (shareFavoritesDto == null) {
+            throw new RuntimeException("未找到该收藏夹，或该收藏夹已过期");
         }
 
-
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        shareFavoritesDto.setExpireTime(DataUtile.formatDate(LocalDateTime.parse(shareFavoritesDto.getExpireTime(),formatter)));
+        shareFavoritesDto.setExpireTime(DataUtile.formatDate(
+                LocalDateTime.parse(shareFavoritesDto.getExpireTime(), formatter)));
         return shareFavoritesDto;
     }
     //添加浏览量

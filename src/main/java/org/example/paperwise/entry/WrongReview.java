@@ -21,8 +21,10 @@ public class WrongReview {
     private Long wrongQuestionId;
     private LocalDate nextReviewTime;
     private LocalDate lastReviewTime;
-    private Integer stage;//当前复习多少次
-    private Integer intervalDays;//下次复习间隔多少天(1,3,7,15)
+    private Integer stage;// SM-2 连续成功复习次数 n
+    private Integer intervalDays;// SM-2 当前复习间隔 I（天）
+    @TableField(value = "easiness_factor")
+    private Double easinessFactor;// SM-2 难易系数 EF，初始 2.5
 
 
     public WrongReview(Long cardId, Long userId, Long wrongQuestionId, LocalDate nextReviewTime, LocalDate lastReviewTime,  Integer stage, Integer intervalDays) {

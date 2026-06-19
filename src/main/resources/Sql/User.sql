@@ -70,6 +70,7 @@ create TABLE wrong_review(
     last_review_time DATE not null ,
     stage INTEGER not null ,
     interval_days INTEGER not null ,
+    easiness_factor DOUBLE not null default 2.5 ,
     UNIQUE KEY uk_user_card (user_id,card_id),
     INDEX idx_wrong_review (user_id,next_review_time),
     FOREIGN KEY (wrong_question_id) REFERENCES wrong_question (wrong_question_id) ON DELETE  CASCADE

@@ -32,27 +32,45 @@ public class FavoritesRecordService {
         return favoritesLikeRecordMapper.getLikeFavoritesDto(userId);
     }
 
-    //取消点赞
+    /**
+     * 取消收藏夹点赞
+     * <p>删除Redis缓存、点赞记录，并减少收藏夹点赞数</p>
+     *
+     * @param userId 用户ID
+     * @param FavoritesId 收藏夹ID
+     */
     @Transactional
     public void deleteLike(Long userId, Long FavoritesId) {
-        redisTemplate.delete(FAVORITES_LIKE_COUNT_KEY+"--"+"FavoritesId"+FavoritesId+"--"+"userId"+userId);
-        int r1 = favoritesLikeRecordMapper.deleteLike(userId,FavoritesId);
-        int r2= favoritesMapper.decreaseLikeCount(FavoritesId);
-
+        redisTemplate.delete(FAVORITES_LIKE_COUNT_KEY + "--" + "FavoritesId" + FavoritesId + "--" + "userId" + userId);
+        favoritesLikeRecordMapper.deleteLike(userId, FavoritesId);
+        favoritesMapper.decreaseLikeCount(FavoritesId);
     }
 
-
-    //点赞
-    public void upLikeCount(Long userId,Long favoriteId){
-        if(favoritesLikeRecordMapper.findByUserId(userId,favoriteId)!=0||redisTemplate.opsForValue().get(FAVORITES_LIKE_COUNT_KEY+"--"+"FavoritesId"+favoriteId+"--"+"userId"+userId)!=null){
+    /**
+     * 收藏夹点赞
+     * <p>检查是否已点赞，通过则更新Redis排行榜和点赞计数</p>
+     *
+     * @param userId 用户ID
+     * @param favoriteId 收藏夹ID
+     */
+    public void upLikeCount(Long userId, Long favoriteId) {
+        if (favoritesLikeRecordMapper.findByUserId(userId, favoriteId) != 0
+                || redisTemplate.opsForValue().get(FAVORITES_LIKE_COUNT_KEY + "--" + "FavoritesId" + favoriteId + "--" + "userId" + userId) != null) {
             throw new RuntimeException("您已为该收藏夹点过赞了");
         }
-        redisTemplate.opsForZSet().incrementScore(RANK_FAVORITES_KEY,favoriteId.toString(),1);
-        redisTemplate.opsForValue().increment(FAVORITES_LIKE_COUNT_KEY+"--"+"FavoritesId"+favoriteId+"--"+"userId"+userId ,1);
+        redisTemplate.opsForZSet().incrementScore(RANK_FAVORITES_KEY, favoriteId.toString(), 1);
+        redisTemplate.opsForValue().increment(FAVORITES_LIKE_COUNT_KEY + "--" + "FavoritesId" + favoriteId + "--" + "userId" + userId, 1);
     }
-    //检查点赞状态
-    public boolean checkLikeStatus(Long userId,Long favoriteId){
-        System.out.println("----------------------------------------------");
-        return favoritesLikeRecordMapper.findByUserId(userId, favoriteId) == 0 && redisTemplate.opsForValue().get(FAVORITES_LIKE_COUNT_KEY+"--"+"FavoritesId"+favoriteId+"--"+"userId"+userId) == null;
+
+    /**
+     * 检查用户对收藏夹的点赞状态
+     *
+     * @param userId 用户ID
+     * @param favoriteId 收藏夹ID
+     * @return true-未点赞可点赞，false-已点赞
+     */
+    public boolean checkLikeStatus(Long userId, Long favoriteId) {
+        return favoritesLikeRecordMapper.findByUserId(userId, favoriteId) == 0
+                && redisTemplate.opsForValue().get(FAVORITES_LIKE_COUNT_KEY + "--" + "FavoritesId" + favoriteId + "--" + "userId" + userId) == null;
     }
 }

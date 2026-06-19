@@ -31,15 +31,19 @@ public class PdfService {
 
 
 
-    //读取pdf
+    /**
+     * 从PDF文件生成卡片
+     * <p>读取PDF文件内容后，异步调用AI服务进行内容解析和卡片生成</p>
+     *
+     * @param userId 用户ID
+     * @param file PDF文件
+     * @param sessionId 会话ID，用于追踪处理状态
+     */
     public void generateFromPdf(Long userId, MultipartFile file, String sessionId) throws IOException {
-        // 在同步上下文中读取文件内容
         byte[] fileBytes = file.getBytes();
         String fileName = file.getOriginalFilename();
         Object[] val = getTextFromBytes(fileBytes, fileName);
-        // 调用异步方法处理
-        aiGeneratedCardService.asyncProcessPdf(userId, sessionId,val);
-
+        aiGeneratedCardService.asyncProcessPdf(userId, sessionId, val);
     }
 
 

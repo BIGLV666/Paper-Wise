@@ -1,0 +1,4905 @@
+2026-06-02 16:25:31.068 INFO  [http-nio-8080-exec-1] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 33792
+2026-06-02 16:25:43.475 INFO  [http-nio-8080-exec-1] ServiceLogger - methodName=chatTime=12401
+2026-06-02 16:25:43.475 INFO  [http-nio-8080-exec-1] ServiceLogger - Object[
+  {
+    "title": "编程的定义是什么？",
+    "questionType": "JAVA",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "编程就是让计算机为解决某个问题而使用某种程序设计语言编写程序代码，并最终得到结果的过程。",
+    "explanation": "编程是人与计算机交流的过程，通过编写代码让计算机按照人的指令完成任务。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Java的特点有哪些？",
+    "questionType": "JAVA",
+    "cardType": "MULTIPLE",
+    "options": ["简单易学", "面向对象", "平台无关性", "支持网络编程", "支持多线程", "健壮性好"],
+    "answer": ["简单易学", "面向对象", "平台无关性", "支持网络编程", "支持多线程", "健壮性好"],
+    "explanation": "Java语言具有简单易学、面向对象、平台无关性、支持网络编程、支持多线程和健壮性好的特点。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Java SE、Java EE、Java ME分别代表什么？",
+    "questionType": "JAVA",
+    "cardType": "SINGLE",
+    "options": ["Java标准版", "Java企业版", "Java微型版", "Java开发版"],
+    "answer": "Java标准版",
+    "explanation": "Java SE 是 Java 的标准版，用于开发桌面、服务器和嵌入式应用。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "JDK、JRE、JVM之间的关系是什么？",
+    "questionType": "JAVA",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "JDK 包含了 JRE，JRE 包含了 JVM。JDK 是开发工具包，JRE 是运行环境，JVM 是虚拟机。",
+    "explanation": "JDK 是 Java 开发者使用的工具包，包含编译器和调试工具；JRE 是 Java 程序运行所需的环境；JVM 是 Java 虚拟机，负责执行字节码。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "什么是跨平台性？",
+    "questionType": "JAVA",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "跨平台性是指 Java 程序一次编译后可以在多个系统平台上运行。",
+    "explanation": "Java 程序通过 Java 虚拟机在不同平台上运行，只要安装了相应的 JVM 即可。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "switch 可以作用在哪些数据类型上？",
+    "questionType": "JAVA",
+    "cardType": "MULTIPLE",
+    "options": ["byte", "long", "String", "int"],
+    "answer": ["byte", "int", "String"],
+    "explanation": "从 Java 5 开始，switch 支持 enum 类型；从 Java 7 开始，支持 String 类型。但不支持 long 类型。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Math.round(11.5) 的结果是多少？",
+    "questionType": "JAVA",
+    "cardType": "SINGLE",
+    "options": ["11", "12", "-11", "-12"],
+    "answer": "12",
+    "explanation": "Math.round() 方法对小数部分进行四舍五入处理，11.5 会变成 12。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "float f = 3.4; 是否正确？",
+    "questionType": "JAVA",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "错误",
+    "explanation": "3.4 是 double 类型，赋值给 float 类型需要强制转换或加上 'F' 后缀。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "short s1 = 1; s1 = s1 + 1; 是否有错？",
+    "questionType": "JAVA",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "有错",
+    "explanation": "s1 + 1 的结果是 int 类型，无法直接赋值给 short 类型，需显式转换。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Java 的编码方案是什么？",
+    "questionType": "JAVA",
+    "cardType": "SINGLE",
+    "options": ["ASCII", "Unicode", "GBK", "UTF-8"],
+    "answer": "Unicode",
+    "explanation": "Java 使用 Unicode 编码标准，确保字符在任何平台都能正确显示。",
+    "cardDifficulty": "EASY"
+  }
+]
+2026-06-02 16:25:43.479 INFO  [http-nio-8080-exec-1] o.e.paperwise.Service.PdfService - AI 响应长度: 2768
+2026-06-02 16:25:43.479 INFO  [http-nio-8080-exec-1] o.e.paperwise.Service.PdfService - 解析的 JSON: [
+  {
+    "title": "编程的定义是什么？",
+    "questionType": "JAVA",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "编程就是让计算机为解决某个问题而使用某种程序设计语言编写程序代码，并最终得到结果的过程。",
+    "explanation": "编程是人与计算机交流的过程，通过编写代码让计算机按照人的指令完成任务。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Java的特点有哪些？",
+    "questionType": "JAVA",
+    "cardType": "MULTIPLE",
+    "options": ["简单易学", "面向对象", "平台无关性", "支持网络编程", "支持多线程", "健壮性好"],
+    "answer": ["简单易学", "面向对象", "平台无关性", "支持网络编程", "支持多线程", "健壮性好"],
+    "explanation": "Java语言具有简单易学、面向对象、平台无关性、支持网络编程、支持多线程和健壮性好的特点。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Java SE、Java EE、Java ME分别代表什么？",
+    "questionType": "JAVA",
+    "cardType": "SINGLE",
+    "options": ["Java标准版", "Java企业版", "Java微型版", "Java开发版"],
+    "answer": "Java标准版",
+    "explanation": "Java SE 是 Java 的标准版，用于开发桌面、服务器和嵌入式应用。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "JDK、JRE、JVM之间的关系是什么？",
+    "questionType": "JAVA",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "JDK 包含了 JRE，JRE 包含了 JVM。JDK 是开发工具包，JRE 是运行环境，JVM 是虚拟机。",
+    "explanation": "JDK 是 Java 开发者使用的工具包，包含编译器和调试工具；JRE 是 Java 程序运行所需的环境；JVM 是 Java 虚拟机，负责执行字节码。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "什么是跨平台性？",
+    "questionType": "JAVA",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "跨平台性是指 Java 程序一次编译后可以在多个系统平台上运行。",
+    "explanation": "Java 程序通过 Java 虚拟机在不同平台上运行，只要安装了相应的 JVM 即可。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "switch 可以作用在哪些数据类型上？",
+    "questionType": "JAVA",
+    "cardType": "MULTIPLE",
+    "options": ["byte", "long", "String", "int"],
+    "answer": ["byte", "int", "String"],
+    "explanation": "从 Java 5 开始，switch 支持 enum 类型；从 Java 7 开始，支持 String 类型。但不支持 long 类型。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Math.round(11.5) 的结果是多少？",
+    "questionType": "JAVA",
+    "cardType": "SINGLE",
+    "options": ["11", "12", "-11", "-12"],
+    "answer": "12",
+    "explanation": "Math.round() 方法对小数部分进行四舍五入处理，11.5 会变成 12。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "float f = 3.4; 是否正确？",
+    "questionType": "JAVA",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "错误",
+    "explanation": "3.4 是 double 类型，赋值给 float 类型需要强制转换或加上 'F' 后缀。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "short s1 = 1; s1 = s1 + 1; 是否有错？",
+    "questionType": "JAVA",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "有错",
+    "explanation": "s1 + 1 的结果是 int 类型，无法直接赋值给 short 类型，需显式转换。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Java 的编码方案是什么？",
+    "questionType": "JAVA",
+    "cardType": "SINGLE",
+    "options": ["ASCII", "Unicode", "GBK", "UTF-8"],
+    "answer": "Unicode",
+    "explanation": "Java 使用 Unicode 编码标准，确保字符在任何平台都能正确显示。",
+    "cardDifficulty": "EASY"
+  }
+]
+2026-06-02 16:25:43.517 INFO  [http-nio-8080-exec-1] o.e.paperwise.Service.PdfService - 成功生成 10 张卡片
+2026-06-02 16:25:43.517 INFO  [http-nio-8080-exec-1] ServiceLogger - methodName=generateFromPdfTime=13075
+2026-06-02 16:25:43.517 INFO  [http-nio-8080-exec-1] ServiceLogger - Object[Card(cardId=null, userid=1, title=编程的定义是什么？, options=[], answer=编程就是让计算机为解决某个问题而使用某种程序设计语言编写程序代码，并最终得到结果的过程。, explanation=编程是人与计算机交流的过程，通过编写代码让计算机按照人的指令完成任务。, questionType=JAVA, cardType=ESSAY, cardDifficulty=EASY, cardMastery=NOT_STARTED, createTime=2026-06-02T16:25:43.500137600), Card(cardId=null, userid=1, title=Java的特点有哪些？, options=[简单易学, 面向对象, 平台无关性, 支持网络编程, 支持多线程, 健壮性好], answer=[简单易学, 面向对象, 平台无关性, 支持网络编程, 支持多线程, 健壮性好], explanation=Java语言具有简单易学、面向对象、平台无关性、支持网络编程、支持多线程和健壮性好的特点。, questionType=JAVA, cardType=MULTIPLE, cardDifficulty=EASY, cardMastery=NOT_STARTED, createTime=2026-06-02T16:25:43.500137600), Card(cardId=null, userid=1, title=Java SE、Java EE、Java ME分别代表什么？, options=[Java标准版, Java企业版, Java微型版, Java开发版], answer=Java标准版, explanation=Java SE 是 Java 的标准版，用于开发桌面、服务器和嵌入式应用。, questionType=JAVA, cardType=SINGLE, cardDifficulty=EASY, cardMastery=NOT_STARTED, createTime=2026-06-02T16:25:43.500137600), Card(cardId=null, userid=1, title=JDK、JRE、JVM之间的关系是什么？, options=[], answer=JDK 包含了 JRE，JRE 包含了 JVM。JDK 是开发工具包，JRE 是运行环境，JVM 是虚拟机。, explanation=JDK 是 Java 开发者使用的工具包，包含编译器和调试工具；JRE 是 Java 程序运行所需的环境；JVM 是 Java 虚拟机，负责执行字节码。, questionType=JAVA, cardType=ESSAY, cardDifficulty=MEDIUM, cardMastery=NOT_STARTED, createTime=2026-06-02T16:25:43.500137600), Card(cardId=null, userid=1, title=什么是跨平台性？, options=[], answer=跨平台性是指 Java 程序一次编译后可以在多个系统平台上运行。, explanation=Java 程序通过 Java 虚拟机在不同平台上运行，只要安装了相应的 JVM 即可。, questionType=JAVA, cardType=ESSAY, cardDifficulty=EASY, cardMastery=NOT_STARTED, createTime=2026-06-02T16:25:43.500137600), Card(cardId=null, userid=1, title=switch 可以作用在哪些数据类型上？, options=[byte, long, String, int], answer=[byte, int, String], explanation=从 Java 5 开始，switch 支持 enum 类型；从 Java 7 开始，支持 String 类型。但不支持 long 类型。, questionType=JAVA, cardType=MULTIPLE, cardDifficulty=MEDIUM, cardMastery=NOT_STARTED, createTime=2026-06-02T16:25:43.500137600), Card(cardId=null, userid=1, title=Math.round(11.5) 的结果是多少？, options=[11, 12, -11, -12], answer=12, explanation=Math.round() 方法对小数部分进行四舍五入处理，11.5 会变成 12。, questionType=JAVA, cardType=SINGLE, cardDifficulty=EASY, cardMastery=NOT_STARTED, createTime=2026-06-02T16:25:43.500137600), Card(cardId=null, userid=1, title=float f = 3.4; 是否正确？, options=[], answer=错误, explanation=3.4 是 double 类型，赋值给 float 类型需要强制转换或加上 'F' 后缀。, questionType=JAVA, cardType=TRUE_FALSE, cardDifficulty=EASY, cardMastery=NOT_STARTED, createTime=2026-06-02T16:25:43.500137600), Card(cardId=null, userid=1, title=short s1 = 1; s1 = s1 + 1; 是否有错？, options=[], answer=有错, explanation=s1 + 1 的结果是 int 类型，无法直接赋值给 short 类型，需显式转换。, questionType=JAVA, cardType=TRUE_FALSE, cardDifficulty=MEDIUM, cardMastery=NOT_STARTED, createTime=2026-06-02T16:25:43.500137600), Card(cardId=null, userid=1, title=Java 的编码方案是什么？, options=[ASCII, Unicode, GBK, UTF-8], answer=Unicode, explanation=Java 使用 Unicode 编码标准，确保字符在任何平台都能正确显示。, questionType=JAVA, cardType=SINGLE, cardDifficulty=EASY, cardMastery=NOT_STARTED, createTime=2026-06-02T16:25:43.500137600)]
+2026-06-02 17:36:59.896 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 10060
+2026-06-02 17:37:18.148 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - methodName=chatTime=18248
+2026-06-02 17:37:18.148 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - Object[
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持分布式"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型，速度更快，并且支持数据持久化，而 memcached 只能保存字符串且不支持持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 等多种数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "内存", "磁盘", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 主要依赖内存进行数据存储和操作，因此主要消耗的是内存资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Database Server"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["512MB", "1GB", "2GB", "10GB"],
+    "answer": "512MB",
+    "explanation": "Redis 中一个字符串类型的值最大容量是 512MB。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "为什么 Redis 需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据全部读入内存中，并通过异步方式将数据写入磁盘。这样可以避免磁盘 I/O 对性能的影响。",
+    "explanation": "Redis 通过内存操作实现高速读写，同时通过异步持久化保证数据安全。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 和业务代码层实现等。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜/计数器以及发布/订阅等多种场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java 客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "All of the above"],
+    "answer": "All of the above",
+    "explanation": "Redis 支持 Jedis、Lettuce、Redisson 等 Java 客户端，官方推荐使用 Redisson。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis和 Redisson有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了一系列 Java 分布式数据结构和功能。",
+    "explanation": "Redisson 是基于 Redis 实现的高级客户端，提供了分布式对象和数据结构的支持。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass 123456", "auth 123456", "set password 123456", "both A and B"],
+    "answer": "both A and B",
+    "explanation": "Redis 设置密码使用 config set requirepass 命令，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "怎么测试 Redis 的连通性？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["ping", "echo", "test", "check"],
+    "answer": "ping",
+    "explanation": "使用 ping 命令可以测试 Redis 的连通性。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis中的管道有什么用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "管道（pipelining）允许一次性发送多个命令到 Redis 服务器，而不必等待每个命令的响应，从而提高效率。",
+    "explanation": "管道技术可以显著提升 Redis 的执行效率，特别是在批量操作时。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "怎么理解 Redis 事务？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 事务是一组原子操作，事务中的命令会按顺序执行，不会被其他客户端请求打断，要么全部执行，要么全部不执行。",
+    "explanation": "事务确保命令的隔离性和原子性，用于需要保证数据一致性的场景。",
+    "cardDifficulty": "MEDIUM"
+  }
+]
+2026-06-02 17:37:18.149 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - AI 响应长度: 4993
+2026-06-02 17:37:18.150 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 解析的 JSON: [
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持分布式"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型，速度更快，并且支持数据持久化，而 memcached 只能保存字符串且不支持持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 等多种数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "内存", "磁盘", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 主要依赖内存进行数据存储和操作，因此主要消耗的是内存资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Database Server"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["512MB", "1GB", "2GB", "10GB"],
+    "answer": "512MB",
+    "explanation": "Redis 中一个字符串类型的值最大容量是 512MB。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "为什么 Redis 需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据全部读入内存中，并通过异步方式将数据写入磁盘。这样可以避免磁盘 I/O 对性能的影响。",
+    "explanation": "Redis 通过内存操作实现高速读写，同时通过异步持久化保证数据安全。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 和业务代码层实现等。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜/计数器以及发布/订阅等多种场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java 客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "All of the above"],
+    "answer": "All of the above",
+    "explanation": "Redis 支持 Jedis、Lettuce、Redisson 等 Java 客户端，官方推荐使用 Redisson。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis和 Redisson有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了一系列 Java 分布式数据结构和功能。",
+    "explanation": "Redisson 是基于 Redis 实现的高级客户端，提供了分布式对象和数据结构的支持。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass 123456", "auth 123456", "set password 123456", "both A and B"],
+    "answer": "both A and B",
+    "explanation": "Redis 设置密码使用 config set requirepass 命令，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "怎么测试 Redis 的连通性？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["ping", "echo", "test", "check"],
+    "answer": "ping",
+    "explanation": "使用 ping 命令可以测试 Redis 的连通性。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis中的管道有什么用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "管道（pipelining）允许一次性发送多个命令到 Redis 服务器，而不必等待每个命令的响应，从而提高效率。",
+    "explanation": "管道技术可以显著提升 Redis 的执行效率，特别是在批量操作时。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "怎么理解 Redis 事务？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 事务是一组原子操作，事务中的命令会按顺序执行，不会被其他客户端请求打断，要么全部执行，要么全部不执行。",
+    "explanation": "事务确保命令的隔离性和原子性，用于需要保证数据一致性的场景。",
+    "cardDifficulty": "MEDIUM"
+  }
+]
+2026-06-02 17:39:33.183 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 10060
+2026-06-02 17:39:54.816 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - methodName=chatTime=21631
+2026-06-02 17:39:54.816 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - Object[
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 相比 memcached 有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持复制功能"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型，速度更快，并且支持数据持久化，而 memcached 只能保存字符串且不支持持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 等数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "磁盘", "内存", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 是一个基于内存的数据库，主要消耗内存资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Data Storage"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 官方为什么不提供 Windows 版本？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "因为目前 Linux 版本已经相当稳定，而且用户量很大，无需开发 Windows 版本，反而会带来兼容性等问题。",
+    "explanation": "Redis 官方没有提供 Windows 版本主要是考虑到 Linux 系统的稳定性以及兼容性问题。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["512MB", "1GB", "2GB", "10GB"],
+    "answer": "512MB",
+    "explanation": "Redis 中字符串类型的值最大容量为 512MB。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "为什么 Redis 需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据读到内存中，并通过异步的方式将数据写入磁盘。",
+    "explanation": "Redis 把数据放在内存中是为了实现快速的读写操作，同时通过异步方式保证数据持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 和业务代码层实现。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis 集群方案什么情况下会导致整个集群不可用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "如果节点 B 失败，并且没有复制模型的情况下，集群会认为缺少某些槽而不可用。",
+    "explanation": "在没有复制模型的情况下，某个节点失败可能导致集群无法正常工作。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "如何保证 Redis 中的数据都是热点数据？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "通过设置内存上限并使用数据淘汰策略来确保 Redis 中的数据都是热点数据。",
+    "explanation": "当 Redis 内存数据集达到一定大小时，会根据淘汰策略移除非热点数据。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等多种场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 支持的 Java 客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "All of the above"],
+    "answer": "Redisson",
+    "explanation": "Redis 官方推荐使用 Redisson 作为 Java 客户端。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 和 Redisson 有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了许多 Java 数据结构的实现。",
+    "explanation": "Redisson 是一个基于 Redis 的高级客户端，提供了分布式对象和数据结构的支持。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Jedis 与 Redisson 对比有什么优缺点？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Jedis 提供了全面的 Redis 命令支持，而 Redisson 更专注于分布式数据结构，但不支持部分 Redis 特性如字符串操作、事务等。",
+    "explanation": "Jedis 更加全面，而 Redisson 更加简化了 Redis 的使用，专注于分布式功能。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass 123456 / auth 123456", "set password 123456 / auth 123456", "password 123456", "login 123456"],
+    "answer": "config set requirepass 123456 / auth 123456",
+    "explanation": "设置密码使用 config set requirepass，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+ 
+2026-06-02 17:39:54.817 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - AI 响应长度: 5353
+2026-06-02 17:39:54.817 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 解析的 JSON: [
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 相比 memcached 有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持复制功能"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型，速度更快，并且支持数据持久化，而 memcached 只能保存字符串且不支持持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 等数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "磁盘", "内存", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 是一个基于内存的数据库，主要消耗内存资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Data Storage"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 官方为什么不提供 Windows 版本？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "因为目前 Linux 版本已经相当稳定，而且用户量很大，无需开发 Windows 版本，反而会带来兼容性等问题。",
+    "explanation": "Redis 官方没有提供 Windows 版本主要是考虑到 Linux 系统的稳定性以及兼容性问题。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["512MB", "1GB", "2GB", "10GB"],
+    "answer": "512MB",
+    "explanation": "Redis 中字符串类型的值最大容量为 512MB。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "为什么 Redis 需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据读到内存中，并通过异步的方式将数据写入磁盘。",
+    "explanation": "Redis 把数据放在内存中是为了实现快速的读写操作，同时通过异步方式保证数据持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 和业务代码层实现。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis 集群方案什么情况下会导致整个集群不可用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "如果节点 B 失败，并且没有复制模型的情况下，集群会认为缺少某些槽而不可用。",
+    "explanation": "在没有复制模型的情况下，某个节点失败可能导致集群无法正常工作。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "如何保证 Redis 中的数据都是热点数据？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "通过设置内存上限并使用数据淘汰策略来确保 Redis 中的数据都是热点数据。",
+    "explanation": "当 Redis 内存数据集达到一定大小时，会根据淘汰策略移除非热点数据。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等多种场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 支持的 Java 客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "All of the above"],
+    "answer": "Redisson",
+    "explanation": "Redis 官方推荐使用 Redisson 作为 Java 客户端。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 和 Redisson 有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了许多 Java 数据结构的实现。",
+    "explanation": "Redisson 是一个基于 Redis 的高级客户端，提供了分布式对象和数据结构的支持。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Jedis 与 Redisson 对比有什么优缺点？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Jedis 提供了全面的 Redis 命令支持，而 Redisson 更专注于分布式数据结构，但不支持部分 Redis 特性如字符串操作、事务等。",
+    "explanation": "Jedis 更加全面，而 Redisson 更加简化了 Redis 的使用，专注于分布式功能。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass 123456 / auth 123456", "set password 123456 / auth 123456", "password 123456", "login 123456"]
+2026-06-02 17:39:54.833 ERROR [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 卡片解析失败: Unexpected end-of-input: expected close marker for Object (start marker at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 146, column: 3])
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 150, column: 135] (through reference chain: java.util.ArrayList[16])
+2026-06-02 17:39:54.833 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - methodName=generateFromPdfTime=21866
+2026-06-02 17:42:13.244 INFO  [SimpleAsyncTaskExecutor-2] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 10060
+2026-06-02 17:42:35.881 INFO  [SimpleAsyncTaskExecutor-2] ServiceLogger - methodName=chatTime=22637
+2026-06-02 17:42:35.881 INFO  [SimpleAsyncTaskExecutor-2] ServiceLogger - Object[
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持分布式"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型，速度更快，并且可以持久化数据，而 memcached 只支持字符串且不支持持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String、List、Set、Sorted Set、hashes",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 五种主要的数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "磁盘", "内存", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 主要依赖内存进行数据存储和操作，因此内存是其主要消耗的物理资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Database Server"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru 等。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis官方为什么不提供Windows版本？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "因为目前 Linux 版本已经相当稳定，而且用户量很大，无需开发 Windows 版本，反而会带来兼容性等问题。",
+    "explanation": "Redis 官方没有提供 Windows 版本是因为 Linux 版本足够稳定，开发 Windows 版本可能会引入兼容性问题。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1MB", "512M", "1GB", "100MB"],
+    "answer": "512M",
+    "explanation": "Redis 中字符串类型的值最大容量为 512MB。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "为什么 Redis需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 为了达到最快的读写速度将数据都读到内存中，并通过异步的方式将数据写入磁盘。",
+    "explanation": "将数据放在内存中可以显著提高 Redis 的读写速度，虽然它也支持异步持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 以及在业务代码层实现。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis集群方案什么情况下会导致整个集群不可用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "当节点失败且没有复制模型时，如果某个节点失效导致槽位缺失，整个集群会不可用。",
+    "explanation": "在没有复制模型的情况下，节点失效可能导致部分槽位无法访问，从而导致集群不可用。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "如何保证 Redis 中的数据都是热点数据？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "通过设置内存上限并使用数据淘汰策略，确保 Redis 中只保留最常访问的数据。",
+    "explanation": "当 Redis 内存达到上限时，会根据淘汰策略自动移除非热点数据。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等多种场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java 客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "All of the above"],
+    "answer": "Redisson",
+    "explanation": "Redisson 是官方推荐的 Java 客户端，提供了丰富的分布式功能。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis和 Redisson有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了许多 Java 数据结构的封装。",
+    "explanation": "Redisson 是一个基于 Redis 的 Java 客户端，提供分布式对象和数据结构的支持。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Jedis与 Redisson 对比有什么优缺点？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Jedis 提供了全面的 Redis 命令支持，而 Redisson 更专注于分布式数据结构，但不支持某些 Redis 特性如管道、事务等。",
+    "explanation": "Jedis 更注重命令支持，Redisson 更注重分布式功能，但功能相对简化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass", "auth", "set password", "login"],
+    "answer": ["config set requirepass", "auth"],
+    "explanation": "设置密码使用 config set requirepass，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "说说 Redis 哈希槽的概念？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 集群使用哈希槽（16384 
+2026-06-02 17:42:35.881 INFO  [SimpleAsyncTaskExecutor-2] o.e.paperwise.Service.PdfService - AI 响应长度: 5420
+2026-06-02 17:42:35.881 INFO  [SimpleAsyncTaskExecutor-2] o.e.paperwise.Service.PdfService - 解析的 JSON: [
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持分布式"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型，速度更快，并且可以持久化数据，而 memcached 只支持字符串且不支持持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String、List、Set、Sorted Set、hashes",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 五种主要的数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "磁盘", "内存", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 主要依赖内存进行数据存储和操作，因此内存是其主要消耗的物理资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Database Server"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru 等。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis官方为什么不提供Windows版本？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "因为目前 Linux 版本已经相当稳定，而且用户量很大，无需开发 Windows 版本，反而会带来兼容性等问题。",
+    "explanation": "Redis 官方没有提供 Windows 版本是因为 Linux 版本足够稳定，开发 Windows 版本可能会引入兼容性问题。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1MB", "512M", "1GB", "100MB"],
+    "answer": "512M",
+    "explanation": "Redis 中字符串类型的值最大容量为 512MB。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "为什么 Redis需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 为了达到最快的读写速度将数据都读到内存中，并通过异步的方式将数据写入磁盘。",
+    "explanation": "将数据放在内存中可以显著提高 Redis 的读写速度，虽然它也支持异步持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 以及在业务代码层实现。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis集群方案什么情况下会导致整个集群不可用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "当节点失败且没有复制模型时，如果某个节点失效导致槽位缺失，整个集群会不可用。",
+    "explanation": "在没有复制模型的情况下，节点失效可能导致部分槽位无法访问，从而导致集群不可用。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "如何保证 Redis 中的数据都是热点数据？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "通过设置内存上限并使用数据淘汰策略，确保 Redis 中只保留最常访问的数据。",
+    "explanation": "当 Redis 内存达到上限时，会根据淘汰策略自动移除非热点数据。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等多种场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java 客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "All of the above"],
+    "answer": "Redisson",
+    "explanation": "Redisson 是官方推荐的 Java 客户端，提供了丰富的分布式功能。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis和 Redisson有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了许多 Java 数据结构的封装。",
+    "explanation": "Redisson 是一个基于 Redis 的 Java 客户端，提供分布式对象和数据结构的支持。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Jedis与 Redisson 对比有什么优缺点？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Jedis 提供了全面的 Redis 命令支持，而 Redisson 更专注于分布式数据结构，但不支持某些 Redis 特性如管道、事务等。",
+    "explanation": "Jedis 更注重命令支持，Redisson 更注重分布式功能，但功能相对简化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass", "auth", "set password", "login"],
+    "answer": ["config set requirepass", "auth"],
+    "explanation": "设置密码使用 config set requirepass，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "说说 Redis 哈希槽的概念？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": []
+2026-06-02 17:42:35.882 ERROR [SimpleAsyncTaskExecutor-2] o.e.paperwise.Service.PdfService - 卡片解析失败: Unexpected end-of-input: expected close marker for Object (start marker at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 155, column: 3])
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 159, column: 18] (through reference chain: java.util.ArrayList[17])
+2026-06-02 17:42:35.883 INFO  [SimpleAsyncTaskExecutor-2] ServiceLogger - methodName=generateFromPdfTime=22714
+2026-06-02 17:44:09.797 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 10060
+2026-06-02 17:45:00.651 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 10060
+2026-06-02 17:45:33.568 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - methodName=chatTime=32915
+2026-06-02 17:45:33.568 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - Object[
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持分布式"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型，速度更快，并且可以持久化数据，而 memcached 只支持字符串且不支持持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String、List、Set、Sorted Set、hashes",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 五种主要数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "磁盘", "内存", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 主要依赖内存进行数据存储和操作，因此内存是其主要消耗的物理资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Database Server"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru 等。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis官方为什么不提供Windows版本？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "因为目前 Linux 版本已经相当稳定，而且用户量很大，无需开发 Windows 版本，反而会带来兼容性等问题。",
+    "explanation": "Redis 官方不提供 Windows 版本是因为 Linux 版本足够稳定，且开发 Windows 版本可能带来兼容性问题。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1MB", "512M", "1GB", "2GB"],
+    "answer": "512M",
+    "explanation": "Redis 中一个字符串类型的值最大容量为 512MB。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "为什么 Redis 需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据读入内存中，并通过异步方式将数据写入磁盘。这样可以避免磁盘 I/O 对性能的影响。",
+    "explanation": "Redis 把数据放在内存中是为了实现高速读写，同时通过异步方式保证数据持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 和业务代码层实现等。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis集群方案什么情况下会导致整个集群不可用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "如果节点 B 失败，并且没有复制模型的情况下，整个集群会认为缺少某个槽范围的数据而不可用。",
+    "explanation": "当集群中某个节点失败且没有复制时，可能导致部分槽无法访问，导致整个集群不可用。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "如何保证 Redis 中的数据都是热点数据？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "通过设置内存上限并实施数据淘汰策略，确保 Redis 中存储的是最常访问的数据。",
+    "explanation": "Redis 内存数据集大小上升到一定大小时，会根据淘汰策略移除非热点数据。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜和发布/订阅等多种场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java 客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "All of the above"],
+    "answer": "All of the above",
+    "explanation": "Redis 支持 Jedis、Lettuce、Redisson 等客户端，官方推荐使用 Redisson。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis和 Redisson 有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了许多 Java 分布式数据结构。",
+    "explanation": "Redisson 是一个基于 Redis 的 Java 客户端，支持分布式对象和数据结构。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Jedis 与 Redisson 对比有什么优缺点？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Jedis 提供全面的 Redis 命令支持，而 Redisson 提供分布式数据结构但不支持某些高级特性如管道、事务等。",
+    "explanation": "Jedis 更接近 Redis 原生 API，而 Redisson 更注重分布式功能的封装。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass", "auth", "set requirepass", "login"],
+    "answer": "config set requirepass",
+    "explanation": "Redis 设置密码使用 config set requirepass 命令，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "说说 Redis 哈希槽的概念？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 集群引入了哈希槽的概念，共有 16384 个哈希槽，每个 key 通过 CRC16 校验后对 16384 取模来决定放置哪个槽。",
+    "explanation": "哈希槽用于 Redis 集群中的数据分片，确保数据均匀分布。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群的主从复制模型是怎样的？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "每个节点都会有 N-1 个复制品，以确保部分节点失败或通信中断时集群仍然可用。",
+    "explanation": "主从复制模型提高了 Redis 集群的可用性和容错能力。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群会有写操作丢失吗？为什么？",
+    "questionType": "REDIS",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "是",
+    "explanation": "Redis 并不能保证数据的强一致性，特定条件下可能会丢失写操作。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群之间是如何复制的？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["同步复制", "异步复制", "半同步复制", "无复制"],
+    "answer": "异步复制",
+    "explanation": "Redis 集群采用异步复制的方式进行数据复制。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 集群最大节点个数是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1024", "16384", "65535", "10000"],
+    "answer": "16384",
+    "explanation": "Redis 集群最多支持 16384 个节点。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 集群如何选择数据库？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["可以任意选择", "默认在 0 数据库", "必须指定数据库", "不支持数据库"],
+    "answer": "默认在 0 数据库",
+    "explanation": "Redis 集群目前无法做数据库选择，默认使用 0 数据库。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "怎么测试 Redis 的连通性？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["ping", "echo", "info", "keys *"],
+    "answer": "ping",
+    "explanation": "使用 ping 命令可以测试 Redis 服务是否正常运行。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 中的管道有什么用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "管道（pipelining）允许一次性发送多个命令到服务器，减少网络往返时间，提高效率。",
+    "explanation": "管道技术可以显著提升 Redis 的吞吐量，适用于批量操作。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "怎么理解 Redis 事务？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "事务是一个单独的隔离操作，其中的所有命令都会被序列化、按顺序执行，要么全部执行，要么全部不执行。",
+    "explanation": "Redis 事务保证了命令的原子性和隔离性，但不支持回滚。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 事务相关的命令有哪几个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["MULTI", "EXEC", "DISCARD", "WATCH"],
+    "answer": "MULTI、EXEC",
+    "explanation": "Redis 事务相关的命令包括 MULTI 和 EXEC，用于开启和提交事务。",
+    "cardDifficulty": "EASY"
+  }
+]
+2026-06-02 17:45:33.569 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - AI 响应长度: 7903
+2026-06-02 17:45:33.570 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 解析的 JSON: [
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持分布式"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型，速度更快，并且可以持久化数据，而 memcached 只支持字符串且不支持持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String、List、Set、Sorted Set、hashes",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 五种主要数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "磁盘", "内存", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 主要依赖内存进行数据存储和操作，因此内存是其主要消耗的物理资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Database Server"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru 等。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis官方为什么不提供Windows版本？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "因为目前 Linux 版本已经相当稳定，而且用户量很大，无需开发 Windows 版本，反而会带来兼容性等问题。",
+    "explanation": "Redis 官方不提供 Windows 版本是因为 Linux 版本足够稳定，且开发 Windows 版本可能带来兼容性问题。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1MB", "512M", "1GB", "2GB"],
+    "answer": "512M",
+    "explanation": "Redis 中一个字符串类型的值最大容量为 512MB。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "为什么 Redis 需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据读入内存中，并通过异步方式将数据写入磁盘。这样可以避免磁盘 I/O 对性能的影响。",
+    "explanation": "Redis 把数据放在内存中是为了实现高速读写，同时通过异步方式保证数据持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 和业务代码层实现等。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis集群方案什么情况下会导致整个集群不可用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "如果节点 B 失败，并且没有复制模型的情况下，整个集群会认为缺少某个槽范围的数据而不可用。",
+    "explanation": "当集群中某个节点失败且没有复制时，可能导致部分槽无法访问，导致整个集群不可用。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "如何保证 Redis 中的数据都是热点数据？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "通过设置内存上限并实施数据淘汰策略，确保 Redis 中存储的是最常访问的数据。",
+    "explanation": "Redis 内存数据集大小上升到一定大小时，会根据淘汰策略移除非热点数据。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜和发布/订阅等多种场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java 客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "All of the above"],
+    "answer": "All of the above",
+    "explanation": "Redis 支持 Jedis、Lettuce、Redisson 等客户端，官方推荐使用 Redisson。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis和 Redisson 有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了许多 Java 分布式数据结构。",
+    "explanation": "Redisson 是一个基于 Redis 的 Java 客户端，支持分布式对象和数据结构。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Jedis 与 Redisson 对比有什么优缺点？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Jedis 提供全面的 Redis 命令支持，而 Redisson 提供分布式数据结构但不支持某些高级特性如管道、事务等。",
+    "explanation": "Jedis 更接近 Redis 原生 API，而 Redisson 更注重分布式功能的封装。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass", "auth", "set requirepass", "login"],
+    "answer": "config set requirepass",
+    "explanation": "Redis 设置密码使用 config set requirepass 命令，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "说说 Redis 哈希槽的概念？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 集群引入了哈希槽的概念，共有 16384 个哈希槽，每个 key 通过 CRC16 校验后对 16384 取模来决定放置哪个槽。",
+    "explanation": "哈希槽用于 Redis 集群中的数据分片，确保数据均匀分布。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群的主从复制模型是怎样的？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "每个节点都会有 N-1 个复制品，以确保部分节点失败或通信中断时集群仍然可用。",
+    "explanation": "主从复制模型提高了 Redis 集群的可用性和容错能力。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群会有写操作丢失吗？为什么？",
+    "questionType": "REDIS",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "是",
+    "explanation": "Redis 并不能保证数据的强一致性，特定条件下可能会丢失写操作。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群之间是如何复制的？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["同步复制", "异步复制", "半同步复制", "无复制"],
+    "answer": "异步复制",
+    "explanation": "Redis 集群采用异步复制的方式进行数据复制。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 集群最大节点个数是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1024", "16384", "65535", "10000"],
+    "answer": "16384",
+    "explanation": "Redis 集群最多支持 16384 个节点。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 集群如何选择数据库？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["可以任意选择", "默认在 0 数据库", "必须指定数据库", "不支持数据库"],
+    "answer": "默认在 0 数据库",
+    "explanation": "Redis 集群目前无法做数据库选择，默认使用 0 数据库。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "怎么测试 Redis 的连通性？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["ping", "echo", "info", "keys *"],
+    "answer": "ping",
+    "explanation": "使用 ping 命令可以测试 Redis 服务是否正常运行。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 中的管道有什么用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "管道（pipelining）允许一次性发送多个命令到服务器，减少网络往返时间，提高效率。",
+    "explanation": "管道技术可以显著提升 Redis 的吞吐量，适用于批量操作。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "怎么理解 Redis 事务？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "事务是一个单独的隔离操作，其中的所有命令都会被序列化、按顺序执行，要么全部执行，要么全部不执行。",
+    "explanation": "Redis 事务保证了命令的原子性和隔离性，但不支持回滚。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 事务相关的命令有哪几个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["MULTI", "EXEC", "DISCARD", "WATCH"],
+    "answer": "MULTI、EXEC",
+    "explanation": "Redis 事务相关的命令包括 MULTI 和 EXEC，用于开启和提交事务。",
+    "cardDifficulty": "EASY"
+  }
+]
+2026-06-02 17:47:19.863 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 10060
+2026-06-02 17:47:39.041 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - methodName=chatTime=19176
+2026-06-02 17:47:39.041 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - Object[
+    {
+        "title": "什么是 Redis？",
+        "questionType": "REDIS",
+        "cardType": "ESSAY",
+        "options": [],
+        "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作，是已知性能最快的Key-Value DB。",
+        "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，常用于缓存、消息队列等场景。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "Redis相比 memcached有哪些优势？",
+        "questionType": "REDIS",
+        "cardType": "MULTIPLE",
+        "options": ["支持更丰富的数据类型", "速度更快", "支持持久化", "支持淘汰策略"],
+        "answer": ["支持更丰富的数据类型", "速度更快", "支持持久化"],
+        "explanation": "Redis 支持更多数据类型，如 List、Set 等；性能优于 memcached；并且支持数据持久化。",
+        "cardDifficulty": "MEDIUM"
+    },
+    {
+        "title": "Redis支持哪几种数据类型？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+        "answer": "String",
+        "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 等数据类型。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "Redis主要消耗什么物理资源？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["CPU", "内存", "磁盘IO", "网络带宽"],
+        "answer": "内存",
+        "explanation": "Redis 主要依赖内存进行数据存储和操作，因此主要消耗内存资源。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "Redis的全称是什么？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Database Server", "Remote Data Storage"],
+        "answer": "Remote Dictionary Server",
+        "explanation": "Redis 的全称是 Remote Dictionary Server。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "Redis有哪几种数据淘汰策略？",
+        "questionType": "REDIS",
+        "cardType": "MULTIPLE",
+        "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+        "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+        "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。",
+        "cardDifficulty": "MEDIUM"
+    },
+    {
+        "title": "一个字符串类型的值能存储最大容量是多少？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["1MB", "512M", "1GB", "10MB"],
+        "answer": "512M",
+        "explanation": "Redis 中一个字符串类型的值最大可以存储 512M 的数据。",
+        "cardDifficulty": "MEDIUM"
+    },
+    {
+        "title": "Redis需要把所有数据放到内存中吗？",
+        "questionType": "REDIS",
+        "cardType": "TRUE_FALSE",
+        "options": [],
+        "answer": "TRUE",
+        "explanation": "Redis 为了达到最快的读写速度将数据都读到内存中，并通过异步的方式将数据写入磁盘。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "Redis集群方案应该怎么做？都有哪些方案？",
+        "questionType": "REDIS",
+        "cardType": "ESSAY",
+        "options": [],
+        "answer": "Redis 集群方案包括 twemproxy、codis、Redis cluster（3.0 自带）、以及业务代码层实现等方式。",
+        "explanation": "Redis 集群方案有多种实现方式，包括代理模式、分布式算法、以及代码层面的实现。",
+        "cardDifficulty": "HARD"
+    },
+    {
+        "title": "Redis集群什么情况下会导致整个集群不可用？",
+        "questionType": "REDIS",
+        "cardType": "ESSAY",
+        "options": [],
+        "answer": "当节点失败且没有复制模型时，例如 B 节点失败，导致缺少槽位范围，整个集群不可用。",
+        "explanation": "Redis 集群在没有复制模型的情况下，节点故障可能导致部分槽位无法访问，从而导致集群不可用。",
+        "cardDifficulty": "HARD"
+    },
+    {
+        "title": "Redis有哪些适合的场景？",
+        "questionType": "REDIS",
+        "cardType": "MULTIPLE",
+        "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+        "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+        "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜/计数器、发布/订阅等多种场景。",
+        "cardDifficulty": "MEDIUM"
+    },
+    {
+        "title": "Redis支持的 Java 客户端都有哪些？官方推荐用哪个？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["Jedis", "Lettuce", "Redisson", "All of the above"],
+        "answer": "All of the above",
+        "explanation": "Redis 支持 Jedis、Lettuce、Redisson 等 Java 客户端，官方推荐使用 Redisson。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "Redis和 Redisson 有什么关系？",
+        "questionType": "REDIS",
+        "cardType": "ESSAY",
+        "options": [],
+        "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了丰富的 Java 数据结构和分布式功能。",
+        "explanation": "Redisson 是一个基于 Redis 的高级客户端，提供分布式对象和数据结构的支持。",
+        "cardDifficulty": "MEDIUM"
+    },
+    {
+        "title": "Redis如何设置密码及验证密码？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["config set requirepass 123456, auth 123456", "set password 123456, login 123456", "password set 123456, verify 123456", "auth 123456, config set requirepass 123456"],
+        "answer": "config set requirepass 123456, auth 123456",
+        "explanation": "设置密码使用 config set requirepass 命令，授权使用 auth 命令。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "怎么测试 Redis 的连通性？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["ping", "echo", "test", "check"],
+        "answer": "ping",
+        "explanation": "使用 ping 命令可以测试 Redis 是否正常连接。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "Redis中的管道有什么用？",
+        "questionType": "REDIS",
+        "cardType": "ESSAY",
+        "options": [],
+        "answer": "管道（pipelining）允许一次性发送多个命令到 Redis 服务器，而无需等待每个命令的响应，提高效率。",
+        "explanation": "管道技术可以显著提升 Redis 的请求处理速度，尤其在批量操作时。",
+        "cardDifficulty": "MEDIUM"
+    },
+    {
+        "title": "Redis事务相关的命令有哪几个？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["SET", "GET", "MULTI", "EXEC", "WATCH"],
+        "answer": "MULTI",
+        "explanation": "Redis 事务相关的命令包括 MULTI、EXEC、WATCH 等。",
+        "cardDifficulty": "MEDIUM"
+    }
+]
+2026-06-02 17:47:39.042 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - AI 响应长度: 5830
+2026-06-02 17:47:39.042 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 解析的 JSON: [
+    {
+        "title": "什么是 Redis？",
+        "questionType": "REDIS",
+        "cardType": "ESSAY",
+        "options": [],
+        "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作，是已知性能最快的Key-Value DB。",
+        "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，常用于缓存、消息队列等场景。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "Redis相比 memcached有哪些优势？",
+        "questionType": "REDIS",
+        "cardType": "MULTIPLE",
+        "options": ["支持更丰富的数据类型", "速度更快", "支持持久化", "支持淘汰策略"],
+        "answer": ["支持更丰富的数据类型", "速度更快", "支持持久化"],
+        "explanation": "Redis 支持更多数据类型，如 List、Set 等；性能优于 memcached；并且支持数据持久化。",
+        "cardDifficulty": "MEDIUM"
+    },
+    {
+        "title": "Redis支持哪几种数据类型？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+        "answer": "String",
+        "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 等数据类型。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "Redis主要消耗什么物理资源？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["CPU", "内存", "磁盘IO", "网络带宽"],
+        "answer": "内存",
+        "explanation": "Redis 主要依赖内存进行数据存储和操作，因此主要消耗内存资源。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "Redis的全称是什么？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Database Server", "Remote Data Storage"],
+        "answer": "Remote Dictionary Server",
+        "explanation": "Redis 的全称是 Remote Dictionary Server。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "Redis有哪几种数据淘汰策略？",
+        "questionType": "REDIS",
+        "cardType": "MULTIPLE",
+        "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+        "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+        "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。",
+        "cardDifficulty": "MEDIUM"
+    },
+    {
+        "title": "一个字符串类型的值能存储最大容量是多少？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["1MB", "512M", "1GB", "10MB"],
+        "answer": "512M",
+        "explanation": "Redis 中一个字符串类型的值最大可以存储 512M 的数据。",
+        "cardDifficulty": "MEDIUM"
+    },
+    {
+        "title": "Redis需要把所有数据放到内存中吗？",
+        "questionType": "REDIS",
+        "cardType": "TRUE_FALSE",
+        "options": [],
+        "answer": "TRUE",
+        "explanation": "Redis 为了达到最快的读写速度将数据都读到内存中，并通过异步的方式将数据写入磁盘。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "Redis集群方案应该怎么做？都有哪些方案？",
+        "questionType": "REDIS",
+        "cardType": "ESSAY",
+        "options": [],
+        "answer": "Redis 集群方案包括 twemproxy、codis、Redis cluster（3.0 自带）、以及业务代码层实现等方式。",
+        "explanation": "Redis 集群方案有多种实现方式，包括代理模式、分布式算法、以及代码层面的实现。",
+        "cardDifficulty": "HARD"
+    },
+    {
+        "title": "Redis集群什么情况下会导致整个集群不可用？",
+        "questionType": "REDIS",
+        "cardType": "ESSAY",
+        "options": [],
+        "answer": "当节点失败且没有复制模型时，例如 B 节点失败，导致缺少槽位范围，整个集群不可用。",
+        "explanation": "Redis 集群在没有复制模型的情况下，节点故障可能导致部分槽位无法访问，从而导致集群不可用。",
+        "cardDifficulty": "HARD"
+    },
+    {
+        "title": "Redis有哪些适合的场景？",
+        "questionType": "REDIS",
+        "cardType": "MULTIPLE",
+        "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+        "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+        "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜/计数器、发布/订阅等多种场景。",
+        "cardDifficulty": "MEDIUM"
+    },
+    {
+        "title": "Redis支持的 Java 客户端都有哪些？官方推荐用哪个？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["Jedis", "Lettuce", "Redisson", "All of the above"],
+        "answer": "All of the above",
+        "explanation": "Redis 支持 Jedis、Lettuce、Redisson 等 Java 客户端，官方推荐使用 Redisson。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "Redis和 Redisson 有什么关系？",
+        "questionType": "REDIS",
+        "cardType": "ESSAY",
+        "options": [],
+        "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了丰富的 Java 数据结构和分布式功能。",
+        "explanation": "Redisson 是一个基于 Redis 的高级客户端，提供分布式对象和数据结构的支持。",
+        "cardDifficulty": "MEDIUM"
+    },
+    {
+        "title": "Redis如何设置密码及验证密码？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["config set requirepass 123456, auth 123456", "set password 123456, login 123456", "password set 123456, verify 123456", "auth 123456, config set requirepass 123456"],
+        "answer": "config set requirepass 123456, auth 123456",
+        "explanation": "设置密码使用 config set requirepass 命令，授权使用 auth 命令。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "怎么测试 Redis 的连通性？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["ping", "echo", "test", "check"],
+        "answer": "ping",
+        "explanation": "使用 ping 命令可以测试 Redis 是否正常连接。",
+        "cardDifficulty": "EASY"
+    },
+    {
+        "title": "Redis中的管道有什么用？",
+        "questionType": "REDIS",
+        "cardType": "ESSAY",
+        "options": [],
+        "answer": "管道（pipelining）允许一次性发送多个命令到 Redis 服务器，而无需等待每个命令的响应，提高效率。",
+        "explanation": "管道技术可以显著提升 Redis 的请求处理速度，尤其在批量操作时。",
+        "cardDifficulty": "MEDIUM"
+    },
+    {
+        "title": "Redis事务相关的命令有哪几个？",
+        "questionType": "REDIS",
+        "cardType": "SINGLE",
+        "options": ["SET", "GET", "MULTI", "EXEC", "WATCH"],
+        "answer": "MULTI",
+        "explanation": "Redis 事务相关的命令包括 MULTI、EXEC、WATCH 等。",
+        "cardDifficulty": "MEDIUM"
+    }
+]
+2026-06-02 17:48:58.417 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 10060
+2026-06-02 17:49:17.714 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - methodName=chatTime=19296
+2026-06-02 17:49:17.714 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - Object[
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持字符串"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型，速度更快，并且支持数据持久化，而 memcached 只能保存字符串。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 等数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "磁盘", "内存", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 主要依赖内存来实现快速的数据读写。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Data Storage"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["512M", "1G", "100M", "256M"],
+    "answer": "512M",
+    "explanation": "Redis 中一个字符串类型的值最大容量为 512M。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "为什么 Redis需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据都读到内存中，并通过异步的方式将数据写入磁盘。",
+    "explanation": "将数据放在内存中可以大幅提升读写速度，同时通过异步方式保证数据持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 以及业务代码层实现。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适合用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "其他"],
+    "answer": "Redisson",
+    "explanation": "Redis 官方推荐使用 Redisson 作为 Java 客户端。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis和 Redisson有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，能够帮助用户在分布式环境中轻松实现一些 Java 对象。",
+    "explanation": "Redisson 是一个基于 Redis 的高级 Java 客户端，提供了分布式数据结构的支持。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass 123456", "auth 123456", "set password 123456", "login 123456"],
+    "answer": "config set requirepass 123456",
+    "explanation": "设置密码使用 config set requirepass 命令，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "说说 Redis哈希槽的概念？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis集群没有使用一致性 hash，而是引入了哈希槽的概念，Redis集群有 16384 个哈希槽，每个 key 通过 CRC16 校验后对 16384 取模来决定放置哪个槽。",
+    "explanation": "Redis 使用哈希槽来分配数据，每个 key 通过计算确定其所属的槽位。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群之间是如何复制的？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["同步复制", "异步复制", "半同步复制", "无复制"],
+    "answer": "异步复制",
+    "explanation": "Redis 集群之间的复制是异步进行的。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis事务相关的命令有哪几个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["MULTI", "EXEC", "WATCH", "DISCARD"],
+    "answer": "MULTI",
+    "explanation": "Redis 事务相关命令包括 MULTI、EXEC、WATCH 和 DISCARD。",
+    "cardDifficulty": "MEDIUM"
+  }
+]
+2026-06-02 17:49:17.715 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - AI 响应长度: 4946
+2026-06-02 17:49:17.715 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 解析的 JSON: [
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持字符串"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型，速度更快，并且支持数据持久化，而 memcached 只能保存字符串。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 等数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "磁盘", "内存", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 主要依赖内存来实现快速的数据读写。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Data Storage"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["512M", "1G", "100M", "256M"],
+    "answer": "512M",
+    "explanation": "Redis 中一个字符串类型的值最大容量为 512M。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "为什么 Redis需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据都读到内存中，并通过异步的方式将数据写入磁盘。",
+    "explanation": "将数据放在内存中可以大幅提升读写速度，同时通过异步方式保证数据持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 以及业务代码层实现。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适合用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "其他"],
+    "answer": "Redisson",
+    "explanation": "Redis 官方推荐使用 Redisson 作为 Java 客户端。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis和 Redisson有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，能够帮助用户在分布式环境中轻松实现一些 Java 对象。",
+    "explanation": "Redisson 是一个基于 Redis 的高级 Java 客户端，提供了分布式数据结构的支持。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass 123456", "auth 123456", "set password 123456", "login 123456"],
+    "answer": "config set requirepass 123456",
+    "explanation": "设置密码使用 config set requirepass 命令，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "说说 Redis哈希槽的概念？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis集群没有使用一致性 hash，而是引入了哈希槽的概念，Redis集群有 16384 个哈希槽，每个 key 通过 CRC16 校验后对 16384 取模来决定放置哪个槽。",
+    "explanation": "Redis 使用哈希槽来分配数据，每个 key 通过计算确定其所属的槽位。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群之间是如何复制的？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["同步复制", "异步复制", "半同步复制", "无复制"],
+    "answer": "异步复制",
+    "explanation": "Redis 集群之间的复制是异步进行的。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis事务相关的命令有哪几个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["MULTI", "EXEC", "WATCH", "DISCARD"],
+    "answer": "MULTI",
+    "explanation": "Redis 事务相关命令包括 MULTI、EXEC、WATCH 和 DISCARD。",
+    "cardDifficulty": "MEDIUM"
+  }
+]
+2026-06-02 17:49:17.728 ERROR [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 卡片解析失败: Cannot deserialize value of type `java.lang.String` from Array value (token `JsonToken.START_ARRAY`)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 16, column: 15] (through reference chain: java.util.ArrayList[1]->org.example.paperwise.entry.AiGeneratedCard["answer"])
+2026-06-02 17:49:17.728 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - methodName=generateFromPdfTime=19490
+2026-06-02 17:51:55.901 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 10060
+2026-06-02 17:52:30.634 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - methodName=chatTime=34732
+2026-06-02 17:52:30.634 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - Object[
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "可以持久化数据"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "可以持久化数据"],
+    "explanation": "Redis 支持更多数据类型，速度更快，并且可以持久化数据，而 memcached 只能保存字符串，且不支持持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "内存", "磁盘", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 主要依赖内存进行数据存储和操作，因此主要消耗内存资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Dictionary Server", "Remote Data Store", "Remote Data Service"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru 等。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis官方为什么不提供Windows版本？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "因为目前 Linux 版本已经相当稳定，而且用户量很大，无需开发 Windows 版本，反而会带来兼容性等问题。",
+    "explanation": "Redis 官方认为 Linux 版本足够稳定，且 Windows 版本可能引入兼容性问题。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["512M", "1G", "100M", "256M"],
+    "answer": "512M",
+    "explanation": "Redis 中一个字符串类型的值最大容量为 512M。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "为什么 Redis 需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 为了达到最快的读写速度将数据都读到内存中，并通过异步的方式将数据写入磁盘。所以 Redis 具有快速和数据持久化的特征。",
+    "explanation": "将数据放在内存中可以提升访问速度，同时通过异步方式保证数据持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 和业务代码层实现等。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis集群方案什么情况下会导致整个集群不可用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "在没有复制模型的情况下，如果某个节点失败，导致缺少槽位，整个集群就会不可用。",
+    "explanation": "Redis 集群在没有复制模型时，若节点失败，可能导致部分槽位无法访问，从而导致集群不可用。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "如何保证 Redis 中的数据都是热点数据？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "当 Redis 内存数据集大小上升到一定大小的时候，就会施行数据淘汰策略。",
+    "explanation": "Redis 使用数据淘汰策略来确保只保留热点数据。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等多种场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java 客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Redisson", "Jedis", "Lettuce", "其他"],
+    "answer": "Redisson",
+    "explanation": "Redis 支持 Redisson、Jedis、Lettuce 等 Java 客户端，官方推荐使用 Redisson。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis和 Redisson 有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，能帮助用户在分布式环境中轻松实现一些 Java 对象。",
+    "explanation": "Redisson 是一个基于 Redis 的 Java 客户端，提供了分布式数据结构和协调功能。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Jedis 与 Redisson 对比有什么优缺点？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Jedis 是 Redis 的 Java 实现的客户端，其 API 提供了比较全面的 Redis 命令的支持；Redisson 实现了分布式和可扩展的 Java 数据结构，但不支持字符串操作、排序、事务、管道、分区等 Redis 特性。",
+    "explanation": "Jedis 功能全面，但 Redisson 更专注于分布式数据结构的实现。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass 123456", "auth 123456", "两者都是"],
+    "answer": "两者都是",
+    "explanation": "设置密码使用 config set requirepass，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "说说 Redis 哈希槽的概念？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 集群没有使用一致性 hash，而是引入了哈希槽的概念，Redis 集群有 16384 个哈希槽，每个 key 通过 CRC16 校验后对 16384 取模来决定放置哪个槽。",
+    "explanation": "哈希槽是 Redis 集群用于数据分片的一种机制。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群的主从复制模型是怎样的？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了使在部分节点失败或者大部分节点无法通信的情况下集群仍然可用，所以集群使用了主从复制模型，每个节点都会有 N-1 个复制品。",
+    "explanation": "主从复制模型确保了集群的高可用性和数据冗余。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群会有写操作丢失吗？为什么？",
+    "questionType": "REDIS",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "是",
+    "explanation": "Redis 并不能保证数据的强一致性，这意味这在实际中集群在特定的条件下可能会丢失写操作。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群之间是如何复制的？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["同步复制", "异步复制", "半同步复制"],
+    "answer": "异步复制",
+    "explanation": "Redis 集群之间采用异步复制方式。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 集群最大节点个数是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1024", "16384", "2048", "8192"],
+    "answer": "16384",
+    "explanation": "Redis 集群最大节点个数是 16384 个。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 集群如何选择数据库？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["可以自定义", "默认在 0 数据库", "根据节点自动选择"],
+    "answer": "默认在 0 数据库",
+    "explanation": "Redis 集群目前无法做数据库选择，默认在 0 数据库。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "怎么测试 Redis 的连通性？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["ping", "echo", "info", "get"],
+    "answer": "ping",
+    "explanation": "使用 ping 命令可以测试 Redis 的连通性。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 中的管道有什么用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "一次请求/响应服务器能实现处理新的请求即使旧的请求还未被响应。这样就可以将多个命令发送到服务器，而不用等待回复，最后在一个步骤中读取该答复。",
+    "explanation": "管道（pipelining）是一种技术，允许一次性发送多个命令，提高性能。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "怎么理解 Redis 事务？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "事务是一个单独的隔离操作：事务中的所有命令都会序列化、按顺序地执行。事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。事务是一个原子操作：事务中的命令要么全部被执行，要么全部都不执行。",
+    "explanation": "Redis 事务保证了命令的原子性和顺序性。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 事务相关的命令有哪几个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["MULTI", "EXEC", "WATCH", "UNWATCH"],
+    "answer": "MULTI",
+    "explanation": "Redis 事务相关命令包括 MULTI、EXEC、WATCH、UNWATCH 等。",
+    "cardDifficulty": "EASY"
+  }
+]
+2026-06-02 17:52:30.635 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - AI 响应长度: 7906
+2026-06-02 17:52:30.636 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 解析的 JSON: [
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "可以持久化数据"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "可以持久化数据"],
+    "explanation": "Redis 支持更多数据类型，速度更快，并且可以持久化数据，而 memcached 只能保存字符串，且不支持持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "内存", "磁盘", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 主要依赖内存进行数据存储和操作，因此主要消耗内存资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Dictionary Server", "Remote Data Store", "Remote Data Service"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru 等。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis官方为什么不提供Windows版本？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "因为目前 Linux 版本已经相当稳定，而且用户量很大，无需开发 Windows 版本，反而会带来兼容性等问题。",
+    "explanation": "Redis 官方认为 Linux 版本足够稳定，且 Windows 版本可能引入兼容性问题。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["512M", "1G", "100M", "256M"],
+    "answer": "512M",
+    "explanation": "Redis 中一个字符串类型的值最大容量为 512M。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "为什么 Redis 需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 为了达到最快的读写速度将数据都读到内存中，并通过异步的方式将数据写入磁盘。所以 Redis 具有快速和数据持久化的特征。",
+    "explanation": "将数据放在内存中可以提升访问速度，同时通过异步方式保证数据持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 和业务代码层实现等。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis集群方案什么情况下会导致整个集群不可用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "在没有复制模型的情况下，如果某个节点失败，导致缺少槽位，整个集群就会不可用。",
+    "explanation": "Redis 集群在没有复制模型时，若节点失败，可能导致部分槽位无法访问，从而导致集群不可用。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "如何保证 Redis 中的数据都是热点数据？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "当 Redis 内存数据集大小上升到一定大小的时候，就会施行数据淘汰策略。",
+    "explanation": "Redis 使用数据淘汰策略来确保只保留热点数据。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等多种场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java 客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Redisson", "Jedis", "Lettuce", "其他"],
+    "answer": "Redisson",
+    "explanation": "Redis 支持 Redisson、Jedis、Lettuce 等 Java 客户端，官方推荐使用 Redisson。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis和 Redisson 有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，能帮助用户在分布式环境中轻松实现一些 Java 对象。",
+    "explanation": "Redisson 是一个基于 Redis 的 Java 客户端，提供了分布式数据结构和协调功能。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Jedis 与 Redisson 对比有什么优缺点？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Jedis 是 Redis 的 Java 实现的客户端，其 API 提供了比较全面的 Redis 命令的支持；Redisson 实现了分布式和可扩展的 Java 数据结构，但不支持字符串操作、排序、事务、管道、分区等 Redis 特性。",
+    "explanation": "Jedis 功能全面，但 Redisson 更专注于分布式数据结构的实现。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass 123456", "auth 123456", "两者都是"],
+    "answer": "两者都是",
+    "explanation": "设置密码使用 config set requirepass，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "说说 Redis 哈希槽的概念？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 集群没有使用一致性 hash，而是引入了哈希槽的概念，Redis 集群有 16384 个哈希槽，每个 key 通过 CRC16 校验后对 16384 取模来决定放置哪个槽。",
+    "explanation": "哈希槽是 Redis 集群用于数据分片的一种机制。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群的主从复制模型是怎样的？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了使在部分节点失败或者大部分节点无法通信的情况下集群仍然可用，所以集群使用了主从复制模型，每个节点都会有 N-1 个复制品。",
+    "explanation": "主从复制模型确保了集群的高可用性和数据冗余。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群会有写操作丢失吗？为什么？",
+    "questionType": "REDIS",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "是",
+    "explanation": "Redis 并不能保证数据的强一致性，这意味这在实际中集群在特定的条件下可能会丢失写操作。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群之间是如何复制的？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["同步复制", "异步复制", "半同步复制"],
+    "answer": "异步复制",
+    "explanation": "Redis 集群之间采用异步复制方式。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 集群最大节点个数是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1024", "16384", "2048", "8192"],
+    "answer": "16384",
+    "explanation": "Redis 集群最大节点个数是 16384 个。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 集群如何选择数据库？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["可以自定义", "默认在 0 数据库", "根据节点自动选择"],
+    "answer": "默认在 0 数据库",
+    "explanation": "Redis 集群目前无法做数据库选择，默认在 0 数据库。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "怎么测试 Redis 的连通性？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["ping", "echo", "info", "get"],
+    "answer": "ping",
+    "explanation": "使用 ping 命令可以测试 Redis 的连通性。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 中的管道有什么用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "一次请求/响应服务器能实现处理新的请求即使旧的请求还未被响应。这样就可以将多个命令发送到服务器，而不用等待回复，最后在一个步骤中读取该答复。",
+    "explanation": "管道（pipelining）是一种技术，允许一次性发送多个命令，提高性能。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "怎么理解 Redis 事务？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "事务是一个单独的隔离操作：事务中的所有命令都会序列化、按顺序地执行。事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。事务是一个原子操作：事务中的命令要么全部被执行，要么全部都不执行。",
+    "explanation": "Redis 事务保证了命令的原子性和顺序性。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 事务相关的命令有哪几个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["MULTI", "EXEC", "WATCH", "UNWATCH"],
+    "answer": "MULTI",
+    "explanation": "Redis 事务相关命令包括 MULTI、EXEC、WATCH、UNWATCH 等。",
+    "cardDifficulty": "EASY"
+  }
+]
+2026-06-02 17:54:14.782 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 10060
+2026-06-02 17:54:47.028 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - methodName=chatTime=32244
+2026-06-02 17:54:47.028 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - Object[
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 是一个 Key-Value 类型的内存数据库，整个数据库加载在内存中进行操作，定期通过异步操作将数据保存到硬盘。它支持多种数据结构，具有高性能读写能力。",
+    "explanation": "Redis 是一个开源的内存数据结构存储系统，可以用作数据库、缓存和消息中间件。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 相比 memcached 有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持持久化", "支持分布式"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持持久化"],
+    "explanation": "Redis 支持字符串、列表、集合等数据类型，速度更快，并且支持数据持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 等数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "磁盘", "内存", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 是一个基于内存的数据库，主要消耗内存资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Data Storage", "Remote Database Server"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru 等。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 官方为什么不提供 Windows 版本？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "因为 Linux 版本已经非常稳定，用户量大，开发 Windows 版本会带来兼容性问题。",
+    "explanation": "Redis 官方认为 Linux 版本足够稳定，无需开发 Windows 版本。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1MB", "512M", "1GB", "10MB"],
+    "answer": "512M",
+    "explanation": "Redis 中字符串类型的值最大可以存储 512M。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "为什么 Redis 需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据读入内存中，并通过异步方式将数据写入磁盘。",
+    "explanation": "Redis 通过内存操作实现高速读写，磁盘 I/O 会严重影响性能。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 和业务代码层实现。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis 集群方案什么情况下会导致整个集群不可用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "如果节点 B 失败且没有复制模型时，集群可能因为缺少槽而不可用。",
+    "explanation": "在没有复制模型的情况下，某个节点失败可能导致集群无法处理对应的哈希槽。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "如何保证 Redis 中的数据都是热点数据？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "当 Redis 内存数据集大小上升到一定大小时，会施行数据淘汰策略，从而保留热点数据。",
+    "explanation": "Redis 通过数据淘汰策略来保证内存中的数据是热点数据。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 支持的 Java 客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["Redisson", "Jedis", "Lettuce", "Spring Data Redis"],
+    "answer": ["Redisson", "Jedis", "Lettuce", "Spring Data Redis"],
+    "explanation": "Redis 支持多个 Java 客户端，如 Jedis、Lettuce 和 Redisson，官方推荐使用 Redisson。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 和 Redisson 有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了许多 Java 数据结构和分布式功能。",
+    "explanation": "Redisson 是一个用于简化 Redis 使用的 Java 客户端库，支持多种分布式数据结构。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Jedis 与 Redisson 对比有什么优缺点？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Jedis 提供了全面的 Redis 命令支持，而 Redisson 更注重分布式数据结构和简化开发。",
+    "explanation": "Jedis 是 Redis 的 Java 客户端，功能全面；Redisson 则专注于分布式数据结构和易用性。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass", "auth", "setpass", "login"],
+    "answer": "config set requirepass",
+    "explanation": "Redis 设置密码使用 config set requirepass 命令，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "说说 Redis 哈希槽的概念？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 集群使用 16384 个哈希槽，每个 key 通过 CRC16 校验后对 16384 取模来决定放置哪个槽。",
+    "explanation": "Redis 集群采用哈希槽机制分配数据，每个节点负责一部分哈希槽。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群的主从复制模型是怎样的？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "每个节点都有 N-1 个复制品，以确保部分节点失败时集群仍可用。",
+    "explanation": "Redis 集群使用主从复制模型提高可用性和容错性。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群会有写操作丢失吗？为什么？",
+    "questionType": "REDIS",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "是",
+    "explanation": "Redis 不能保证数据的强一致性，特定条件下可能会丢失写操作。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis 集群之间是如何复制的？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["同步复制", "异步复制", "半同步复制", "无复制"],
+    "answer": "异步复制",
+    "explanation": "Redis 集群使用异步复制方式实现数据同步。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 集群最大节点个数是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1024", "16384", "65535", "10000"],
+    "answer": "16384",
+    "explanation": "Redis 集群最多支持 16384 个节点。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 集群如何选择数据库？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["可以自由选择", "默认在 0 数据库", "需要手动配置", "不支持多数据库"],
+    "answer": "默认在 0 数据库",
+    "explanation": "Redis 集群目前无法做数据库选择，默认在 0 数据库。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "怎么测试 Redis 的连通性？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["ping", "echo", "get", "info"],
+    "answer": "ping",
+    "explanation": "使用 ping 命令可以测试 Redis 的连通性。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 中的管道有什么用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "管道允许一次发送多个命令，减少网络往返时间，提高效率。",
+    "explanation": "管道技术可以批量发送命令，提升 Redis 的执行效率。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "怎么理解 Redis 事务？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "事务是一个隔离、原子的操作，其中的所有命令要么全部执行，要么全部不执行。",
+    "explanation": "Redis 事务保证命令的顺序执行和原子性，防止中间被其他客户端干扰。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 事务相关的命令有哪几个？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["MULTI", "EXEC", "DISCARD", "WATCH"],
+    "answer": ["MULTI", "EXEC", "DISCARD", "WATCH"],
+    "explanation": "Redis 事务相关命令包括 MULTI、EXEC、DISCARD 和 WATCH。",
+    "cardDifficulty": "MEDIUM"
+  }
+]
+2026-06-02 17:54:47.029 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - AI 响应长度: 7743
+2026-06-02 17:54:47.029 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 解析的 JSON: [
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 是一个 Key-Value 类型的内存数据库，整个数据库加载在内存中进行操作，定期通过异步操作将数据保存到硬盘。它支持多种数据结构，具有高性能读写能力。",
+    "explanation": "Redis 是一个开源的内存数据结构存储系统，可以用作数据库、缓存和消息中间件。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 相比 memcached 有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持持久化", "支持分布式"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持持久化"],
+    "explanation": "Redis 支持字符串、列表、集合等数据类型，速度更快，并且支持数据持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 等数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "磁盘", "内存", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 是一个基于内存的数据库，主要消耗内存资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Data Storage", "Remote Database Server"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru 等。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 官方为什么不提供 Windows 版本？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "因为 Linux 版本已经非常稳定，用户量大，开发 Windows 版本会带来兼容性问题。",
+    "explanation": "Redis 官方认为 Linux 版本足够稳定，无需开发 Windows 版本。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1MB", "512M", "1GB", "10MB"],
+    "answer": "512M",
+    "explanation": "Redis 中字符串类型的值最大可以存储 512M。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "为什么 Redis 需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据读入内存中，并通过异步方式将数据写入磁盘。",
+    "explanation": "Redis 通过内存操作实现高速读写，磁盘 I/O 会严重影响性能。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 和业务代码层实现。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis 集群方案什么情况下会导致整个集群不可用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "如果节点 B 失败且没有复制模型时，集群可能因为缺少槽而不可用。",
+    "explanation": "在没有复制模型的情况下，某个节点失败可能导致集群无法处理对应的哈希槽。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "如何保证 Redis 中的数据都是热点数据？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "当 Redis 内存数据集大小上升到一定大小时，会施行数据淘汰策略，从而保留热点数据。",
+    "explanation": "Redis 通过数据淘汰策略来保证内存中的数据是热点数据。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 支持的 Java 客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["Redisson", "Jedis", "Lettuce", "Spring Data Redis"],
+    "answer": ["Redisson", "Jedis", "Lettuce", "Spring Data Redis"],
+    "explanation": "Redis 支持多个 Java 客户端，如 Jedis、Lettuce 和 Redisson，官方推荐使用 Redisson。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 和 Redisson 有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了许多 Java 数据结构和分布式功能。",
+    "explanation": "Redisson 是一个用于简化 Redis 使用的 Java 客户端库，支持多种分布式数据结构。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Jedis 与 Redisson 对比有什么优缺点？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Jedis 提供了全面的 Redis 命令支持，而 Redisson 更注重分布式数据结构和简化开发。",
+    "explanation": "Jedis 是 Redis 的 Java 客户端，功能全面；Redisson 则专注于分布式数据结构和易用性。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass", "auth", "setpass", "login"],
+    "answer": "config set requirepass",
+    "explanation": "Redis 设置密码使用 config set requirepass 命令，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "说说 Redis 哈希槽的概念？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 集群使用 16384 个哈希槽，每个 key 通过 CRC16 校验后对 16384 取模来决定放置哪个槽。",
+    "explanation": "Redis 集群采用哈希槽机制分配数据，每个节点负责一部分哈希槽。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群的主从复制模型是怎样的？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "每个节点都有 N-1 个复制品，以确保部分节点失败时集群仍可用。",
+    "explanation": "Redis 集群使用主从复制模型提高可用性和容错性。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 集群会有写操作丢失吗？为什么？",
+    "questionType": "REDIS",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "是",
+    "explanation": "Redis 不能保证数据的强一致性，特定条件下可能会丢失写操作。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis 集群之间是如何复制的？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["同步复制", "异步复制", "半同步复制", "无复制"],
+    "answer": "异步复制",
+    "explanation": "Redis 集群使用异步复制方式实现数据同步。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 集群最大节点个数是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1024", "16384", "65535", "10000"],
+    "answer": "16384",
+    "explanation": "Redis 集群最多支持 16384 个节点。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 集群如何选择数据库？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["可以自由选择", "默认在 0 数据库", "需要手动配置", "不支持多数据库"],
+    "answer": "默认在 0 数据库",
+    "explanation": "Redis 集群目前无法做数据库选择，默认在 0 数据库。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "怎么测试 Redis 的连通性？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["ping", "echo", "get", "info"],
+    "answer": "ping",
+    "explanation": "使用 ping 命令可以测试 Redis 的连通性。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis 中的管道有什么用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "管道允许一次发送多个命令，减少网络往返时间，提高效率。",
+    "explanation": "管道技术可以批量发送命令，提升 Redis 的执行效率。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "怎么理解 Redis 事务？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "事务是一个隔离、原子的操作，其中的所有命令要么全部执行，要么全部不执行。",
+    "explanation": "Redis 事务保证命令的顺序执行和原子性，防止中间被其他客户端干扰。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis 事务相关的命令有哪几个？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["MULTI", "EXEC", "DISCARD", "WATCH"],
+    "answer": ["MULTI", "EXEC", "DISCARD", "WATCH"],
+    "explanation": "Redis 事务相关命令包括 MULTI、EXEC、DISCARD 和 WATCH。",
+    "cardDifficulty": "MEDIUM"
+  }
+]
+2026-06-02 17:54:47.093 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 成功生成 27 张卡片
+2026-06-02 17:54:47.094 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - methodName=generateFromPdfTime=32508
+2026-06-02 18:56:12.454 INFO  [SimpleAsyncTaskExecutor-2] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 10060
+2026-06-02 18:56:26.759 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 10062
+2026-06-02 18:56:51.930 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - methodName=chatTime=25169
+2026-06-02 18:56:51.931 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - Object[
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持分布式"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型、更快的速度以及数据持久化功能，而 memcached 只能保存字符串且不支持持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 五种数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "内存", "磁盘", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 是一个内存数据库，主要消耗内存资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Data Storage"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了六种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "为什么 Redis需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据全部读到内存中，并通过异步方式将数据写入磁盘。",
+    "explanation": "Redis 将数据放在内存中以实现高速读写，同时通过异步方式保证数据持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 和业务代码层实现等。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis集群方案什么情况下会导致整个集群不可用？",
+    "questionType": "REDIS",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "TRUE",
+    "explanation": "当节点失败且没有复制模型时，集群可能会因为缺少槽而不可用。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "如何保证 Redis中的数据都是热点数据？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "通过设置内存上限后，Redis 会根据数据淘汰策略自动移除非热点数据。",
+    "explanation": "Redis 内存数据集大小上升到一定大小时，会施行数据淘汰策略，从而保证只有热点数据保留在内存中。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等多种场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "其他"],
+    "answer": "Redisson",
+    "explanation": "Redis 支持 Jedis、Lettuce、Redisson 等 Java 客户端，官方推荐使用 Redisson。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis和 Redisson有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了许多 Java 数据结构的封装。",
+    "explanation": "Redisson 是一个基于 Redis 的高级 Java 客户端，提供分布式数据结构的支持。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Jedis与 Redisson对比有什么优缺点？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Jedis 提供全面的 Redis 命令支持，而 Redisson 提供分布式数据结构，但不支持某些高级特性如事务和管道。",
+    "explanation": "Jedis 更注重对 Redis 命令的全面支持，而 Redisson 更注重分布式数据结构的封装。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass 123456", "auth 123456", "set password 123456", "login 123456"],
+    "answer": "config set requirepass 123456",
+    "explanation": "设置密码使用 config set requirepass 命令，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "说说 Redis哈希槽的概念？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 集群引入了哈希槽的概念，共有 16384 个哈希槽，每个 key 通过 CRC16 校验后对 16384 取模来决定放置哪个槽。",
+    "explanation": "Redis 集群使用哈希槽来分配数据，每个 key 通过 CRC16 计算后分配到对应的哈希槽。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群的主从复制模型是怎样的？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "每个节点都会有 N-1 个复制品，用于提高可用性和数据冗余。",
+    "explanation": "Redis 集群使用主从复制模型，每个节点都有 N-1 个副本，确保部分节点失败时集群仍可用。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群会有写操作丢失吗？为什么？",
+    "questionType": "REDIS",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "TRUE",
+    "explanation": "Redis 不能保证强一致性，因此在特定条件下可能会丢失写操作。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群之间是如何复制的？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["同步复制", "异步复制", "半同步复制", "无复制"],
+    "answer": "异步复制",
+    "explanation": "Redis 集群使用异步复制来保持数据一致性。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis集群最大节点个数是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1024", "16384", "65535", "无限制"],
+    "answer": "16384",
+    "explanation": "Redis 集群最多支持 16384 个节点。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "怎么测试 Redis的连通性？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["ping", "check", "test", "connect"],
+    "answer": "ping",
+    "explanation": "使用 ping 命令可以测试 Redis 的连通性。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis中的管道有什么用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "管道允许一次发送多个命令并一次性读取响应，提高效率。",
+    "explanation": "管道技术允许客户端将多个命令一次性发送给服务器，减少网络往返时间。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "怎么理解 Redis事务？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "事务是原子操作，其中的所有命令要么全部执行，要么全部不执行。",
+    "explanation": "Redis 事务保证命令序列的原子性，确保事务中的命令要么全部成功，要么全部失败。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis事务相关的命令有哪几个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["MULTI", "EXEC", "DISCARD", "以上都是"],
+    "answer": "以上都是",
+    "explanation": "Redis 事务相关命令包括 MULTI、EXEC 和 DISCARD。",
+    "cardDifficulty": "EASY"
+  }
+]
+2026-06-02 18:56:51.931 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - AI 响应长度: 7014
+2026-06-02 18:56:51.932 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 解析的 JSON: [
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持分布式"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型、更快的速度以及数据持久化功能，而 memcached 只能保存字符串且不支持持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 五种数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "内存", "磁盘", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 是一个内存数据库，主要消耗内存资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Data Storage"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了六种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "为什么 Redis需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据全部读到内存中，并通过异步方式将数据写入磁盘。",
+    "explanation": "Redis 将数据放在内存中以实现高速读写，同时通过异步方式保证数据持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 和业务代码层实现等。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis集群方案什么情况下会导致整个集群不可用？",
+    "questionType": "REDIS",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "TRUE",
+    "explanation": "当节点失败且没有复制模型时，集群可能会因为缺少槽而不可用。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "如何保证 Redis中的数据都是热点数据？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "通过设置内存上限后，Redis 会根据数据淘汰策略自动移除非热点数据。",
+    "explanation": "Redis 内存数据集大小上升到一定大小时，会施行数据淘汰策略，从而保证只有热点数据保留在内存中。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等多种场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "其他"],
+    "answer": "Redisson",
+    "explanation": "Redis 支持 Jedis、Lettuce、Redisson 等 Java 客户端，官方推荐使用 Redisson。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis和 Redisson有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了许多 Java 数据结构的封装。",
+    "explanation": "Redisson 是一个基于 Redis 的高级 Java 客户端，提供分布式数据结构的支持。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Jedis与 Redisson对比有什么优缺点？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Jedis 提供全面的 Redis 命令支持，而 Redisson 提供分布式数据结构，但不支持某些高级特性如事务和管道。",
+    "explanation": "Jedis 更注重对 Redis 命令的全面支持，而 Redisson 更注重分布式数据结构的封装。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass 123456", "auth 123456", "set password 123456", "login 123456"],
+    "answer": "config set requirepass 123456",
+    "explanation": "设置密码使用 config set requirepass 命令，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "说说 Redis哈希槽的概念？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 集群引入了哈希槽的概念，共有 16384 个哈希槽，每个 key 通过 CRC16 校验后对 16384 取模来决定放置哪个槽。",
+    "explanation": "Redis 集群使用哈希槽来分配数据，每个 key 通过 CRC16 计算后分配到对应的哈希槽。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群的主从复制模型是怎样的？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "每个节点都会有 N-1 个复制品，用于提高可用性和数据冗余。",
+    "explanation": "Redis 集群使用主从复制模型，每个节点都有 N-1 个副本，确保部分节点失败时集群仍可用。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群会有写操作丢失吗？为什么？",
+    "questionType": "REDIS",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "TRUE",
+    "explanation": "Redis 不能保证强一致性，因此在特定条件下可能会丢失写操作。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群之间是如何复制的？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["同步复制", "异步复制", "半同步复制", "无复制"],
+    "answer": "异步复制",
+    "explanation": "Redis 集群使用异步复制来保持数据一致性。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis集群最大节点个数是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1024", "16384", "65535", "无限制"],
+    "answer": "16384",
+    "explanation": "Redis 集群最多支持 16384 个节点。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "怎么测试 Redis的连通性？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["ping", "check", "test", "connect"],
+    "answer": "ping",
+    "explanation": "使用 ping 命令可以测试 Redis 的连通性。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis中的管道有什么用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "管道允许一次发送多个命令并一次性读取响应，提高效率。",
+    "explanation": "管道技术允许客户端将多个命令一次性发送给服务器，减少网络往返时间。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "怎么理解 Redis事务？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "事务是原子操作，其中的所有命令要么全部执行，要么全部不执行。",
+    "explanation": "Redis 事务保证命令序列的原子性，确保事务中的命令要么全部成功，要么全部失败。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis事务相关的命令有哪几个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["MULTI", "EXEC", "DISCARD", "以上都是"],
+    "answer": "以上都是",
+    "explanation": "Redis 事务相关命令包括 MULTI、EXEC 和 DISCARD。",
+    "cardDifficulty": "EASY"
+  }
+]
+2026-06-02 18:57:47.518 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 10062
+2026-06-02 18:58:10.278 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - methodName=chatTime=22758
+2026-06-02 18:58:10.278 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - Object[
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持分布式"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型，速度更快，并且支持数据持久化，而 memcached 只能保存字符串且不支持持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 等多种数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "内存", "磁盘", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 主要依赖内存进行数据存储和操作，因此主要消耗的是内存资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Data Store"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["512MB", "1GB", "2GB", "10GB"],
+    "answer": "512MB",
+    "explanation": "Redis 中一个字符串类型的值最大容量是 512MB。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "为什么 Redis需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据全部读入内存中，并通过异步方式将数据写入磁盘。",
+    "explanation": "Redis 通过内存操作实现高速读写，同时通过异步持久化保证数据安全。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 以及业务代码层实现等。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案什么情况下会导致整个集群不可用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "当没有复制模型的情况下，如果某个节点失败，导致部分槽位无法访问，整个集群会不可用。",
+    "explanation": "Redis 集群在没有复制的情况下，节点失败可能导致部分槽位丢失，从而导致集群不可用。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适合用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "All of the above"],
+    "answer": "Redisson",
+    "explanation": "Redis 官方推荐使用 Redisson 作为 Java 客户端。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis和 Redisson有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了许多 Java 数据结构的实现。",
+    "explanation": "Redisson 是一个基于 Redis 的 Java 客户端，提供了丰富的分布式数据结构支持。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Jedis与 Redisson对比有什么优缺点？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Jedis 提供了全面的 Redis 命令支持，而 Redisson 更专注于提供分布式 Java 数据结构，功能较为简单但更易用。",
+    "explanation": "Jedis 功能全面，而 Redisson 更注重简化开发，适合对分布式数据结构有需求的场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass", "auth", "set pass", "login"],
+    "answer": "config set requirepass",
+    "explanation": "设置密码使用 config set requirepass 命令，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "说说 Redis哈希槽的概念？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 集群引入了哈希槽的概念，共有 16384 个哈希槽，每个 key 通过 CRC16 校验后对 16384 取模来决定放置哪个槽。",
+    "explanation": "哈希槽是 Redis 集群中用于数据分布的关键机制。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群的主从复制模型是怎样的？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 集群使用主从复制模型，每个节点都有 N-1 个复制品，以保证在部分节点失败时集群仍然可用。",
+    "explanation": "主从复制模型提高了 Redis 集群的可用性和容错性。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群会有写操作丢失吗？为什么？",
+    "questionType": "REDIS",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "是",
+    "explanation": "Redis 不能保证数据的强一致性，在特定条件下可能会丢失写操作。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群之间是如何复制的？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["同步复制", "异步复制", "半同步复制", "无复制"],
+    "answer": "异步复制",
+    "explanation": "Redis 集群之间的复制是异步的。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis集群最大节点个数是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1024", "16384", "65535", "无限"],
+    "answer": "16384",
+    "explanation": "Redis 集群最多支持 16384 个节点。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "怎么测试 Redis的连通性？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["ping", "echo", "info", "get"],
+    "answer": "ping",
+    "explanation": "使用 ping 命令可以测试 Redis 的连通性。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis中的管道有什么用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "管道（pipelining）允许一次请求发送多个命令，减少网络延迟，提高执行效率。",
+    "explanation": "管道技术可以批量发送命令，提升 Redis 的吞吐量。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "怎么理解 Redis事务？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 事务是一个隔离的操作，其中的所有命令按顺序执行，要么全部成功，要么全部失败。",
+    "explanation": "事务确保命令的原子性和顺序性，避免中间状态被其他客户端干扰。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis事务相关的命令有哪几个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["MULTI", "EXEC", "DISCARD", "ALL"],
+    "answer": "MULTI",
+    "explanation": "Redis 事务相关命令包括 MULTI、EXEC、DISCARD 等。",
+    "cardDifficulty": "EASY"
+  }
+]
+2026-06-02 18:58:10.279 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - AI 响应长度: 6974
+2026-06-02 18:58:10.279 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 解析的 JSON: [
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持分布式"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型，速度更快，并且支持数据持久化，而 memcached 只能保存字符串且不支持持久化。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 等多种数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "内存", "磁盘", "网络"],
+    "answer": "内存",
+    "explanation": "Redis 主要依赖内存进行数据存储和操作，因此主要消耗的是内存资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Data Store"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["512MB", "1GB", "2GB", "10GB"],
+    "answer": "512MB",
+    "explanation": "Redis 中一个字符串类型的值最大容量是 512MB。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "为什么 Redis需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据全部读入内存中，并通过异步方式将数据写入磁盘。",
+    "explanation": "Redis 通过内存操作实现高速读写，同时通过异步持久化保证数据安全。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 以及业务代码层实现等。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案什么情况下会导致整个集群不可用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "当没有复制模型的情况下，如果某个节点失败，导致部分槽位无法访问，整个集群会不可用。",
+    "explanation": "Redis 集群在没有复制的情况下，节点失败可能导致部分槽位丢失，从而导致集群不可用。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适合用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "All of the above"],
+    "answer": "Redisson",
+    "explanation": "Redis 官方推荐使用 Redisson 作为 Java 客户端。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis和 Redisson有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，提供了许多 Java 数据结构的实现。",
+    "explanation": "Redisson 是一个基于 Redis 的 Java 客户端，提供了丰富的分布式数据结构支持。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Jedis与 Redisson对比有什么优缺点？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Jedis 提供了全面的 Redis 命令支持，而 Redisson 更专注于提供分布式 Java 数据结构，功能较为简单但更易用。",
+    "explanation": "Jedis 功能全面，而 Redisson 更注重简化开发，适合对分布式数据结构有需求的场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass", "auth", "set pass", "login"],
+    "answer": "config set requirepass",
+    "explanation": "设置密码使用 config set requirepass 命令，验证密码使用 auth 命令。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "说说 Redis哈希槽的概念？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 集群引入了哈希槽的概念，共有 16384 个哈希槽，每个 key 通过 CRC16 校验后对 16384 取模来决定放置哪个槽。",
+    "explanation": "哈希槽是 Redis 集群中用于数据分布的关键机制。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群的主从复制模型是怎样的？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 集群使用主从复制模型，每个节点都有 N-1 个复制品，以保证在部分节点失败时集群仍然可用。",
+    "explanation": "主从复制模型提高了 Redis 集群的可用性和容错性。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群会有写操作丢失吗？为什么？",
+    "questionType": "REDIS",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "是",
+    "explanation": "Redis 不能保证数据的强一致性，在特定条件下可能会丢失写操作。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群之间是如何复制的？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["同步复制", "异步复制", "半同步复制", "无复制"],
+    "answer": "异步复制",
+    "explanation": "Redis 集群之间的复制是异步的。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis集群最大节点个数是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1024", "16384", "65535", "无限"],
+    "answer": "16384",
+    "explanation": "Redis 集群最多支持 16384 个节点。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "怎么测试 Redis的连通性？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["ping", "echo", "info", "get"],
+    "answer": "ping",
+    "explanation": "使用 ping 命令可以测试 Redis 的连通性。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis中的管道有什么用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "管道（pipelining）允许一次请求发送多个命令，减少网络延迟，提高执行效率。",
+    "explanation": "管道技术可以批量发送命令，提升 Redis 的吞吐量。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "怎么理解 Redis事务？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 事务是一个隔离的操作，其中的所有命令按顺序执行，要么全部成功，要么全部失败。",
+    "explanation": "事务确保命令的原子性和顺序性，避免中间状态被其他客户端干扰。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis事务相关的命令有哪几个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["MULTI", "EXEC", "DISCARD", "ALL"],
+    "answer": "MULTI",
+    "explanation": "Redis 事务相关命令包括 MULTI、EXEC、DISCARD 等。",
+    "cardDifficulty": "EASY"
+  }
+]
+2026-06-02 19:00:20.358 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 10062
+2026-06-02 19:00:39.060 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - methodName=chatTime=18700
+2026-06-02 19:00:39.060 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - Object[
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持分布式"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型、更快的速度以及数据持久化功能，这些都是其相较于 memcached 的优势。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String、List、Set、Sorted Set、hashes",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 等多种数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "磁盘", "内存", "网络带宽"],
+    "answer": "内存",
+    "explanation": "Redis 是基于内存操作的数据库，因此主要消耗内存资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Data Storage"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1MB", "512M", "1GB", "10MB"],
+    "answer": "512M",
+    "explanation": "Redis 中一个字符串类型的值最大容量为 512MB。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "为什么 Redis 需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据读到内存中，并通过异步的方式将数据写入磁盘。",
+    "explanation": "将数据放在内存中可以提高读写速度，而磁盘 I/O 会严重影响性能，因此 Redis 使用内存来实现高性能。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 以及在业务代码层实现。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适合用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java 客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "All of the above"],
+    "answer": "All of the above",
+    "explanation": "Redis 支持 Jedis、Lettuce、Redisson 等 Java 客户端，官方推荐使用 Redisson。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis和 Redisson 有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，能够帮助用户在分布式环境中轻松实现一些 Java 对象。",
+    "explanation": "Redisson 是一个基于 Redis 的高级客户端，提供了许多分布式数据结构和功能。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass 123456", "auth 123456", "set requirepass 123456", "以上都是"],
+    "answer": "以上都是",
+    "explanation": "Redis 可以通过 config set requirepass 设置密码，通过 auth 命令验证密码。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "怎么测试 Redis 的连通性？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["ping", "echo", "get", "info"],
+    "answer": "ping",
+    "explanation": "使用 ping 命令可以测试 Redis 的连通性。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis中的管道有什么用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "管道（pipelining）允许一次请求/响应服务器处理多个命令，而不用等待每个命令的回复，从而提升性能。",
+    "explanation": "管道技术可以显著提高 Redis 的执行效率，减少网络延迟。",
+    "cardDifficulty": "MEDIUM"
+  }
+]
+2026-06-02 19:00:39.061 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - AI 响应长度: 4716
+2026-06-02 19:00:39.061 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 解析的 JSON: [
+  {
+    "title": "什么是 Redis？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。",
+    "explanation": "Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis相比 memcached有哪些优势？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["支持更丰富的数据类型", "速度更快", "支持数据持久化", "支持分布式"],
+    "answer": ["支持更丰富的数据类型", "速度更快", "支持数据持久化"],
+    "explanation": "Redis 支持更多数据类型、更快的速度以及数据持久化功能，这些都是其相较于 memcached 的优势。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持哪几种数据类型？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["String", "List", "Set", "Sorted Set", "hashes"],
+    "answer": "String、List、Set、Sorted Set、hashes",
+    "explanation": "Redis 支持 String、List、Set、Sorted Set 和 hashes 等多种数据类型。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis主要消耗什么物理资源？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["CPU", "磁盘", "内存", "网络带宽"],
+    "answer": "内存",
+    "explanation": "Redis 是基于内存操作的数据库，因此主要消耗内存资源。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis的全称是什么？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Remote Data Server", "Remote Dictionary Server", "Remote Disk Server", "Remote Data Storage"],
+    "answer": "Remote Dictionary Server",
+    "explanation": "Redis 的全称是 Remote Dictionary Server。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis有哪几种数据淘汰策略？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "answer": ["noeviction", "allkeys-lru", "volatile-lru", "allkeys-random", "volatile-random", "volatile-ttl"],
+    "explanation": "Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "一个字符串类型的值能存储最大容量是多少？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["1MB", "512M", "1GB", "10MB"],
+    "answer": "512M",
+    "explanation": "Redis 中一个字符串类型的值最大容量为 512MB。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "为什么 Redis 需要把所有数据放到内存中？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "为了达到最快的读写速度，Redis 将数据读到内存中，并通过异步的方式将数据写入磁盘。",
+    "explanation": "将数据放在内存中可以提高读写速度，而磁盘 I/O 会严重影响性能，因此 Redis 使用内存来实现高性能。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis集群方案应该怎么做？都有哪些方案？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "answer": ["twemproxy", "codis", "Redis cluster", "业务代码层实现"],
+    "explanation": "Redis 集群方案包括 twemproxy、codis、Redis cluster 以及在业务代码层实现。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "Redis有哪些适合的场景？",
+    "questionType": "REDIS",
+    "cardType": "MULTIPLE",
+    "options": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "answer": ["会话缓存", "全页缓存", "队列", "排行榜/计数器", "发布/订阅"],
+    "explanation": "Redis 适合用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等场景。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis支持的 Java 客户端都有哪些？官方推荐用哪个？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["Jedis", "Lettuce", "Redisson", "All of the above"],
+    "answer": "All of the above",
+    "explanation": "Redis 支持 Jedis、Lettuce、Redisson 等 Java 客户端，官方推荐使用 Redisson。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis和 Redisson 有什么关系？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Redisson 是一个高级的分布式协调 Redis 客户端，能够帮助用户在分布式环境中轻松实现一些 Java 对象。",
+    "explanation": "Redisson 是一个基于 Redis 的高级客户端，提供了许多分布式数据结构和功能。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "Redis如何设置密码及验证密码？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["config set requirepass 123456", "auth 123456", "set requirepass 123456", "以上都是"],
+    "answer": "以上都是",
+    "explanation": "Redis 可以通过 config set requirepass 设置密码，通过 auth 命令验证密码。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "怎么测试 Redis 的连通性？",
+    "questionType": "REDIS",
+    "cardType": "SINGLE",
+    "options": ["ping", "echo", "get", "info"],
+    "answer": "ping",
+    "explanation": "使用 ping 命令可以测试 Redis 的连通性。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "Redis中的管道有什么用？",
+    "questionType": "REDIS",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "管道（pipelining）允许一次请求/响应服务器处理多个命令，而不用等待每个命令的回复，从而提升性能。",
+    "explanation": "管道技术可以显著提高 Redis 的执行效率，减少网络延迟。",
+    "cardDifficulty": "MEDIUM"
+  }
+]
+2026-06-02 19:00:39.120 INFO  [SimpleAsyncTaskExecutor-1] o.e.paperwise.Service.PdfService - 成功生成 15 张卡片
+2026-06-02 19:00:39.120 INFO  [SimpleAsyncTaskExecutor-1] ServiceLogger - methodName=generateFromPdfTime=18959
+2026-06-02 19:22:42.575 INFO  [http-nio-8080-exec-1] ServiceLogger - methodName=getAiGeneratedCardBySessionIdTime=346
+2026-06-02 19:22:42.577 INFO  [http-nio-8080-exec-1] ServiceLogger - Object{Redis面试题（含答案）.pdf=[AiGeneratedCard(AiGeneratedCardId=1, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=什么是 Redis？, options=null, answer=Redis 本质上是一个 Key-Value 类型的内存数据库，很像 memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10万次读写操作。, explanation=Redis 是一个高性能的键值存储系统，支持多种数据结构，并且具有快速读写和持久化能力。, questionType=REDIS, cardType=ESSAY, cardDifficulty=EASY, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39), AiGeneratedCard(AiGeneratedCardId=2, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=Redis相比 memcached有哪些优势？, options=null, answer=支持更丰富的数据类型、速度更快、支持数据持久化, explanation=Redis 支持更多数据类型、更快的速度以及数据持久化功能，这些都是其相较于 memcached 的优势。, questionType=REDIS, cardType=MULTIPLE, cardDifficulty=MEDIUM, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39), AiGeneratedCard(AiGeneratedCardId=3, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=Redis支持哪几种数据类型？, options=null, answer=String、List、Set、Sorted Set、hashes, explanation=Redis 支持 String、List、Set、Sorted Set 和 hashes 等多种数据类型。, questionType=REDIS, cardType=SINGLE, cardDifficulty=EASY, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39), AiGeneratedCard(AiGeneratedCardId=4, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=Redis主要消耗什么物理资源？, options=null, answer=内存, explanation=Redis 是基于内存操作的数据库，因此主要消耗内存资源。, questionType=REDIS, cardType=SINGLE, cardDifficulty=EASY, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39), AiGeneratedCard(AiGeneratedCardId=5, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=Redis的全称是什么？, options=null, answer=Remote Dictionary Server, explanation=Redis 的全称是 Remote Dictionary Server。, questionType=REDIS, cardType=SINGLE, cardDifficulty=EASY, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39), AiGeneratedCard(AiGeneratedCardId=6, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=Redis有哪几种数据淘汰策略？, options=null, answer=noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random、volatile-ttl, explanation=Redis 提供了多种数据淘汰策略，包括 noeviction、allkeys-lru、volatile-lru、allkeys-random、volatile-random 和 volatile-ttl。, questionType=REDIS, cardType=MULTIPLE, cardDifficulty=MEDIUM, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39), AiGeneratedCard(AiGeneratedCardId=7, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=一个字符串类型的值能存储最大容量是多少？, options=null, answer=512M, explanation=Redis 中一个字符串类型的值最大容量为 512MB。, questionType=REDIS, cardType=SINGLE, cardDifficulty=MEDIUM, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39), AiGeneratedCard(AiGeneratedCardId=8, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=为什么 Redis 需要把所有数据放到内存中？, options=null, answer=为了达到最快的读写速度，Redis 将数据读到内存中，并通过异步的方式将数据写入磁盘。, explanation=将数据放在内存中可以提高读写速度，而磁盘 I/O 会严重影响性能，因此 Redis 使用内存来实现高性能。, questionType=REDIS, cardType=ESSAY, cardDifficulty=MEDIUM, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39), AiGeneratedCard(AiGeneratedCardId=9, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=Redis集群方案应该怎么做？都有哪些方案？, options=null, answer=twemproxy、codis、Redis cluster、业务代码层实现, explanation=Redis 集群方案包括 twemproxy、codis、Redis cluster 以及在业务代码层实现。, questionType=REDIS, cardType=MULTIPLE, cardDifficulty=HARD, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39), AiGeneratedCard(AiGeneratedCardId=10, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=Redis有哪些适合的场景？, options=null, answer=会话缓存、全页缓存、队列、排行榜/计数器、发布/订阅, explanation=Redis 适合用于会话缓存、全页缓存、队列、排行榜/计数器和发布/订阅等场景。, questionType=REDIS, cardType=MULTIPLE, cardDifficulty=MEDIUM, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39), AiGeneratedCard(AiGeneratedCardId=11, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=Redis支持的 Java 客户端都有哪些？官方推荐用哪个？, options=null, answer=All of the above, explanation=Redis 支持 Jedis、Lettuce、Redisson 等 Java 客户端，官方推荐使用 Redisson。, questionType=REDIS, cardType=SINGLE, cardDifficulty=MEDIUM, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39), AiGeneratedCard(AiGeneratedCardId=12, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=Redis和 Redisson 有什么关系？, options=null, answer=Redisson 是一个高级的分布式协调 Redis 客户端，能够帮助用户在分布式环境中轻松实现一些 Java 对象。, explanation=Redisson 是一个基于 Redis 的高级客户端，提供了许多分布式数据结构和功能。, questionType=REDIS, cardType=ESSAY, cardDifficulty=MEDIUM, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39), AiGeneratedCard(AiGeneratedCardId=13, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=Redis如何设置密码及验证密码？, options=null, answer=以上都是, explanation=Redis 可以通过 config set requirepass 设置密码，通过 auth 命令验证密码。, questionType=REDIS, cardType=SINGLE, cardDifficulty=EASY, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39), AiGeneratedCard(AiGeneratedCardId=14, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=怎么测试 Redis 的连通性？, options=null, answer=ping, explanation=使用 ping 命令可以测试 Redis 的连通性。, questionType=REDIS, cardType=SINGLE, cardDifficulty=EASY, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39), AiGeneratedCard(AiGeneratedCardId=15, sessionId=3bd32b78-7229-431a-a65f-f3fa448a4dd0, status=PENDING, name=Redis面试题（含答案）.pdf, userId=1, title=Redis中的管道有什么用？, options=null, answer=管道（pipelining）允许一次请求/响应服务器处理多个命令，而不用等待每个命令的回复，从而提升性能。, explanation=管道技术可以显著提高 Redis 的执行效率，减少网络延迟。, questionType=REDIS, cardType=ESSAY, cardDifficulty=MEDIUM, cardMastery=NOT_STARTED, createTime=2026-06-02T19:00:39)]}
+2026-06-02 19:38:31.430 INFO  [SimpleAsyncTaskExecutor-2] o.e.paperwise.Service.PdfService - 用户ID为1,PDF 文本长度: 4048
+2026-06-02 19:39:03.884 INFO  [SimpleAsyncTaskExecutor-2] ServiceLogger - methodName=chatTime=32453
+2026-06-02 19:39:03.885 INFO  [SimpleAsyncTaskExecutor-2] ServiceLogger - Object[
+  {
+    "title": "什么是SpringBoot?",
+    "questionType": "SPRINGBOOT",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "通过Spring Boot，可以轻松地创建独立的，基于生产级别的Spring的应用程序，您可以“运行”它们。大多数Spring Boot应用程序需要最少的Spring配置。",
+    "explanation": "Spring Boot 是一个用于快速构建 Spring 应用程序的框架，简化了配置和依赖管理。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot的特征有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["创建独立的Spring应用程序", "直接嵌入Tomcat、Jetty或Undertow", "提供固化的starter依赖项", "自动配置Spring和3rd Party库", "提供用于生产的功能"],
+    "answer": ["创建独立的Spring应用程序", "直接嵌入Tomcat、Jetty或Undertow", "提供固化的starter依赖项", "自动配置Spring和3rd Party库", "提供用于生产的功能"],
+    "explanation": "Spring Boot 的特征包括简化配置、内嵌服务器、自动配置等。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "如何快速构建一个SpringBoot项目？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["通过Web界面使用http://start.spring.io", "通过Spring Tool Suite使用", "通过IntelliJ IDEA使用", "使用Spring Boot CLI使用"],
+    "answer": ["通过Web界面使用http://start.spring.io", "通过Spring Tool Suite使用", "通过IntelliJ IDEA使用", "使用Spring Boot CLI使用"],
+    "explanation": "Spring Boot 提供多种方式来快速构建项目，包括在线工具、IDE插件和命令行工具。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot启动类注解是什么？它由哪些注解组成？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["@SpringBootApplication", "@SpringBootConfiguration", "@EnableAutoConfiguration", "@ComponentScan"],
+    "answer": ["@SpringBootApplication", "@SpringBootConfiguration", "@EnableAutoConfiguration", "@ComponentScan"],
+    "explanation": "@SpringBootApplication 是组合注解，包含 @SpringBootConfiguration、@EnableAutoConfiguration 和 @ComponentScan。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "什么是YAML？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "YAML（/ˈjæməl/）是一个可读性高，用来表达数据序列化的格式。YAML参考了其他多种语言，包括C语言、Python、Perl，更具有结构性。",
+    "explanation": "YAML 是一种结构化数据格式，常用于配置文件，比 properties 更易读。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot支持哪些配置文件格式？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["properties", "yml"],
+    "answer": ["properties", "yml"],
+    "explanation": "SpringBoot 支持 properties 和 YAML 格式的配置文件。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot的启动方式有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["main方法", "命令行 java -jar 的方式", "mvn/gradle"],
+    "answer": ["main方法", "命令行 java -jar 的方式", "mvn/gradle"],
+    "explanation": "SpringBoot 可以通过 main 方法、命令行方式或构建工具启动。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot是否需要独立的容器运行？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "不需要",
+    "explanation": "SpringBoot 内置了 Tomcat/Jetty，无需额外部署到外部容器。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot的配置途径有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["命令行参数", "JNDI属性", "JVM系统属性", "操作系统环境变量", "随机生成的带random.*前缀的属性", "application.properties/yml 文件", "@PropertySource标注的属性源", "默认属性"],
+    "answer": ["命令行参数", "JNDI属性", "JVM系统属性", "操作系统环境变量", "随机生成的带random.*前缀的属性", "application.properties/yml 文件", "@PropertySource标注的属性源", "默认属性"],
+    "explanation": "SpringBoot 提供了多种配置方式，并按优先级排序。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "application.properties 和 application.yml 文件可放置的位置及其优先级是怎样的？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["外置，在相对于应用程序运行目录的/config子目录里", "外置，在应用程序运行的目录里", "内置，在config包内", "内置，在Classpath根目录"],
+    "answer": ["外置，在相对于应用程序运行目录的/config子目录里", "外置，在应用程序运行的目录里", "内置，在config包内", "内置，在Classpath根目录"],
+    "explanation": "这些位置按优先级排序，高优先级覆盖低优先级。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "SpringBoot自动配置原理是什么？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "@EnableAutoConfiguration 注解引入了 AutoConfigurationImportSelector，该类中方法会扫描所有存在 META-INF/spring.factories 的 jar 包。",
+    "explanation": "SpringBoot 自动配置通过扫描 spring.factories 文件实现。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "SpringBoot热部署方式有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["spring-boot-devtools", "Spring Loaded", "Jrebel", "模版热部署"],
+    "answer": ["spring-boot-devtools", "Spring Loaded", "Jrebel", "模版热部署"],
+    "explanation": "SpringBoot 支持多种热部署方式，提升开发效率。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "bootstrap.yml 和 application.yml 的区别是什么？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "bootstrap.yml 优先于 application.yml",
+    "explanation": "bootstrap.yml 在 application.yml 之前加载，优先级更高。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "如何修改SpringBoot的端口号？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "可以通过命令行：java -jar xiaoka.jar --spring.config.location=/home/application.yml 或者在 yml 文件中设置 server.port=8888。",
+    "explanation": "SpringBoot 可以通过配置文件或命令行参数修改端口号。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "开启SpringBoot特性的几种方式有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["继承 spring-boot-starter-parent 项目", "导入 spring-boot-dependencies 项目依赖"],
+    "answer": ["继承 spring-boot-starter-parent 项目", "导入 spring-boot-dependencies 项目依赖"],
+    "explanation": "SpringBoot 特性可以通过继承 starter-parent 或导入 dependencies 来开启。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot如何兼容Spring项目？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["在启动类加 @ImportResource(locations = {\"classpath:spring.xml\"})", "server.port=8888", "java -Dserver.port=8888 -jar xiaoka.jar"],
+    "answer": ["在启动类加 @ImportResource(locations = {\"classpath:spring.xml\"})", "server.port=8888", "java -Dserver.port=8888 -jar xiaoka.jar"],
+    "explanation": "SpringBoot 可以通过配置文件、启动类注解等方式兼容传统 Spring 项目。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "获得Bean装配报告信息访问哪个端点？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "SINGLE",
+    "options": ["/beans"],
+    "answer": "/beans",
+    "explanation": "/beans 端点提供 Bean 装配报告信息。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "关闭应用程序访问哪个端点？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "SINGLE",
+    "options": ["/shutdown"],
+    "answer": "/shutdown",
+    "explanation": "/shutdown 端点用于关闭 SpringBoot 应用程序。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "查看发布应用信息访问哪个端点？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "SINGLE",
+    "options": ["/info"],
+    "answer": "/info",
+    "explanation": "/info 端点提供应用信息。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "针对请求访问的几个组合注解有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["@PatchMapping", "@PostMapping", "@GetMapping", "@PutMapping", "@DeleteMapping"],
+    "answer": ["@PatchMapping", "@PostMapping", "@GetMapping", "@PutMapping", "@DeleteMapping"],
+    "explanation": "这些注解用于处理不同 HTTP 请求方法。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot中的starter是什么？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "starter 是对依赖的一种合成，会把一个或一套功能相关依赖都包含进来，避免了自己去依赖费事，还有各种包的冲突问题。",
+    "explanation": "SpringBoot Starter 简化了依赖管理，提高开发效率。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot集成Mybatis的方式是什么？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "SINGLE",
+    "options": ["mybatis-spring-boot-starter"],
+    "answer": "mybatis-spring-boot-starter",
+    "explanation": "SpringBoot 集成 MyBatis 可以通过 mybatis-spring-boot-starter 依赖。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "什么是SpringProfiles？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Spring Profiles 允许用户根据配置文件（dev, test, prod 等）来注册 bean，可以在不同环境下使用不同的配置。",
+    "explanation": "Spring Profiles 用于区分不同环境下的配置。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "不同的环境的配置文件有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["application.properties", "application-dev.properties", "application-test.properties", "application-prod.properties"],
+    "answer": ["application.properties", "application-dev.properties", "application-test.properties", "application-prod.properties"],
+    "explanation": "不同环境的配置文件命名规则为 application-{profile}.properties/yml。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "如何激活某个环境的配置？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "可以通过 yml 中设置 spring.profiles.active=dev 或者命令行参数 --spring.profiles.active=dev 激活特定环境。",
+    "explanation": "激活环境配置可以通过配置文件或命令行参数完成。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "编写测试用例的注解是什么？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "SINGLE",
+    "options": ["@SpringBootTest"],
+    "answer": "@SpringBootTest",
+    "explanation": "@SpringBootTest 注解用于编写 SpringBoot 测试用例。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot异常处理相关注解有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["@ControllerAdvice", "@ExceptionHandler"],
+    "answer": ["@ControllerAdvice", "@ExceptionHandler"],
+    "explanation": "这两个注解用于全局异常处理。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "SpringBoot 1.x 和 2.x 的区别有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["基于Spring5和JDK8", "配置变更", "插件版本要求更高", "中文配置支持", "Actuator变化", "CacheManager变化"],
+    "answer": ["基于Spring5和JDK8", "配置变更", "插件版本要求更高", "中文配置支持", "Actuator变化", "CacheManager变化"],
+    "explanation": "SpringBoot 2.x 在底层依赖、配置、性能等方面进行了优化。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "SpringBoot读取配置相关注解有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["@PropertySource", "@Value", "@Environment", "@ConfigurationProperties"],
+    "answer": ["@PropertySource", "@Value", "@Environment", "@ConfigurationProperties"],
+    "explanation": "这些注解用于从配置中读取值。",
+    "cardDifficulty": "MEDIUM"
+  }
+]
+2026-06-02 19:39:03.885 INFO  [SimpleAsyncTaskExecutor-2] o.e.paperwise.Service.PdfService - AI 响应长度: 10000
+2026-06-02 19:39:03.886 INFO  [SimpleAsyncTaskExecutor-2] o.e.paperwise.Service.PdfService - 解析的 JSON: [
+  {
+    "title": "什么是SpringBoot?",
+    "questionType": "SPRINGBOOT",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "通过Spring Boot，可以轻松地创建独立的，基于生产级别的Spring的应用程序，您可以“运行”它们。大多数Spring Boot应用程序需要最少的Spring配置。",
+    "explanation": "Spring Boot 是一个用于快速构建 Spring 应用程序的框架，简化了配置和依赖管理。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot的特征有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["创建独立的Spring应用程序", "直接嵌入Tomcat、Jetty或Undertow", "提供固化的starter依赖项", "自动配置Spring和3rd Party库", "提供用于生产的功能"],
+    "answer": ["创建独立的Spring应用程序", "直接嵌入Tomcat、Jetty或Undertow", "提供固化的starter依赖项", "自动配置Spring和3rd Party库", "提供用于生产的功能"],
+    "explanation": "Spring Boot 的特征包括简化配置、内嵌服务器、自动配置等。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "如何快速构建一个SpringBoot项目？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["通过Web界面使用http://start.spring.io", "通过Spring Tool Suite使用", "通过IntelliJ IDEA使用", "使用Spring Boot CLI使用"],
+    "answer": ["通过Web界面使用http://start.spring.io", "通过Spring Tool Suite使用", "通过IntelliJ IDEA使用", "使用Spring Boot CLI使用"],
+    "explanation": "Spring Boot 提供多种方式来快速构建项目，包括在线工具、IDE插件和命令行工具。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot启动类注解是什么？它由哪些注解组成？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["@SpringBootApplication", "@SpringBootConfiguration", "@EnableAutoConfiguration", "@ComponentScan"],
+    "answer": ["@SpringBootApplication", "@SpringBootConfiguration", "@EnableAutoConfiguration", "@ComponentScan"],
+    "explanation": "@SpringBootApplication 是组合注解，包含 @SpringBootConfiguration、@EnableAutoConfiguration 和 @ComponentScan。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "什么是YAML？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "YAML（/ˈjæməl/）是一个可读性高，用来表达数据序列化的格式。YAML参考了其他多种语言，包括C语言、Python、Perl，更具有结构性。",
+    "explanation": "YAML 是一种结构化数据格式，常用于配置文件，比 properties 更易读。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot支持哪些配置文件格式？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["properties", "yml"],
+    "answer": ["properties", "yml"],
+    "explanation": "SpringBoot 支持 properties 和 YAML 格式的配置文件。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot的启动方式有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["main方法", "命令行 java -jar 的方式", "mvn/gradle"],
+    "answer": ["main方法", "命令行 java -jar 的方式", "mvn/gradle"],
+    "explanation": "SpringBoot 可以通过 main 方法、命令行方式或构建工具启动。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot是否需要独立的容器运行？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "不需要",
+    "explanation": "SpringBoot 内置了 Tomcat/Jetty，无需额外部署到外部容器。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot的配置途径有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["命令行参数", "JNDI属性", "JVM系统属性", "操作系统环境变量", "随机生成的带random.*前缀的属性", "application.properties/yml 文件", "@PropertySource标注的属性源", "默认属性"],
+    "answer": ["命令行参数", "JNDI属性", "JVM系统属性", "操作系统环境变量", "随机生成的带random.*前缀的属性", "application.properties/yml 文件", "@PropertySource标注的属性源", "默认属性"],
+    "explanation": "SpringBoot 提供了多种配置方式，并按优先级排序。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "application.properties 和 application.yml 文件可放置的位置及其优先级是怎样的？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["外置，在相对于应用程序运行目录的/config子目录里", "外置，在应用程序运行的目录里", "内置，在config包内", "内置，在Classpath根目录"],
+    "answer": ["外置，在相对于应用程序运行目录的/config子目录里", "外置，在应用程序运行的目录里", "内置，在config包内", "内置，在Classpath根目录"],
+    "explanation": "这些位置按优先级排序，高优先级覆盖低优先级。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "SpringBoot自动配置原理是什么？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "@EnableAutoConfiguration 注解引入了 AutoConfigurationImportSelector，该类中方法会扫描所有存在 META-INF/spring.factories 的 jar 包。",
+    "explanation": "SpringBoot 自动配置通过扫描 spring.factories 文件实现。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "SpringBoot热部署方式有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["spring-boot-devtools", "Spring Loaded", "Jrebel", "模版热部署"],
+    "answer": ["spring-boot-devtools", "Spring Loaded", "Jrebel", "模版热部署"],
+    "explanation": "SpringBoot 支持多种热部署方式，提升开发效率。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "bootstrap.yml 和 application.yml 的区别是什么？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "TRUE_FALSE",
+    "options": [],
+    "answer": "bootstrap.yml 优先于 application.yml",
+    "explanation": "bootstrap.yml 在 application.yml 之前加载，优先级更高。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "如何修改SpringBoot的端口号？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "可以通过命令行：java -jar xiaoka.jar --spring.config.location=/home/application.yml 或者在 yml 文件中设置 server.port=8888。",
+    "explanation": "SpringBoot 可以通过配置文件或命令行参数修改端口号。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "开启SpringBoot特性的几种方式有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["继承 spring-boot-starter-parent 项目", "导入 spring-boot-dependencies 项目依赖"],
+    "answer": ["继承 spring-boot-starter-parent 项目", "导入 spring-boot-dependencies 项目依赖"],
+    "explanation": "SpringBoot 特性可以通过继承 starter-parent 或导入 dependencies 来开启。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot如何兼容Spring项目？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["在启动类加 @ImportResource(locations = {\"classpath:spring.xml\"})", "server.port=8888", "java -Dserver.port=8888 -jar xiaoka.jar"],
+    "answer": ["在启动类加 @ImportResource(locations = {\"classpath:spring.xml\"})", "server.port=8888", "java -Dserver.port=8888 -jar xiaoka.jar"],
+    "explanation": "SpringBoot 可以通过配置文件、启动类注解等方式兼容传统 Spring 项目。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "获得Bean装配报告信息访问哪个端点？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "SINGLE",
+    "options": ["/beans"],
+    "answer": "/beans",
+    "explanation": "/beans 端点提供 Bean 装配报告信息。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "关闭应用程序访问哪个端点？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "SINGLE",
+    "options": ["/shutdown"],
+    "answer": "/shutdown",
+    "explanation": "/shutdown 端点用于关闭 SpringBoot 应用程序。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "查看发布应用信息访问哪个端点？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "SINGLE",
+    "options": ["/info"],
+    "answer": "/info",
+    "explanation": "/info 端点提供应用信息。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "针对请求访问的几个组合注解有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["@PatchMapping", "@PostMapping", "@GetMapping", "@PutMapping", "@DeleteMapping"],
+    "answer": ["@PatchMapping", "@PostMapping", "@GetMapping", "@PutMapping", "@DeleteMapping"],
+    "explanation": "这些注解用于处理不同 HTTP 请求方法。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot中的starter是什么？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "starter 是对依赖的一种合成，会把一个或一套功能相关依赖都包含进来，避免了自己去依赖费事，还有各种包的冲突问题。",
+    "explanation": "SpringBoot Starter 简化了依赖管理，提高开发效率。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot集成Mybatis的方式是什么？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "SINGLE",
+    "options": ["mybatis-spring-boot-starter"],
+    "answer": "mybatis-spring-boot-starter",
+    "explanation": "SpringBoot 集成 MyBatis 可以通过 mybatis-spring-boot-starter 依赖。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "什么是SpringProfiles？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "Spring Profiles 允许用户根据配置文件（dev, test, prod 等）来注册 bean，可以在不同环境下使用不同的配置。",
+    "explanation": "Spring Profiles 用于区分不同环境下的配置。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "不同的环境的配置文件有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["application.properties", "application-dev.properties", "application-test.properties", "application-prod.properties"],
+    "answer": ["application.properties", "application-dev.properties", "application-test.properties", "application-prod.properties"],
+    "explanation": "不同环境的配置文件命名规则为 application-{profile}.properties/yml。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "如何激活某个环境的配置？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "ESSAY",
+    "options": [],
+    "answer": "可以通过 yml 中设置 spring.profiles.active=dev 或者命令行参数 --spring.profiles.active=dev 激活特定环境。",
+    "explanation": "激活环境配置可以通过配置文件或命令行参数完成。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "编写测试用例的注解是什么？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "SINGLE",
+    "options": ["@SpringBootTest"],
+    "answer": "@SpringBootTest",
+    "explanation": "@SpringBootTest 注解用于编写 SpringBoot 测试用例。",
+    "cardDifficulty": "EASY"
+  },
+  {
+    "title": "SpringBoot异常处理相关注解有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["@ControllerAdvice", "@ExceptionHandler"],
+    "answer": ["@ControllerAdvice", "@ExceptionHandler"],
+    "explanation": "这两个注解用于全局异常处理。",
+    "cardDifficulty": "MEDIUM"
+  },
+  {
+    "title": "SpringBoot 1.x 和 2.x 的区别有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["基于Spring5和JDK8", "配置变更", "插件版本要求更高", "中文配置支持", "Actuator变化", "CacheManager变化"],
+    "answer": ["基于Spring5和JDK8", "配置变更", "插件版本要求更高", "中文配置支持", "Actuator变化", "CacheManager变化"],
+    "explanation": "SpringBoot 2.x 在底层依赖、配置、性能等方面进行了优化。",
+    "cardDifficulty": "HARD"
+  },
+  {
+    "title": "SpringBoot读取配置相关注解有哪些？",
+    "questionType": "SPRINGBOOT",
+    "cardType": "MULTIPLE",
+    "options": ["@PropertySource", "@Value", "@Environment", "@ConfigurationProperties"],
+    "answer": ["@PropertySource", "@Value", "@Environment", "@ConfigurationProperties"],
+    "explanation": "这些注解用于从配置中读取值。",
+    "cardDifficulty": "MEDIUM"
+  }
+]
+2026-06-02 19:39:03.925 INFO  [SimpleAsyncTaskExecutor-2] o.e.paperwise.Service.PdfService - 成功生成 29 张卡片
+2026-06-02 19:39:03.926 INFO  [SimpleAsyncTaskExecutor-2] ServiceLogger - methodName=generateFromPdfTime=32939
