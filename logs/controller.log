@@ -110,3 +110,5 @@ Spring Boot 通过多种方式兼容传统的 Spring 项目：
 4. **自动配置和手动配置的兼容性**：通过 `@ConfigurationProperties` 和 `@EnableConfigurationProperties` 管理复杂的配置属性。
 
 希望这个详细的讲解对你有帮助！如果有更多问题或需要进一步探讨，请随时告诉我。, data=null, code=200)
+2026-06-19 16:55:54.729 INFO  [http-nio-8080-exec-1] ControllerLogger - methodName=loginTime=221
+2026-06-19 16:55:54.731 INFO  [http-nio-8080-exec-1] ControllerLogger - ObjectResult(message=success, data={userid=1, token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwidXNlck5hbWUiOiJhZG1pbiIsImlhdCI6MTc4MTg1OTM1NCwiZXhwIjoxNzgyNDY0MTU0fQ.yYU5DZ7oUnXOqBvzmt_mUSe-WjpI-uQAVK9q7sm2XxE, username=admin}, code=200)
