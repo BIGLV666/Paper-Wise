@@ -19,6 +19,8 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class QianwenService {
     @Autowired
+    private AiProviderService aiProviderService;
+    @Autowired
     private QianwenConfig qianwenConfig;
 
     private final OkHttpClient okHttpClient = new OkHttpClient.Builder().connectTimeout(300, TimeUnit.SECONDS)
@@ -75,6 +77,13 @@ public class QianwenService {
         } catch (IOException e) {
             throw new RuntimeException("AI调用失败: " + e.getMessage());
         }
+    }
+
+    public String chat(Long userId, String userMessage) {
+        if (userId != null && aiProviderService.getConfig(userId) != null) {
+            return aiProviderService.chat(userId, userMessage);
+        }
+        return chat(userMessage);
     }
 
 

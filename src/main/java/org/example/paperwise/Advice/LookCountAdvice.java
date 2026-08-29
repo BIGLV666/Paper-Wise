@@ -5,26 +5,32 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.example.apigovernancespringbootstarter.filter.FilterContext;
+import org.example.apigovernancespringbootstarter.filter.PostFilter;
 import org.example.paperwise.Interface.LookCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
-@Aspect
 @Component
 @Slf4j
-public class LookCountAdvice {
+public class LookCountAdvice implements PostFilter {
     @Autowired
     private RedisTemplate<String,Object> redisTemplate;
     private static final String FAVORITES_LIKE_COUNT_KEY = "favorites_look_count";
 
-    @Around("@annotation(lookCount)")
-    public Object around(ProceedingJoinPoint joinPoint, LookCount lookCount) throws Throwable {
-        Object[] args = joinPoint.getArgs();
-        System.out.println("-----------------------------"+ Arrays.toString(args));
-        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+    @Override
+    public void doFilter(FilterContext context) {
+        Method method=context.getMethod();
+        LookCount lookCount=method.getAnnotation(LookCount.class);
+        if(lookCount==null){
+            return;
+        }
+        Object[] args = context.getJoinPoint().getArgs();
+        MethodSignature signature = (MethodSignature) context.getJoinPoint().getSignature();
         String[] paramNames = signature.getParameterNames();
 
         Long id = null;
@@ -38,9 +44,10 @@ public class LookCountAdvice {
                     break;
                 }
             }
-            if (id != null) break;
+            if (id != null) {
+                break;
+            }
         }
         redisTemplate.opsForValue().increment(FAVORITES_LIKE_COUNT_KEY+id);
-        return joinPoint.proceed();
     }
 }

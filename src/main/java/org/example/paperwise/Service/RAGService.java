@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 
 
 @Service
@@ -40,6 +41,8 @@ public class RAGService {
     private ChatSessionMapper chatSessionMapper;
     @Autowired
     private AiService aiService;
+    @Autowired
+    private AiProviderService aiProviderService;
     @Autowired
     private RedisTemplate<String,Object> redisTemplate;
 
@@ -87,20 +90,11 @@ public class RAGService {
             // 异步生成会话标题
             ChatSession finalChatSession = chatSession;
             CompletableFuture.runAsync(() -> {
-                String title = aiService.chat("给下述问题生成简短标题，10字以内,只包含题目，不要有多余的文字和任何标点" + question);
+                String title = chatForUser(userId, "给下述问题生成简短标题，10字以内,只包含题目，不要有多余的文字和任何标点" + question);
                 finalChatSession.setTitle(title);
                 chatSessionMapper.updateById(finalChatSession);
             });
         }
-
-        // 保存用户消息
-        ChatMessage UserMessage = new ChatMessage();
-        UserMessage.setUserId(userId);
-        UserMessage.setSessionId(chatSession.getSessionId());
-        UserMessage.setContent(question);
-        UserMessage.setCreateTime(LocalDateTime.now());
-        UserMessage.setRole("user");
-        chatMessageMapper.insert(UserMessage);
 
         // 获取历史上下文（Redis优先，缓存30分钟）
         String historyKey = USER_HISTORY + "--" + "sessionId " + sessionId + "--" + "userId" + userId;
@@ -113,7 +107,16 @@ public class RAGService {
         }
         fullPrompt = history + "\nuser：" + question;
 
-        String answer = aiService.chat(fullPrompt);
+        String answer = chatForUser(userId, fullPrompt);
+
+        // AI 成功后再保存用户消息，避免失败请求污染聊天记录
+        ChatMessage userMessage = new ChatMessage();
+        userMessage.setUserId(userId);
+        userMessage.setSessionId(chatSession.getSessionId());
+        userMessage.setContent(question);
+        userMessage.setCreateTime(LocalDateTime.now());
+        userMessage.setRole("user");
+        chatMessageMapper.insert(userMessage);
 
         // 保存AI回答
         ChatMessage chatMessage = new ChatMessage();
@@ -130,6 +133,61 @@ public class RAGService {
         // 更新Redis缓存
         updatePrompt(question, answer, sessionId);
         return answer;
+    }
+
+    @Transactional
+    public void askStream(Long userId, String question, String sessionId, Consumer<String> onSession, Consumer<String> onDelta) {
+        if (userId == null) throw new RuntimeException("请登录后尝试");
+        ChatSession chatSession = chatSessionMapper.selectById(sessionId);
+        if (chatSession != null && !userId.equals(chatSession.getUserId())) throw new RuntimeException("非法对话");
+        if (chatSession == null) {
+            chatSession = new ChatSession();
+            sessionId = java.util.UUID.randomUUID().toString();
+            chatSession.setSessionId(sessionId);
+            chatSession.setUserId(userId);
+            chatSession.setTitle("新对话");
+            chatSession.setCreateTime(LocalDateTime.now());
+            chatSession.setUpdateTime(LocalDateTime.now());
+            chatSessionMapper.insert(chatSession);
+        }
+        onSession.accept(chatSession.getSessionId());
+
+        String historyKey = USER_HISTORY + "--sessionId " + chatSession.getSessionId() + "--userId" + userId;
+        String history = (String) redisTemplate.opsForValue().get(historyKey);
+        if (history == null || history.isEmpty()) {
+            history = buildContextPrompt(chatMessageMapper.getRecentBySessionId(chatSession.getSessionId(), userId, 90));
+        }
+        String fullPrompt = history + "\nuser：" + question;
+        StringBuilder answer = new StringBuilder();
+        aiProviderService.stream(userId, fullPrompt, delta -> {
+            answer.append(delta);
+            onDelta.accept(delta);
+        });
+
+        // 流式 AI 完整返回后再落库，401、超时或中止都不会保存用户消息
+        ChatMessage userMessage = new ChatMessage();
+        userMessage.setUserId(userId);
+        userMessage.setSessionId(chatSession.getSessionId());
+        userMessage.setContent(question);
+        userMessage.setRole("user");
+        userMessage.setCreateTime(LocalDateTime.now());
+        chatMessageMapper.insert(userMessage);
+
+        ChatMessage aiMessage = new ChatMessage();
+        aiMessage.setUserId(userId);
+        aiMessage.setSessionId(chatSession.getSessionId());
+        aiMessage.setRole("ai");
+        aiMessage.setContent(answer.toString());
+        aiMessage.setCreateTime(LocalDateTime.now());
+        chatMessageMapper.insert(aiMessage);
+        chatSession.setUpdateTime(LocalDateTime.now());
+        chatSessionMapper.updateById(chatSession);
+        updatePrompt(question, answer.toString(), chatSession.getSessionId(), userId);
+    }
+
+    private String chatForUser(Long userId, String prompt) {
+        if (aiProviderService.getConfig(userId) != null) return aiProviderService.chat(userId, prompt);
+        return aiService.chat(prompt);
     }
 
     /**
@@ -164,6 +222,10 @@ public class RAGService {
      */
     private void updatePrompt(String question, String answer, String sessionId) {
         Long userId = UserContext.getUserId();
+        updatePrompt(question, answer, sessionId, userId);
+    }
+
+    private void updatePrompt(String question, String answer, String sessionId, Long userId) {
         String key = USER_HISTORY + "--" + "sessionId " + sessionId + "--" + "userId" + userId;
 
         String oldHistory = (String) redisTemplate.opsForValue().get(key);

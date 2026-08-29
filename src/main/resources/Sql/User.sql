@@ -125,10 +125,64 @@ CREATE TABLE chat_session(
     INDEX idx_user_id(user_id),
     INDEX idx_update_time(update_time)
 );
+
+CREATE TABLE IF NOT EXISTS ai_provider_config(
+    ai_provider_config_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL UNIQUE,
+    provider_name VARCHAR(50) NOT NULL DEFAULT 'OpenAI Compatible',
+    base_url VARCHAR(500) NOT NULL,
+    api_key TEXT NOT NULL,
+    model VARCHAR(150) NOT NULL,
+    temperature DOUBLE NOT NULL DEFAULT 0.7,
+    max_tokens INTEGER NOT NULL DEFAULT 4096,
+    enabled INTEGER NOT NULL DEFAULT 1,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS note(
+    note_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    title VARCHAR(200) NOT NULL,
+    content LONGTEXT NOT NULL,
+    format VARCHAR(20) NOT NULL DEFAULT 'markdown',
+    source_name VARCHAR(255),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_note_user_updated (user_id, updated_at),
+    FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS note_ai_organization(
+    organization_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    note_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    source_content LONGTEXT NOT NULL,
+    organized_content LONGTEXT,
+    error_message TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_note_organization (user_id, note_id, created_at),
+    FOREIGN KEY (note_id) REFERENCES note(note_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
+);
 CREATE TABLE card_in_favorites_record(
     card_in_favorites_record_id BIGINT AUTO_INCREMENT PRIMARY KEY ,
     card_id BIGINT not null ,
     favorites_id BIGINT NOT NULL ,
     UNIQUE key un_card_favorites(card_id,favorites_id),
     index idx_favorites_id(favorites_id)
+);
+
+CREATE TABLE IF NOT EXISTS study_set(
+    study_set_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    card_ids JSON NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_study_set_user_updated (user_id, updated_at),
+    FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
 );

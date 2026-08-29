@@ -11,10 +11,14 @@ import org.example.paperwise.Dto.ChatAskDto;
 import org.example.paperwise.Dto.Result;
 import org.example.paperwise.Service.AiService;
 import org.example.paperwise.Service.RAGService;
+import org.example.paperwise.Until.UserContext;
 import org.example.paperwise.entry.ChatMessage;
 import org.example.paperwise.entry.ChatSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.MediaType;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+import java.util.concurrent.CompletableFuture;
 
 import java.util.List;
 
@@ -41,6 +45,33 @@ public class AiController {
     public Result<String> ask(@RequestBody(required = false) ChatAskDto body) {
         String answer = ragService.ask(body.getQuestion(), body.getSessionId());
         return Result.success(answer);
+    }
+
+    @PostMapping(value = "/ask/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public SseEmitter askStream(@RequestBody ChatAskDto body) {
+        Long userId = UserContext.getUserId();
+        SseEmitter emitter = new SseEmitter(900000L);
+        CompletableFuture.runAsync(() -> {
+            try {
+                ragService.askStream(userId, body.getQuestion(), body.getSessionId(),
+                        sessionId -> send(emitter, "session", sessionId),
+                        delta -> send(emitter, "delta", delta));
+                send(emitter, "done", "[DONE]");
+                emitter.complete();
+            } catch (Exception e) {
+                try {
+                    send(emitter, "error", e.getMessage() == null ? "AI 流式请求失败" : e.getMessage());
+                } finally {
+                    emitter.complete();
+                }
+            }
+        });
+        return emitter;
+    }
+
+    private void send(SseEmitter emitter, String event, String data) {
+        try { emitter.send(SseEmitter.event().name(event).data(data)); }
+        catch (Exception e) { throw new RuntimeException(e); }
     }
 
     /**

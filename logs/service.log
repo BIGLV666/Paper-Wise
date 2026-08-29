@@ -1,220 +1,956 @@
-2026-06-18 19:52:35.658 INFO  [http-nio-8080-exec-6] ServiceLogger - methodName=chatTime=32614
-2026-06-18 19:52:35.661 INFO  [http-nio-8080-exec-6] ServiceLogger - Object好的，我们来详细讲解一下这个问题。
+2026-07-23 15:49:13.911 INFO  [ForkJoinPool.commonPool-worker-1] ServiceLogger - methodName=chatTime=8496
+2026-07-23 15:49:13.913 INFO  [ForkJoinPool.commonPool-worker-1] ServiceLogger - ObjectTCP与UDP区别简述
+2026-07-23 15:49:18.979 INFO  [http-nio-8080-exec-9] ServiceLogger - methodName=chatTime=13541
+2026-07-23 15:49:18.979 INFO  [http-nio-8080-exec-9] ServiceLogger - Object这道题目主要考察的是 TCP 和 UDP 两种传输层协议之间的区别。接下来我将分条解析。
 
-### 题目内容：
-Spring Boot 如何兼容传统 Spring 项目？
+1. **面向连接 vs 无连接**：
+   - **TCP (Transmission Control Protocol)** 是一种面向连接的协议，意味着在数据实际传输之前需要建立一个连接。
+   - **UDP (User Datagram Protocol)** 则是一种无连接协议，不需要预先建立连接就可以发送数据包。
 
-### 正确答案及解析
+2. **可靠性**：
+   - **TCP** 提供了可靠的数据传输服务。它通过确认机制、重传等手段确保数据的完整性和顺序性到达接收端。
+   - **UDP** 不保证数据的可靠性。这意味着在某些情况下（如网络拥塞或丢包），UDP 可能会丢失数据。
 
-#### 解析
+3. **首部开销**：
+   - **TCP 首部大小为 20 字节**，包含了诸如序列号、确认号等信息。
+   - **UDP 首部只有 8 字节**，用于包含源端口和目的端口等基本信息。
 
-Spring Boot 兼容传统 Spring 项目的几种主要方式包括：
+这些区别使得 TCP 和 UDP 在不同的应用场景中有各自的优势。例如，对于要求高度可靠传输的应用（如文件下载或在线视频流），通常会选择使用 TCP；而对于实时性要求较高但对数据完整性要求较低的应用（如语音通话），则可能选择 UDP。
 
-1. **配置文件兼容性**
-   - **application.properties/yml 文件**：Spring Boot 提供了 `application.properties` 和 `application.yml` 文件，用于定义各种配置参数。这些文件可以与传统的 Spring 配置文件（如 `beans.xml`）共同使用。
-     ```properties
-     # application.properties 或 application.yml
-     spring.datasource.url=jdbc:mysql://localhost:3306/mydb
-     spring.datasource.username=root
-     spring.datasource.password=123456
-     ```
+希望这样的解释能够帮助你理解 TCP 与 UDP 的主要区别！如果你有任何疑问，请随时提问。
+2026-07-23 15:49:18.992 INFO  [http-nio-8080-exec-9] ServiceLogger - methodName=askTime=13599
+2026-07-23 15:49:18.992 INFO  [http-nio-8080-exec-9] ServiceLogger - Object这道题目主要考察的是 TCP 和 UDP 两种传输层协议之间的区别。接下来我将分条解析。
 
-   - **自定义配置类**：可以在 Spring Boot 项目中使用传统的 XML 配置文件，或者直接在 Java 类中编写 `@Configuration` 注解的配置类。
-     ```java
-     @Configuration
-     public class MyConfig {
-         // 自定义配置内容
-     }
-     ```
+1. **面向连接 vs 无连接**：
+   - **TCP (Transmission Control Protocol)** 是一种面向连接的协议，意味着在数据实际传输之前需要建立一个连接。
+   - **UDP (User Datagram Protocol)** 则是一种无连接协议，不需要预先建立连接就可以发送数据包。
 
-2. **启动类注解兼容性**
-   - **@SpringBootApplication**：这是一个复合注解，包含了 `@Configuration`, `@EnableAutoConfiguration`, 和 `@ComponentScan`。尽管通常用在 Spring Boot 项目中，但可以在传统 Spring 项目中引入这个注解。
-     ```java
-     import org.springframework.boot.SpringApplication;
-     import org.springframework.boot.autoconfigure.SpringBootApplication;
+2. **可靠性**：
+   - **TCP** 提供了可靠的数据传输服务。它通过确认机制、重传等手段确保数据的完整性和顺序性到达接收端。
+   - **UDP** 不保证数据的可靠性。这意味着在某些情况下（如网络拥塞或丢包），UDP 可能会丢失数据。
 
-     @SpringBootApplication
-     public class TraditionalSpringApplication {
-         public static void main(String[] args) {
-             SpringApplication.run(TraditionalSpringApplication.class, args);
-         }
-     }
-     ```
+3. **首部开销**：
+   - **TCP 首部大小为 20 字节**，包含了诸如序列号、确认号等信息。
+   - **UDP 首部只有 8 字节**，用于包含源端口和目的端口等基本信息。
 
-3. **兼容传统 Spring 组件**
-   - **@Component/@Service/@Repository**：这些注解可以用于标记传统的 Spring 组件，而不需要进行大量的代码修改。
-     ```java
-     @Service
-     public class MyService {
-         // 服务实现内容
-     }
-     ```
+这些区别使得 TCP 和 UDP 在不同的应用场景中有各自的优势。例如，对于要求高度可靠传输的应用（如文件下载或在线视频流），通常会选择使用 TCP；而对于实时性要求较高但对数据完整性要求较低的应用（如语音通话），则可能选择 UDP。
 
-4. **自动配置和手动配置的兼容性**
-   - **@ConfigurationProperties** 和 **@EnableConfigurationProperties**：这些注解可以帮助管理复杂的配置属性，同时可以与传统 Spring 的 `@PropertySource` 注解一起使用。
-     ```java
-     import org.springframework.boot.context.properties.ConfigurationProperties;
-     import org.springframework.stereotype.Component;
+希望这样的解释能够帮助你理解 TCP 与 UDP 的主要区别！如果你有任何疑问，请随时提问。
+2026-07-23 16:12:07.131 INFO  [ForkJoinPool.commonPool-worker-3] ServiceLogger - methodName=streamTime=15911
+2026-07-23 16:12:07.149 INFO  [ForkJoinPool.commonPool-worker-3] ServiceLogger - methodName=askStreamTime=15934
+2026-07-23 16:31:11.162 INFO  [http-nio-8080-exec-3] ServiceLogger - methodName=chatTime=56139
+2026-07-23 16:31:11.164 INFO  [http-nio-8080-exec-3] ServiceLogger - Object# Haoyu Lv
 
-     @Component
-     @ConfigurationProperties(prefix = "my.app")
-     public class AppConfig {
-         private String appSetting1;
-         private int appSetting2;
+> **Java 后端开发｜河北师范大学本科一年级**
 
-         // Getter 和 Setter 方法
-     }
-     ```
+- **邮箱：** [379299583@qq.com](mailto:379299583@qq.com)
+- **GitHub：** <https://github.com/BIGLV666>
 
-5. **Spring Boot Starter 依赖**
-   - Spring Boot 的 Starter 依赖可以简化配置，使得在传统项目中引入 Spring Boot 功能变得简单。例如，使用 `spring-boot-starter-data-jpa` 可以快速集成 JPA 数据访问。
-     ```xml
-     <dependency>
-         <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-starter-data-jpa</artifactId>
-     </dependency>
-     ```
+---
 
-### 示例代码
+## 求职方向
 
-以下是一个简单的传统 Spring 项目兼容 Spring Boot 的示例：
+- Java 后端开发实习
+- 校内技术团队
+- 后端开发相关实践机会
 
-```java
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+---
 
-@SpringBootApplication
-public class TraditionalSpringApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(TraditionalSpringApplication.class, args);
-    }
-}
+## 个人简介
 
-@Service
-class MyService {
-    // 服务实现内容
-}
+河北师范大学大一学生，持续学习 **Java 后端** 与 **计算机基础**。
+
+独立完成以下项目：
+
+1. **CodeWise 在线编程学习与智能复习平台**
+2. **PaperWise 智能学习卡片平台**
+3. **Myspring 简易 IoC 容器**
+
+能够围绕实际业务完成：
+
+- 接口设计
+- 数据库建模
+- 异步任务
+- 缓存
+- 前后端联调
+- 日志排障
+- 技术文档维护
+
+当前重点补充：
+
+- 操作系统
+- 计算机网络
+- JVM
+- 数据库索引
+- 自动化测试基础
+
+---
+
+## 专业技能
+
+### Java 与 Spring 生态
+
+- 掌握或使用：
+  - Java
+  - Spring Boot
+  - Spring MVC
+  - MyBatis-Plus
+- 了解：
+  - Spring Security
+  - JWT
+  - Java 反射
+  - Java 注解机制
+
+### 微服务
+
+使用以下技术完成服务路由、注册发现和服务间调用：
+
+- Spring Cloud Gateway
+- Nacos
+- OpenFeign
+
+### 数据库、缓存与消息队列
+
+使用过：
+
+- MySQL
+- Redis
+- Redisson
+- RabbitMQ
+
+相关实践包括：
+
+- 数据库唯一约束
+- 游标分页
+- 消息消费幂等
+- 缓存批量回写
+
+### 工程工具与实时通信
+
+使用过：
+
+- Docker Java API
+- WebSocket
+- SSE
+- Maven
+- Git
+
+具备以下问题排查能力：
+
+- 编译错误排查
+- 运行时错误排查
+- 跨服务调用问题排查
+
+---
+
+# 项目经历
+
+## CodeWise 在线编程学习与智能复习平台
+
+> **个人全栈项目｜2026.07—至今**
+
+### 技术栈
+
+- Java 21
+- Spring Boot
+- Spring Cloud Gateway
+- Nacos
+- OpenFeign
+- MySQL
+- Redis
+- RabbitMQ
+- Docker
+- Vue 3
+- WebSocket
+- SSE
+
+### 服务拆分与权限设计
+
+- 将以下能力拆分为 **8 个可独立运行的服务应用**：
+  - 用户
+  - 题目
+  - 判题
+  - 复习
+  - 社区
+  - 消息
+  - AI 等相关能力
+- 设置两个公共模块：
+  - `service-api`
+  - `service-common`
+- Gateway 负责：
+  - JWT 校验
+  - 向下游传递用户身份
+- 下游服务负责：
+  - 资源归属判断
+  - 其他业务权限判断
+
+### RabbitMQ 异步判题链路
+
+判题流程如下：
+
+1. 提交接口先记录判题任务。
+2. RabbitMQ 负责异步传递任务。
+3. 判题服务在 Docker 容器中编译和运行代码。
+4. 判题服务回写提交状态。
+5. 用户可以通过数据库查询判题结果。
+6. 系统也支持通过 WebSocket 实时通知结果。
+
+### Java 函数题模式
+
+实现了 Java 函数题判题模式，包括：
+
+- 解析 LeetCode GraphQL 题面
+- 解析方法签名
+- 自动生成调用入口
+- 单次编译后运行多个测试点
+- 区分：
+  - 函数返回值
+  - 用户调试输出
+- 支持批量调试
+- 支持测试用例去重
+- 支持通过标准答案生成测试任务
+
+### 判题安全与资源限制
+
+已为判题容器配置：
+
+- 运行超时限制
+- 内存限制
+- 网络隔离
+
+能够识别以下判题状态：
+
+| 状态 | 含义 |
+|---|---|
+| AC | Accepted，答案正确 |
+| WA | Wrong Answer，答案错误 |
+| CE | Compilation Error，编译错误 |
+| RE | Runtime Error，运行时错误 |
+| TLE | Time Limit Exceeded，运行超时 |
+
+当前继续补充以下限制：
+
+- PID 限制
+- CPU 限制
+- 非 root 用户运行
+- 输出大小限制
+
+### Redis、分页与数据一致性
+
+- 使用 Redis ZSet 实现社区热点排行。
+- 使用游标分页减少深分页问题。
+- 使用批量查询减少逐条查询。
+- 通过业务唯一键处理以下重复写入问题：
+  - 通知重复写入
+  - 函数测试用例重复写入
+
+### 测试、文档与问题修复
+
+编写并维护：
+
+- 维护手册
+- 接口文档
+- 单元测试
+
+单元测试覆盖：
+
+- 函数解析
+- 权限
+- 随机输入生成
+- 调试链路
+
+持续修复：
+
+- 异步任务状态问题
+- 跨服务数据契约问题
+
+### 项目复习提示
+
+- 准备说明为什么将系统拆分为 8 个服务，以及公共模块 `service-api`、`service-common` 的职责。
+- 梳理 Gateway 与下游服务之间的权限边界：
+  - Gateway 负责身份认证。
+  - 下游服务负责业务授权。
+- 能够完整描述 RabbitMQ 异步判题链路及状态回写过程。
+- 重点复习消息重复消费、业务唯一键和幂等处理之间的关系。
+- 准备说明函数题如何实现“单次编译、多测试点运行”。
+- 能够解释 AC、WA、CE、RE、TLE 的判断依据。
+- 对比游标分页和深分页的适用场景。
+- 说明 WebSocket 实时通知与数据库结果查询各自承担的职责。
+- 明确当前判题容器安全方案的已实现部分和待补充边界。
+
+---
+
+## PaperWise 智能学习卡片平台
+
+> **个人全栈项目｜2026.05—2026.06**
+
+### 技术栈
+
+- Java 17
+- Spring Boot
+- Spring Security
+- MySQL
+- Redis
+- Vue 3
+- 通义千问 DashScope SDK
+- PDFBox
+
+### 核心功能
+
+完成以下业务功能：
+
+- 用户功能
+- 闪卡
+- 收藏夹分享
+- 错题本
+- 复习计划
+- 社区排行
+
+使用以下技术处理登录认证：
+
+- JWT
+- Spring Security
+
+### SM-2 复习算法实践
+
+根据 **SM-2 算法** 维护：
+
+- 复习阶段
+- 复习间隔
+- 难度系数
+
+形成以下学习闭环：
+
+1. 错题加入。
+2. 每日复习。
+3. 掌握后移出。
+
+### Redis 与排行榜
+
+- 使用 Redis 缓存：
+  - 验证码
+  - 高频计数
+- 使用 Redis ZSet 维护公开收藏夹排行。
+- 通过定时任务同步数据。
+
+### AI 与 PDF 处理
+
+- 调用通义千问生成结构化学习卡片。
+- 使用 PDFBox 提取 PDF 文本。
+- 支持异步生成。
+- 支持批量导入。
+
+### 项目复习提示
+
+- 准备描述 JWT 与 Spring Security 的认证流程。
+- 复习 SM-2 算法中的复习阶段、间隔和难度系数。
+- 能够说明错题加入、每日复习和掌握移出的完整业务闭环。
+- 说明 Redis 在验证码、高频计数和排行榜中的不同数据使用方式。
+- 准备解释为什么排行榜使用 ZSet。
+- 梳理 PDF 文本提取、AI 卡片生成、异步处理和批量导入的整体流程。
+
+---
+
+## Myspring 简易 IoC 容器
+
+> **Java 原理学习项目｜2026.07**
+
+### 实现内容
+
+- 使用自定义注解标记 Bean 和依赖关系。
+- 使用反射处理类与字段。
+- 使用类路径扫描发现 Bean。
+- 通过 `Map` 管理 Bean 实例。
+- 完成字段依赖注入。
+
+### 项目目标
+
+通过该项目理解 Spring IoC 中以下过程：
+
+1. Bean 扫描
+2. Bean 实例化
+3. 容器管理
+4. 依赖注入
+
+### 核心定义
+
+- **IoC（控制反转）：** 对象的创建与管理由容器负责，而不是由业务代码直接完成。
+- **Bean：** 由 IoC 容器创建和管理的对象。
+- **依赖注入：** 容器将对象所依赖的其他对象注入目标对象。
+
+### 简化流程
+
+```text
+扫描类路径
+    ↓
+识别自定义注解
+    ↓
+通过反射实例化 Bean
+    ↓
+将 Bean 保存到 Map
+    ↓
+查找字段依赖
+    ↓
+完成字段注入
 ```
 
-在这个示例中：
-- `@SpringBootApplication` 注解表示这是一个 Spring Boot 应用的启动类，它包含了 `@Configuration`, `@EnableAutoConfiguration`, 和 `@ComponentScan`。
-- `MyService` 类使用了 `@Service` 注解标记为一个传统 Spring 组件。
+### 项目复习提示
 
-### 总结
-Spring Boot 通过多种方式兼容传统的 Spring 项目：
-1. **配置文件**：可以与 `application.properties` 或 `application.yml` 文件一起使用，定义各种配置参数。
-2. **启动类注解**：可以在传统 Spring 项目的启动类中引入 `@SpringBootApplication` 注解。
-3. **组件注解**：如 `@Service`, `@Repository` 等可以用于标记传统的 Spring 组件。
-4. **自动配置和手动配置的兼容性**：通过 `@ConfigurationProperties` 和 `@EnableConfigurationProperties` 管理复杂的配置属性。
+- 能够说明类路径扫描如何发现 Bean。
+- 准备解释为什么使用 `Map` 管理实例。
+- 梳理反射在实例化和字段注入中的作用。
+- 对比“手动创建对象”和“IoC 容器管理对象”的区别。
+- 复习循环依赖、Bean 生命周期和异常处理等可继续扩展的方向。
 
-希望这个详细的讲解对你有帮助！如果有更多问题或需要进一步探讨，请随时告诉我。
-2026-06-18 19:52:35.681 INFO  [http-nio-8080-exec-6] ServiceLogger - methodName=askTime=32674
-2026-06-18 19:52:35.681 INFO  [http-nio-8080-exec-6] ServiceLogger - Object好的，我们来详细讲解一下这个问题。
+---
 
-### 题目内容：
-Spring Boot 如何兼容传统 Spring 项目？
+# 教育经历
 
-### 正确答案及解析
+## 河北师范大学
 
-#### 解析
+- **学历阶段：** 本科一年级
 
-Spring Boot 兼容传统 Spring 项目的几种主要方式包括：
+---
 
-1. **配置文件兼容性**
-   - **application.properties/yml 文件**：Spring Boot 提供了 `application.properties` 和 `application.yml` 文件，用于定义各种配置参数。这些文件可以与传统的 Spring 配置文件（如 `beans.xml`）共同使用。
-     ```properties
-     # application.properties 或 application.yml
-     spring.datasource.url=jdbc:mysql://localhost:3306/mydb
-     spring.datasource.username=root
-     spring.datasource.password=123456
-     ```
+# 自我评价
 
-   - **自定义配置类**：可以在 Spring Boot 项目中使用传统的 XML 配置文件，或者直接在 Java 类中编写 `@Configuration` 注解的配置类。
-     ```java
-     @Configuration
-     public class MyConfig {
-         // 自定义配置内容
-     }
-     ```
+- 习惯从以下角度定位问题：
+  - 日志
+  - 数据库状态
+  - 调用链
+- 能够承认当前实现的边界。
+- 能够持续补充测试和文档。
+- 希望在真实协作中提升：
+  - 代码评审能力
+  - 工程规范意识
+  - 项目交付能力
 
-2. **启动类注解兼容性**
-   - **@SpringBootApplication**：这是一个复合注解，包含了 `@Configuration`, `@EnableAutoConfiguration`, 和 `@ComponentScan`。尽管通常用在 Spring Boot 项目中，但可以在传统 Spring 项目中引入这个注解。
-     ```java
-     import org.springframework.boot.SpringApplication;
-     import org.springframework.boot.autoconfigure.SpringBootApplication;
+---
 
-     @SpringBootApplication
-     public class TraditionalSpringApplication {
-         public static void main(String[] args) {
-             SpringApplication.run(TraditionalSpringApplication.class, args);
-         }
-     }
-     ```
+# 综合复习清单
 
-3. **兼容传统 Spring 组件**
-   - **@Component/@Service/@Repository**：这些注解可以用于标记传统的 Spring 组件，而不需要进行大量的代码修改。
-     ```java
-     @Service
-     public class MyService {
-         // 服务实现内容
-     }
-     ```
+## 项目介绍
 
-4. **自动配置和手动配置的兼容性**
-   - **@ConfigurationProperties** 和 **@EnableConfigurationProperties**：这些注解可以帮助管理复杂的配置属性，同时可以与传统 Spring 的 `@PropertySource` 注解一起使用。
-     ```java
-     import org.springframework.boot.context.properties.ConfigurationProperties;
-     import org.springframework.stereotype.Component;
+- [ ] 能在较短时间内说明三个项目的目标、技术栈和个人职责。
+- [ ] 能重点介绍 CodeWise 的微服务拆分、异步判题和函数题模式。
+- [ ] 能说明 PaperWise 的 SM-2 学习闭环、Redis 使用方式和 AI 卡片生成流程。
+- [ ] 能说明 Myspring 中 Bean 扫描、实例化、管理和注入的过程。
 
-     @Component
-     @ConfigurationProperties(prefix = "my.app")
-     public class AppConfig {
-         private String appSetting1;
-         private int appSetting2;
+## Java 与 Spring
 
-         // Getter 和 Setter 方法
-     }
-     ```
+- [ ] Java 反射与注解机制
+- [ ] Spring IoC 与依赖注入
+- [ ] Spring MVC 请求处理流程
+- [ ] Spring Security 与 JWT
+- [ ] MyBatis-Plus 的常见使用方式
 
-5. **Spring Boot Starter 依赖**
-   - Spring Boot 的 Starter 依赖可以简化配置，使得在传统项目中引入 Spring Boot 功能变得简单。例如，使用 `spring-boot-starter-data-jpa` 可以快速集成 JPA 数据访问。
-     ```xml
-     <dependency>
-         <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-starter-data-jpa</artifactId>
-     </dependency>
-     ```
+## 微服务
 
-### 示例代码
+- [ ] Gateway 路由与 JWT 校验
+- [ ] Nacos 注册与发现
+- [ ] OpenFeign 服务间调用
+- [ ] 跨服务数据契约
+- [ ] 认证与业务权限的职责划分
 
-以下是一个简单的传统 Spring 项目兼容 Spring Boot 的示例：
+## 数据库与缓存
 
-```java
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+- [ ] MySQL 唯一约束
+- [ ] 业务唯一键与幂等
+- [ ] 游标分页与深分页
+- [ ] Redis 常见数据结构
+- [ ] ZSet 排行榜
+- [ ] 缓存批量回写
+- [ ] 定时任务同步数据
 
-@SpringBootApplication
-public class TraditionalSpringApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(TraditionalSpringApplication.class, args);
-    }
-}
+## 消息队列与异步任务
 
-@Service
-class MyService {
-    // 服务实现内容
-}
+- [ ] RabbitMQ 异步判题流程
+- [ ] 任务状态设计与回写
+- [ ] 消息消费幂等
+- [ ] 重复消息与重复写入处理
+- [ ] 异步任务异常排查
+
+## 判题系统
+
+- [ ] Docker 容器编译与运行流程
+- [ ] 运行超时、内存限制和网络隔离
+- [ ] AC、WA、CE、RE、TLE 的识别
+- [ ] 函数题方法签名解析
+- [ ] 调用入口生成
+- [ ] 单次编译与多测试点运行
+- [ ] 用户输出与函数返回值区分
+- [ ] PID、CPU、非 root 用户和输出大小限制
+
+## 实时通信与 AI
+
+- [ ] WebSocket 实时通知
+- [ ] SSE
+- [ ] 通义千问 DashScope SDK
+- [ ] PDFBox 文本提取
+- [ ] 异步生成与批量导入
+
+## 当前重点补充方向
+
+- [ ] 操作系统
+- [ ] 计算机网络
+- [ ] JVM
+- [ ] 数据库索引
+- [ ] 自动化测试基础
+2026-07-23 16:31:11.173 INFO  [http-nio-8080-exec-3] ServiceLogger - methodName=organizeTime=56151
+2026-07-23 16:31:11.173 INFO  [http-nio-8080-exec-3] ServiceLogger - ObjectNote(noteId=1, userId=1, title=Haoyu_Lv_Java后端简历, content=# Haoyu Lv
+
+> **Java 后端开发｜河北师范大学本科一年级**
+
+- **邮箱：** [379299583@qq.com](mailto:379299583@qq.com)
+- **GitHub：** <https://github.com/BIGLV666>
+
+---
+
+## 求职方向
+
+- Java 后端开发实习
+- 校内技术团队
+- 后端开发相关实践机会
+
+---
+
+## 个人简介
+
+河北师范大学大一学生，持续学习 **Java 后端** 与 **计算机基础**。
+
+独立完成以下项目：
+
+1. **CodeWise 在线编程学习与智能复习平台**
+2. **PaperWise 智能学习卡片平台**
+3. **Myspring 简易 IoC 容器**
+
+能够围绕实际业务完成：
+
+- 接口设计
+- 数据库建模
+- 异步任务
+- 缓存
+- 前后端联调
+- 日志排障
+- 技术文档维护
+
+当前重点补充：
+
+- 操作系统
+- 计算机网络
+- JVM
+- 数据库索引
+- 自动化测试基础
+
+---
+
+## 专业技能
+
+### Java 与 Spring 生态
+
+- 掌握或使用：
+  - Java
+  - Spring Boot
+  - Spring MVC
+  - MyBatis-Plus
+- 了解：
+  - Spring Security
+  - JWT
+  - Java 反射
+  - Java 注解机制
+
+### 微服务
+
+使用以下技术完成服务路由、注册发现和服务间调用：
+
+- Spring Cloud Gateway
+- Nacos
+- OpenFeign
+
+### 数据库、缓存与消息队列
+
+使用过：
+
+- MySQL
+- Redis
+- Redisson
+- RabbitMQ
+
+相关实践包括：
+
+- 数据库唯一约束
+- 游标分页
+- 消息消费幂等
+- 缓存批量回写
+
+### 工程工具与实时通信
+
+使用过：
+
+- Docker Java API
+- WebSocket
+- SSE
+- Maven
+- Git
+
+具备以下问题排查能力：
+
+- 编译错误排查
+- 运行时错误排查
+- 跨服务调用问题排查
+
+---
+
+# 项目经历
+
+## CodeWise 在线编程学习与智能复习平台
+
+> **个人全栈项目｜2026.07—至今**
+
+### 技术栈
+
+- Java 21
+- Spring Boot
+- Spring Cloud Gateway
+- Nacos
+- OpenFeign
+- MySQL
+- Redis
+- RabbitMQ
+- Docker
+- Vue 3
+- WebSocket
+- SSE
+
+### 服务拆分与权限设计
+
+- 将以下能力拆分为 **8 个可独立运行的服务应用**：
+  - 用户
+  - 题目
+  - 判题
+  - 复习
+  - 社区
+  - 消息
+  - AI 等相关能力
+- 设置两个公共模块：
+  - `service-api`
+  - `service-common`
+- Gateway 负责：
+  - JWT 校验
+  - 向下游传递用户身份
+- 下游服务负责：
+  - 资源归属判断
+  - 其他业务权限判断
+
+### RabbitMQ 异步判题链路
+
+判题流程如下：
+
+1. 提交接口先记录判题任务。
+2. RabbitMQ 负责异步传递任务。
+3. 判题服务在 Docker 容器中编译和运行代码。
+4. 判题服务回写提交状态。
+5. 用户可以通过数据库查询判题结果。
+6. 系统也支持通过 WebSocket 实时通知结果。
+
+### Java 函数题模式
+
+实现了 Java 函数题判题模式，包括：
+
+- 解析 LeetCode GraphQL 题面
+- 解析方法签名
+- 自动生成调用入口
+- 单次编译后运行多个测试点
+- 区分：
+  - 函数返回值
+  - 用户调试输出
+- 支持批量调试
+- 支持测试用例去重
+- 支持通过标准答案生成测试任务
+
+### 判题安全与资源限制
+
+已为判题容器配置：
+
+- 运行超时限制
+- 内存限制
+- 网络隔离
+
+能够识别以下判题状态：
+
+| 状态 | 含义 |
+|---|---|
+| AC | Accepted，答案正确 |
+| WA | Wrong Answer，答案错误 |
+| CE | Compilation Error，编译错误 |
+| RE | Runtime Error，运行时错误 |
+| TLE | Time Limit Exceeded，运行超时 |
+
+当前继续补充以下限制：
+
+- PID 限制
+- CPU 限制
+- 非 root 用户运行
+- 输出大小限制
+
+### Redis、分页与数据一致性
+
+- 使用 Redis ZSet 实现社区热点排行。
+- 使用游标分页减少深分页问题。
+- 使用批量查询减少逐条查询。
+- 通过业务唯一键处理以下重复写入问题：
+  - 通知重复写入
+  - 函数测试用例重复写入
+
+### 测试、文档与问题修复
+
+编写并维护：
+
+- 维护手册
+- 接口文档
+- 单元测试
+
+单元测试覆盖：
+
+- 函数解析
+- 权限
+- 随机输入生成
+- 调试链路
+
+持续修复：
+
+- 异步任务状态问题
+- 跨服务数据契约问题
+
+### 项目复习提示
+
+- 准备说明为什么将系统拆分为 8 个服务，以及公共模块 `service-api`、`service-common` 的职责。
+- 梳理 Gateway 与下游服务之间的权限边界：
+  - Gateway 负责身份认证。
+  - 下游服务负责业务授权。
+- 能够完整描述 RabbitMQ 异步判题链路及状态回写过程。
+- 重点复习消息重复消费、业务唯一键和幂等处理之间的关系。
+- 准备说明函数题如何实现“单次编译、多测试点运行”。
+- 能够解释 AC、WA、CE、RE、TLE 的判断依据。
+- 对比游标分页和深分页的适用场景。
+- 说明 WebSocket 实时通知与数据库结果查询各自承担的职责。
+- 明确当前判题容器安全方案的已实现部分和待补充边界。
+
+---
+
+## PaperWise 智能学习卡片平台
+
+> **个人全栈项目｜2026.05—2026.06**
+
+### 技术栈
+
+- Java 17
+- Spring Boot
+- Spring Security
+- MySQL
+- Redis
+- Vue 3
+- 通义千问 DashScope SDK
+- PDFBox
+
+### 核心功能
+
+完成以下业务功能：
+
+- 用户功能
+- 闪卡
+- 收藏夹分享
+- 错题本
+- 复习计划
+- 社区排行
+
+使用以下技术处理登录认证：
+
+- JWT
+- Spring Security
+
+### SM-2 复习算法实践
+
+根据 **SM-2 算法** 维护：
+
+- 复习阶段
+- 复习间隔
+- 难度系数
+
+形成以下学习闭环：
+
+1. 错题加入。
+2. 每日复习。
+3. 掌握后移出。
+
+### Redis 与排行榜
+
+- 使用 Redis 缓存：
+  - 验证码
+  - 高频计数
+- 使用 Redis ZSet 维护公开收藏夹排行。
+- 通过定时任务同步数据。
+
+### AI 与 PDF 处理
+
+- 调用通义千问生成结构化学习卡片。
+- 使用 PDFBox 提取 PDF 文本。
+- 支持异步生成。
+- 支持批量导入。
+
+### 项目复习提示
+
+- 准备描述 JWT 与 Spring Security 的认证流程。
+- 复习 SM-2 算法中的复习阶段、间隔和难度系数。
+- 能够说明错题加入、每日复习和掌握移出的完整业务闭环。
+- 说明 Redis 在验证码、高频计数和排行榜中的不同数据使用方式。
+- 准备解释为什么排行榜使用 ZSet。
+- 梳理 PDF 文本提取、AI 卡片生成、异步处理和批量导入的整体流程。
+
+---
+
+## Myspring 简易 IoC 容器
+
+> **Java 原理学习项目｜2026.07**
+
+### 实现内容
+
+- 使用自定义注解标记 Bean 和依赖关系。
+- 使用反射处理类与字段。
+- 使用类路径扫描发现 Bean。
+- 通过 `Map` 管理 Bean 实例。
+- 完成字段依赖注入。
+
+### 项目目标
+
+通过该项目理解 Spring IoC 中以下过程：
+
+1. Bean 扫描
+2. Bean 实例化
+3. 容器管理
+4. 依赖注入
+
+### 核心定义
+
+- **IoC（控制反转）：** 对象的创建与管理由容器负责，而不是由业务代码直接完成。
+- **Bean：** 由 IoC 容器创建和管理的对象。
+- **依赖注入：** 容器将对象所依赖的其他对象注入目标对象。
+
+### 简化流程
+
+```text
+扫描类路径
+    ↓
+识别自定义注解
+    ↓
+通过反射实例化 Bean
+    ↓
+将 Bean 保存到 Map
+    ↓
+查找字段依赖
+    ↓
+完成字段注入
 ```
 
-在这个示例中：
-- `@SpringBootApplication` 注解表示这是一个 Spring Boot 应用的启动类，它包含了 `@Configuration`, `@EnableAutoConfiguration`, 和 `@ComponentScan`。
-- `MyService` 类使用了 `@Service` 注解标记为一个传统 Spring 组件。
+### 项目复习提示
 
-### 总结
-Spring Boot 通过多种方式兼容传统的 Spring 项目：
-1. **配置文件**：可以与 `application.properties` 或 `application.yml` 文件一起使用，定义各种配置参数。
-2. **启动类注解**：可以在传统 Spring 项目的启动类中引入 `@SpringBootApplication` 注解。
-3. **组件注解**：如 `@Service`, `@Repository` 等可以用于标记传统的 Spring 组件。
-4. **自动配置和手动配置的兼容性**：通过 `@ConfigurationProperties` 和 `@EnableConfigurationProperties` 管理复杂的配置属性。
+- 能够说明类路径扫描如何发现 Bean。
+- 准备解释为什么使用 `Map` 管理实例。
+- 梳理反射在实例化和字段注入中的作用。
+- 对比“手动创建对象”和“IoC 容器管理对象”的区别。
+- 复习循环依赖、Bean 生命周期和异常处理等可继续扩展的方向。
 
-希望这个详细的讲解对你有帮助！如果有更多问题或需要进一步探讨，请随时告诉我。
+---
+
+# 教育经历
+
+## 河北师范大学
+
+- **学历阶段：** 本科一年级
+
+---
+
+# 自我评价
+
+- 习惯从以下角度定位问题：
+  - 日志
+  - 数据库状态
+  - 调用链
+- 能够承认当前实现的边界。
+- 能够持续补充测试和文档。
+- 希望在真实协作中提升：
+  - 代码评审能力
+  - 工程规范意识
+  - 项目交付能力
+
+---
+
+# 综合复习清单
+
+## 项目介绍
+
+- [ ] 能在较短时间内说明三个项目的目标、技术栈和个人职责。
+- [ ] 能重点介绍 CodeWise 的微服务拆分、异步判题和函数题模式。
+- [ ] 能说明 PaperWise 的 SM-2 学习闭环、Redis 使用方式和 AI 卡片生成流程。
+- [ ] 能说明 Myspring 中 Bean 扫描、实例化、管理和注入的过程。
+
+## Java 与 Spring
+
+- [ ] Java 反射与注解机制
+- [ ] Spring IoC 与依赖注入
+- [ ] Spring MVC 请求处理流程
+- [ ] Spring Security 与 JWT
+- [ ] MyBatis-Plus 的常见使用方式
+
+## 微服务
+
+- [ ] Gateway 路由与 JWT 校验
+- [ ] Nacos 注册与发现
+- [ ] OpenFeign 服务间调用
+- [ ] 跨服务数据契约
+- [ ] 认证与业务权限的职责划分
+
+## 数据库与缓存
+
+- [ ] MySQL 唯一约束
+- [ ] 业务唯一键与幂等
+- [ ] 游标分页与深分页
+- [ ] Redis 常见数据结构
+- [ ] ZSet 排行榜
+- [ ] 缓存批量回写
+- [ ] 定时任务同步数据
+
+## 消息队列与异步任务
+
+- [ ] RabbitMQ 异步判题流程
+- [ ] 任务状态设计与回写
+- [ ] 消息消费幂等
+- [ ] 重复消息与重复写入处理
+- [ ] 异步任务异常排查
+
+## 判题系统
+
+- [ ] Docker 容器编译与运行流程
+- [ ] 运行超时、内存限制和网络隔离
+- [ ] AC、WA、CE、RE、TLE 的识别
+- [ ] 函数题方法签名解析
+- [ ] 调用入口生成
+- [ ] 单次编译与多测试点运行
+- [ ] 用户输出与函数返回值区分
+- [ ] PID、CPU、非 root 用户和输出大小限制
+
+## 实时通信与 AI
+
+- [ ] WebSocket 实时通知
+- [ ] SSE
+- [ ] 通义千问 DashScope SDK
+- [ ] PDFBox 文本提取
+- [ ] 异步生成与批量导入
+
+## 当前重点补充方向
+
+- [ ] 操作系统
+- [ ] 计算机网络
+- [ ] JVM
+- [ ] 数据库索引
+- [ ] 自动化测试基础, format=markdown, sourceName=null, createdAt=2026-07-23T16:29:54, updatedAt=2026-07-23T16:31:11.165312100)

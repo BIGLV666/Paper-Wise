@@ -259,7 +259,7 @@ public class AiGeneratedCardService {
             log.info("用户ID为{}, PDF 文本长度: {}", userId, text.length());
 
             String prompt = BuildPromptUntil.buildPrompt(text);
-            String aiResponse = qianwenService.chat(prompt);
+            String aiResponse = qianwenService.chat(userId, prompt);
             log.info("AI 响应长度: {}", aiResponse.length());
 
             List<AiGeneratedCard> cards = parseCards(aiResponse, userId, sessionId, name);
@@ -278,7 +278,7 @@ public class AiGeneratedCardService {
     @Async
     public void generateFromText(Long userId, String text,String sessionId,String name) {
         String prompt =  BuildPromptUntil.buildPrompt(text);
-        String aiResponse = qianwenService.chat(prompt);
+        String aiResponse = qianwenService.chat(userId, prompt);
         log.info("AI 响应长度: {}", aiResponse.length());
 
         List<AiGeneratedCard> cards = parseCards(aiResponse, userId,sessionId,name);

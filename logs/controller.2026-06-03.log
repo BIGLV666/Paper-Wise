@@ -1,2 +1,0 @@
-2026-06-03 09:51:31.427 INFO  [http-nio-8080-exec-1] ControllerLogger - methodName=loginTime=249
-2026-06-03 09:51:31.431 INFO  [http-nio-8080-exec-1] ControllerLogger - ObjectResult(message=success, data={userid=1, token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwidXNlck5hbWUiOiJhZG1pbiIsImlhdCI6MTc4MDQ1MTQ5MSwiZXhwIjoxNzgxMDU2MjkxfQ.eYMQ2K-lEJBWrrxqmI9zVpJHCV1PaqvdYi8I_n5Y2L4, username=admin}, code=200)

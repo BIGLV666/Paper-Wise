@@ -1,11 +1,11 @@
 package org.example.paperwise.Until;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public  class  BuildPromptUntil {
 
     public static final String buildPrompt(String text) {
-        if(text.length()>5000){
-            text=text.substring(0,5000);
-        }
         return """
         你是一个学习卡片生成助手。请根据以下文本内容，将文本按照以下形式拆分
         
@@ -46,5 +46,34 @@ public  class  BuildPromptUntil {
         
         文本内容：
         """ + text;
+    }
+
+    /** Split long study material without silently discarding its tail. */
+    public static List<String> splitText(String text, int maxChars, int overlapChars) {
+        List<String> chunks = new ArrayList<>();
+        if (text == null || text.isBlank()) {
+            return chunks;
+        }
+        if (maxChars <= overlapChars) {
+            throw new IllegalArgumentException("maxChars must be greater than overlapChars");
+        }
+
+        String normalized = text.replace("\r\n", "\n").replace('\r', '\n').trim();
+        int start = 0;
+        while (start < normalized.length()) {
+            int preferredEnd = Math.min(start + maxChars, normalized.length());
+            int end = preferredEnd;
+            if (preferredEnd < normalized.length()) {
+                int paragraphBreak = normalized.lastIndexOf("\n\n", preferredEnd);
+                int lineBreak = normalized.lastIndexOf('\n', preferredEnd);
+                int boundary = Math.max(paragraphBreak, lineBreak);
+                if (boundary > start + maxChars / 2) end = boundary;
+            }
+            if (end <= start) end = preferredEnd;
+            chunks.add(normalized.substring(start, end).trim());
+            if (end >= normalized.length()) break;
+            start = Math.max(end - overlapChars, start + 1);
+        }
+        return chunks;
     }
 }
