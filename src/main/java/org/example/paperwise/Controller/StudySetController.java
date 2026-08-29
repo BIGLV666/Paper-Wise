@@ -1,5 +1,6 @@
 package org.example.paperwise.Controller;
 
+import io.github.biglv666.guard.idempotent.Idempotent;
 import org.example.paperwise.Dto.Result;
 import org.example.paperwise.Service.StudySetService;
 import org.example.paperwise.entry.Card;
@@ -28,6 +29,7 @@ public class StudySetController {
     }
 
     @PostMapping
+    @Idempotent(key = "#userid + ':' + #studySet.name", ttl = 10, message = "同名学习集正在创建中，请勿重复提交")
     public Result<StudySet> create(@RequestAttribute Long userid, @RequestBody StudySet studySet) {
         return Result.success(studySetService.create(userid, studySet));
     }
