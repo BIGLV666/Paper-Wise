@@ -49,6 +49,20 @@
             <version>0.1.0</version>
         </dependency>
 
+        <!-- 自研声明式状态流转 starter：note_ai_organization 状态唯一写入口 -->
+        <dependency>
+            <groupId>io.github.biglv666</groupId>
+            <artifactId>state-kit-spring-boot-starter</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+
+        <!-- 状态机集成测试用（H2 内存库模拟 MySQL） -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -87,6 +101,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- 认证鉴权组件：不透明 token + Redis 会话（替换原 JWT 方案） -->
+        <dependency>
+            <groupId>io.github.biglv666</groupId>
+            <artifactId>auth-kit-spring-boot-starter</artifactId>
+            <version>0.1.0</version>
         </dependency>
 
         <!-- 连接池依赖（必须！） -->

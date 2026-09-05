@@ -49,6 +49,24 @@ spring:
           max-idle: 100
           min-idle: 0
           time-between-eviction-runs: 1m
+auth-kit:
+  token:
+    timeout: 7d          # 对齐原 jwt.expiration=604800000
+    active-timeout: 1d   # 滑动续期：1 天无活动即失效
+  session:
+    max-sessions-per-device: 1   # 同端互斥顶号
+  whitelist:                     # 与原 WebConfig 放行清单对齐
+    - /paperwise/user/login
+    - /paperwise/user/register
+    - /paperwise/user/activation
+    - /paperwise/share/**
+    - /doc.html
+    - /v3/api-docs/**
+    - /swagger-ui/**
+    - /swagger-ui.html
+    - /swagger-resources/**
+    - /webjars/**
+
 jwt:
   secret: "${JWT_SECRET}"
   expiration: 604800000
@@ -87,3 +105,17 @@ langchain4j:
 kind: Application
 
 
+
+# 声明式状态流转（io.github.biglv666:state-kit）：note_ai_organization 的 AI 整理状态唯一写入口
+state-kit:
+  machines:
+    noteOrganize:
+      state-type: org.example.paperwise.enums.NoteOrganizeStatus
+      table: note_ai_organization
+      status-column: status
+      id-column: organization_id
+      id-type: java.lang.Long
+      conflict-strategy: throw
+      transitions:
+        - { from: PROCESSING, event: SUCCEED, to: SUCCESS }
+        - { from: PROCESSING, event: FAIL,    to: FAILED }
