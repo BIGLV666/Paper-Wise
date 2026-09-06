@@ -56,6 +56,13 @@
             <version>0.1.0</version>
         </dependency>
 
+        <!-- 自研三级缓存 starter：Caffeine→Redis→DB read-through，MP BaseMapper 自动接入 -->
+        <dependency>
+            <groupId>io.github.biglv666</groupId>
+            <artifactId>cache-kit-spring-boot-starter</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+
         <!-- 状态机集成测试用（H2 内存库模拟 MySQL） -->
         <dependency>
             <groupId>com.h2database</groupId>
@@ -107,7 +114,7 @@
         <dependency>
             <groupId>io.github.biglv666</groupId>
             <artifactId>auth-kit-spring-boot-starter</artifactId>
-            <version>0.1.0</version>
+            <version>1.0.0</version>
         </dependency>
 
         <!-- 连接池依赖（必须！） -->
