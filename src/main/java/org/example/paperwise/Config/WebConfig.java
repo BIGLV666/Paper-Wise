@@ -16,7 +16,6 @@ public class WebConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/paperwise/user/login")
                 .excludePathPatterns("/paperwise/user/register")
-                .excludePathPatterns("/paperwise/user/logout")
                 .excludePathPatterns("/paperwise/share/**")
                 .excludePathPatterns("/doc.html")
                 .excludePathPatterns("/v3/api-docs/**")

@@ -10,6 +10,8 @@
  */
 package org.example.paperwise.Controller;
 
+import io.github.biglv666.authkit.AuthKit;
+import io.github.biglv666.authkit.model.DeviceType;
 import lombok.extern.slf4j.Slf4j;
 import org.example.paperwise.Dto.Result;
 import org.example.paperwise.Dto.UserStatusDto;
@@ -72,8 +74,8 @@ public class UserController {
             // 调用服务层验证用户登录
             User user = userService.login(username, password);
 
-            // 生成JWT Token用于身份认证
-            String Token = jwtUntil.generateToken(user.getUserid(), username);
+            // auth-kit：签发不透明 token 并写入 Redis 会话（同端互斥：旧会话被顶下线）
+            String Token = AuthKit.login(user.getUserid(), DeviceType.WEB);
 
             // 封装返回数据
             Map<String, Object> map = new HashMap<>();
@@ -87,6 +89,16 @@ public class UserController {
             log.error("用户登录失败: username={}, 错误信息: {}", username, e.getMessage(), e);
             return Result.error(e.getMessage());
         }
+    }
+
+    /**
+     * 用户登出接口：销毁 auth-kit Redis 会话（原方案无此接口，JWT 无状态无法登出）
+     * @apiEndpoint POST /paperwise/user/logout
+     */
+    @PostMapping("/logout")
+    public Result<String> logout() {
+        AuthKit.logout();
+        return Result.success("登出成功");
     }
 
     /**
