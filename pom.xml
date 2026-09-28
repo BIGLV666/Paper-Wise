@@ -37,9 +37,11 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+        <!-- 仅保留密码加密能力（BCrypt）；安全过滤链未实际使用，已随 SecurityConfig 一并移除，
+             避免 SecurityFilterChain 与 api-governance 的 filterChain Bean 同名冲突 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
         </dependency>
 
         <!-- 自研并发防护 starter：幂等 + 分布式锁（Redis 已在 pom 中引入） -->
@@ -60,7 +62,7 @@
         <dependency>
             <groupId>io.github.biglv666</groupId>
             <artifactId>cache-kit-spring-boot-starter</artifactId>
-            <version>0.2.0</version>
+            <version>0.3.0</version>
         </dependency>
 
         <!-- 状态机集成测试用（H2 内存库模拟 MySQL） -->
@@ -93,9 +95,9 @@
             <version>3.5.5</version>
         </dependency>
         <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>api-governance-spring-boot-starte</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>io.github.biglv666</groupId>
+            <artifactId>api-governance-spring-boot-starter</artifactId>
+            <version>0.5.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -114,9 +116,15 @@
         <dependency>
             <groupId>io.github.biglv666</groupId>
             <artifactId>auth-kit-spring-boot-starter</artifactId>
-            <version>1.0.0</version>
+        <version>1.1.0</version>
         </dependency>
 
+        <!-- 行级数据权限组件（独立 starter）：默认 enabled=false 零影响，试点表接入时开启 -->
+        <dependency>
+            <groupId>io.github.biglv666</groupId>
+            <artifactId>data-scope-spring-boot-starter</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!-- 连接池依赖（必须！） -->
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -209,11 +217,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

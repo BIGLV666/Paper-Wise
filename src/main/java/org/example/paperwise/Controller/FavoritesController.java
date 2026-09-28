@@ -10,7 +10,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.Operation;
 import org.example.paperwise.Dto.Result;
 import org.example.paperwise.Interface.LookCount;
-import org.example.paperwise.Interface.RateLimit;
+import io.github.biglv666.apigovernance.annotation.RateLimit;
 import org.example.paperwise.Service.FavoritesService;
 import org.example.paperwise.entry.Card;
 import org.example.paperwise.entry.Favorites;
@@ -37,7 +37,7 @@ public class FavoritesController {
      * @return 创建的收藏夹
      */
     @PostMapping("/createfavorites")
-    @RateLimit(key="createFavorites", WindowsSeconds = 1, MaxRequests = 300)
+    @RateLimit(limit = 300, window = 1)
     public Result<Favorites> createFavorites(@RequestParam String favoritesName, @RequestAttribute Long userid) {
         return Result.success(favoritesService.createFavorites(userid, favoritesName));
     }

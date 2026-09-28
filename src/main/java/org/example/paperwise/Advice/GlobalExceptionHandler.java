@@ -1,8 +1,10 @@
 package org.example.paperwise.Advice;
 
 import lombok.extern.slf4j.Slf4j;
+import io.github.biglv666.apigovernance.exception.GovernanceException;
 import io.github.biglv666.guard.idempotent.IdempotentRejectedException;
 import org.example.paperwise.Dto.Result;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -11,6 +13,16 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice(basePackages = "org.example.paperwise.Controller")
 public class GlobalExceptionHandler  {
 
+    /**
+     * 治理拒绝（api-governance starter：限流 429 / 过滤器 500 等）。
+     * 必须显式透传治理状态码：若落入下面的 RuntimeException/Exception 兜底，
+     * 会被包装成 HTTP 200 + 固定 code，限流的 429 语义丢失，客户端退避逻辑失效。
+     */
+    @ExceptionHandler(value = GovernanceException.class)
+    public ResponseEntity<Result<?>> handleGovernanceRejected(GovernanceException e) {
+        log.warn("治理拒绝: status={}, code={}, message={}", e.getStatus(), e.getCode(), e.getMessage());
+        return ResponseEntity.status(e.getStatus()).body(Result.error(e.getMessage(), e.getStatus()));
+    }
 
     @ExceptionHandler(value = Exception.class)
     public Result<?> handleException(Exception e) {

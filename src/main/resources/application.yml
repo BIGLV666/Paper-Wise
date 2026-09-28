@@ -1,8 +1,24 @@
-# 关闭老版 api-governance starter（org.example:0.0.1-SNAPSHOT）的自动装配：
-# 其 filterChain Bean 与本项目 SecurityConfig 冲突导致无法启动；其 SPI 类仍作为编译期依赖保留
+# api-governance starter（io.github.biglv666:0.5.0）：SecurityConfig 已删除（filterChain Bean 同名冲突源），
+# 治理开启：本地令牌桶 + 管理端点 + Micrometer 桥接
 api:
   governance:
-    enabled: false
+    enabled: true
+    log:
+      slow-threshold-ms: 500
+    rate-limit:
+      type: local
+      algorithm: token-bucket
+      default-limit: -1          # 全局默认不限流，仅注解接口限流
+      status-code: 429
+      message: "请求过于频繁，请稍后重试"
+    metrics:
+      micrometer-enabled: true
+    alert:
+      enabled: true
+      suppress-interval-ms: 5000
+    management:
+      enabled: true
+      base-path: /api-governance
 
 spring:
   config:
@@ -59,6 +75,7 @@ auth-kit:
     max-sessions-per-device: 1   # 同端互斥顶号
   whitelist:                     # 与原 WebConfig 放行清单对齐
     - /paperwise/user/login
+    - /api-governance/**
     - /paperwise/user/register
     - /paperwise/user/activation
     - /paperwise/share/**

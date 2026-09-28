@@ -15,7 +15,7 @@ import io.github.biglv666.authkit.model.DeviceType;
 import lombok.extern.slf4j.Slf4j;
 import org.example.paperwise.Dto.Result;
 import org.example.paperwise.Dto.UserStatusDto;
-import org.example.paperwise.Interface.RateLimit;
+import io.github.biglv666.apigovernance.annotation.RateLimit;
 import org.example.paperwise.Service.UserService;
 import org.example.paperwise.Until.JwtUntil;
 import org.example.paperwise.entry.User;
@@ -204,7 +204,7 @@ public class UserController {
      * @apiParams userid=Long, newpassword=String, email=String
      */
     @PostMapping("/updatepasswordforemail")
-    @RateLimit(key = "updatePasswordForEmail", WindowsSeconds = 60, MaxRequests = 1)
+    @RateLimit(limit = 1, window = 60)
     public Result<String> updatePasswordForEmail(@RequestAttribute Long userid,
                                                  @RequestParam String newpassword,
                                                  @RequestParam String email) {
