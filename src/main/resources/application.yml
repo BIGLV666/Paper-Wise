@@ -20,6 +20,20 @@ api:
       enabled: true
       base-path: /api-governance
 
+# 暴露 Prometheus 抓取端点（Grafana 面板数据源）
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  metrics:
+    tags:
+      application: paperwise
+    distribution:
+      # 治理 Timer 导出 histogram 桶，供 Grafana 计算 p50/p95/p99 分位
+      percentiles-histogram:
+        api.governance.request.duration: true
+
 spring:
   config:
     import: optional:file:.env[.properties]
@@ -76,6 +90,7 @@ auth-kit:
   whitelist:                     # 与原 WebConfig 放行清单对齐
     - /paperwise/user/login
     - /api-governance/**
+    - /actuator/**
     - /paperwise/user/register
     - /paperwise/user/activation
     - /paperwise/share/**
